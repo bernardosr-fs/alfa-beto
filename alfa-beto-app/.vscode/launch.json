@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "command": "npm start",
+            "name": "Executar App",
+            "request": "launch",
+            "type": "node-terminal",
+            "preLaunchTask": "npm install",
+            "cwd": "${workspaceFolder}",
+        }
+    ]
+}
