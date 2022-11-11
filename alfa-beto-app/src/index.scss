@@ -1,13 +1,37 @@
+@font-face {
+  font-family: "FredokaOne";
+  src: url("./assets/fonts/FredokaOne-Regular.ttf");
+}
+
+@font-face {
+  font-family: "AdumuRegular";
+  src: url("./assets/fonts/Adumu.ttf");
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "FredokaOne";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+//PROJECT-COLLORS
+:root {
+  --dark-blue: #2c68b8;
+  --light-blue: #3093d5;
+  --yellow: #ffde59;
+  --orange: #ff914d;
+  --red: #ff5757;
+  --white: #ffffff;
+  --black: rgba(0, 0, 0, 0);
 }
