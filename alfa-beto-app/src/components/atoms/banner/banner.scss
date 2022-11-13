@@ -1,0 +1,22 @@
+.banner {
+  width: 100vw;
+  height: 22vh;
+
+  display: flex;
+
+  position: relative;
+
+  background-color: var(--dark-blue);
+
+  img {
+    width: 700px;
+    height: auto;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 5;
+  }
+}
