@@ -11,6 +11,7 @@ import com.alfabetoapi.repository.ResponsibleRepository;
 import com.alfabetoapi.repository.StudentRepository;
 import com.alfabetoapi.security.model.Role;
 import com.alfabetoapi.security.service.LoginService;
+import com.alfabetoapi.validator.RegisterValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -30,8 +31,12 @@ public class RegisterService {
     private final StudentRepository studentRepository;
     private final BondRepository bondRepository;
     private final PasswordEncoder passwordEncoder;
+    private final RegisterValidator registerValidator;
 
     public void responsibleRegister(ResponsibleRegisterRequest request) {
+
+        registerValidator.responsibleValidation(request);
+
         var responsible = ResponsibleMapper.toEntity(request);
         responsible.setPassword(passwordEncoder.encode(request.getPassword()));
 
@@ -44,6 +49,9 @@ public class RegisterService {
     }
 
     public void studentRegister(StudentRegisterRequest request) {
+
+        registerValidator.studentValidation(request);
+
         Responsible responsible = loginService.getLoggedResponsible();
 
         var student = StudentMapper.toEntity(request);

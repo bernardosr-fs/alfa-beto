@@ -4,6 +4,7 @@ import com.alfabetoapi.security.model.Role;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Set;
 
@@ -20,6 +21,9 @@ public class Student {
 
     private String userName;
     private String password;
+    private String firstName;
+    private String lastName;
+    private BigInteger coins;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "student_id")

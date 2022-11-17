@@ -20,7 +20,7 @@ public class Responsible {
 
     private String email;
     private String password;
-    private String name;
+    private String firstName;
     private String lastName;
     private String cpf;
     private String phoneNumber;
