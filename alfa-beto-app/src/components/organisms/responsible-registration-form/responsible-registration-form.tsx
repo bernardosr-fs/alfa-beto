@@ -1,80 +1,112 @@
-import React from "react"
-import { useFormik } from "formik"
+import * as Yup from "yup"
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import { ResponsibleRegistrationFormProps } from "~/constants/forms/responsible-registration"
+import { FormGroup } from "../../"
 
-// A custom validation function. This must return an object
-// which keys are symmetrical to our values/initialValues
-type Props = {
-  values: ResponsibleRegistrationForm
-  errors: ResponsibleRegistrationForm
-}
+import "./responsible-registration-form.scss"
 
-const validate = ({ values, errors }: Props) => {
-  if (!values.firstName) {
-    errors.firstName = "Required"
-  } else if (values.firstName.length > 15) {
-    errors.firstName = "Must be 15 characters or less"
-  }
-
-  if (!values.lastName) {
-    errors.lastName = "Required"
-  } else if (values.lastName.length > 20) {
-    errors.lastName = "Must be 20 characters or less"
-  }
-
-  if (!values.email) {
-    errors.email = "Required"
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = "Invalid email address"
-  }
-
-  return errors
-}
-
-const ResponsibleRegistrationForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-    },
-    validate,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2))
-    },
+export const ResponsibleRegistrationForm = () => {
+  const validationSchema = Yup.object().shape({
+    email: Yup.string().required("Email is required").email("Email is invalid"),
+    confirmEmail: Yup.string()
+      .required("Confirm Email is required")
+      .oneOf([Yup.ref("email"), null], "Confirm Password does not match"),
+    password: Yup.string()
+      .required("Password is required")
+      .min(6, "Password must be at least 6 characters")
+      .max(40, "Password must not exceed 40 characters"),
+    confirmPassword: Yup.string()
+      .required("Confirm Password is required")
+      .oneOf([Yup.ref("password"), null], "Confirm Password does not match"),
+    firstName: Yup.string().required("Fullname is required"),
+    lastName: Yup.string()
+      .required("Username is required")
+      .min(6, "Username must be at least 6 characters")
+      .max(20, "Username must not exceed 20 characters"),
+    cpf: Yup.string().required("CPF is required"),
+    phoneNumber: Yup.string().required("Email is required"),
   })
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ResponsibleRegistrationFormProps>({
+    resolver: yupResolver(validationSchema),
+  })
+
+  const onSubmit = (data: ResponsibleRegistrationFormProps) => {
+    console.log(JSON.stringify(data, null, 2))
+  }
+
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="firstName">First Name</label>
-      <input
-        id="firstName"
-        name="firstName"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.firstName}
-      />
-      {formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
+    <div className="register-form">
+      <h1>Cadastro Responsável</h1>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <FormGroup
+          label="Email"
+          register={register}
+          registerName="email"
+          error={errors.email}
+        />
+        <FormGroup
+          label="Confirmar Email"
+          register={register}
+          registerName="confirmEmail"
+          error={errors.confirmEmail}
+        />
+        <FormGroup
+          label="Senha"
+          register={register}
+          registerName="password"
+          error={errors.password}
+        />
+        <FormGroup
+          label="Confirmar Senha"
+          register={register}
+          registerName="confirmPassword"
+          error={errors.confirmPassword}
+        />
+        <FormGroup
+          label="Primeiro Nome"
+          register={register}
+          registerName="firstName"
+          error={errors.firstName}
+        />
+        <FormGroup
+          label="Último Nome"
+          register={register}
+          registerName="lastName"
+          error={errors.lastName}
+        />
+        <FormGroup
+          label="CPF"
+          register={register}
+          registerName="cpf"
+          error={errors.cpf}
+        />
+        <FormGroup
+          label="Telefone"
+          register={register}
+          registerName="phoneNumber"
+          error={errors.phoneNumber}
+        />
 
-      <label htmlFor="lastName">Last Name</label>
-      <input
-        id="lastName"
-        name="lastName"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.lastName}
-      />
-      {formik.errors.lastName ? <div>{formik.errors.lastName}</div> : null}
-
-      <label htmlFor="email">Email Address</label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        onChange={formik.handleChange}
-        value={formik.values.email}
-      />
-      {formik.errors.email ? <div>{formik.errors.email}</div> : null}
-
-      <button type="submit">Submit</button>
-    </form>
+        <div className="form-group">
+          <button type="submit" className="btn btn-primary">
+            Register
+          </button>
+          <button
+            type="button"
+            onClick={() => reset()}
+            className="btn btn-warning float-right"
+          >
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>
   )
 }

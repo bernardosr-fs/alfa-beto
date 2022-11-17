@@ -1,0 +1,23 @@
+.register-form {
+  width: 50%;
+  height: 70%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 20px;
+
+  border: 1px solid var(--black);
+  border-radius: 15px;
+
+  background-color: var(--transparent-white);
+
+  color: var(--black);
+
+  & form {
+    width: 70%;
+    height: 100%;
+  }
+}

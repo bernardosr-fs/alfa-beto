@@ -1,4 +1,4 @@
-type Responsible = {
+export type Responsible = {
   email: string
   password: string
   firstName: string

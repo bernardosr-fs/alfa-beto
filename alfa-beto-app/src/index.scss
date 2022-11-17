@@ -28,10 +28,17 @@ code {
 //PROJECT-COLLORS
 :root {
   --dark-blue: #2c68b8;
+
   --light-blue: #3093d5;
+
   --yellow: #ffde59;
+
   --orange: #ff914d;
+
   --red: #ff5757;
+
   --white: #ffffff;
-  --black: rgba(0, 0, 0, 0);
+  --transparent-white: rgba(255, 255, 255, 0.5);
+
+  --black: rgb(0, 0, 0);
 }
