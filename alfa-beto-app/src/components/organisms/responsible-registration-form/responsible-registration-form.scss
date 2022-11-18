@@ -16,8 +16,18 @@
 
   color: var(--black);
 
+  overflow: auto;
+
   & form {
     width: 70%;
     height: 100%;
+  }
+
+  & button {
+    width: 100%;
+    height: 20px;
+    border: 1px solid var(--black);
+    background-color: var(--blue);
+    color: var(--white);
   }
 }

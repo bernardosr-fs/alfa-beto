@@ -5,11 +5,11 @@ import "./form-group.scss"
 
 type Props = {
   label: string
+  inputType: string
   register: UseFormRegister<ResponsibleRegistrationFormProps>
   registerName:
     | "email"
     | "password"
-    | "confirmEmail"
     | "confirmPassword"
     | "firstName"
     | "lastName"
@@ -18,12 +18,18 @@ type Props = {
   error: FieldError | undefined
 }
 
-export const FormGroup = ({ label, register, registerName, error }: Props) => {
+export const FormGroup = ({
+  label,
+  inputType,
+  register,
+  registerName,
+  error,
+}: Props) => {
   return (
     <div className="form-group">
       <label>{label}</label>
       <input
-        type="text"
+        type={inputType}
         {...register(registerName)}
         className={`form-control ${error ? "is-invalid" : ""}`}
       />

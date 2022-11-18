@@ -8,24 +8,23 @@ import "./responsible-registration-form.scss"
 
 export const ResponsibleRegistrationForm = () => {
   const validationSchema = Yup.object().shape({
-    email: Yup.string().required("Email is required").email("Email is invalid"),
-    confirmEmail: Yup.string()
-      .required("Confirm Email is required")
-      .oneOf([Yup.ref("email"), null], "Confirm Password does not match"),
+    email: Yup.string().required("Email é necessário").email("Email inválido"),
+    //letra maiuscula, minuscula e 8
     password: Yup.string()
-      .required("Password is required")
-      .min(6, "Password must be at least 6 characters")
-      .max(40, "Password must not exceed 40 characters"),
+      .required("Senha é necessário")
+      .min(8, "A Senha deve ter no mínimo 8 caracteres"),
     confirmPassword: Yup.string()
-      .required("Confirm Password is required")
-      .oneOf([Yup.ref("password"), null], "Confirm Password does not match"),
-    firstName: Yup.string().required("Fullname is required"),
-    lastName: Yup.string()
-      .required("Username is required")
-      .min(6, "Username must be at least 6 characters")
-      .max(20, "Username must not exceed 20 characters"),
-    cpf: Yup.string().required("CPF is required"),
-    phoneNumber: Yup.string().required("Email is required"),
+      .required("Confirmar a senha é necessário")
+      .oneOf([Yup.ref("password"), null], "A senha não confere"),
+    firstName: Yup.string().required("Primeiro nome é necessário"),
+    lastName: Yup.string(),
+    cpf: Yup.string()
+      .required("CPF é necessário")
+      .min(11, "O CPF deve conter 11 caracteres"),
+    phoneNumber: Yup.string().min(
+      11,
+      "Número de telefone deve conter 11 caracteres"
+    ),
   })
 
   const {
@@ -47,57 +46,56 @@ export const ResponsibleRegistrationForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormGroup
           label="Email"
+          inputType="text"
           register={register}
           registerName="email"
           error={errors.email}
         />
         <FormGroup
-          label="Confirmar Email"
-          register={register}
-          registerName="confirmEmail"
-          error={errors.confirmEmail}
-        />
-        <FormGroup
           label="Senha"
+          inputType="password"
           register={register}
           registerName="password"
           error={errors.password}
         />
         <FormGroup
           label="Confirmar Senha"
+          inputType="password"
           register={register}
           registerName="confirmPassword"
           error={errors.confirmPassword}
         />
         <FormGroup
           label="Primeiro Nome"
+          inputType="text"
           register={register}
           registerName="firstName"
           error={errors.firstName}
         />
         <FormGroup
           label="Último Nome"
+          inputType="text"
           register={register}
           registerName="lastName"
           error={errors.lastName}
         />
         <FormGroup
           label="CPF"
+          inputType="text"
           register={register}
           registerName="cpf"
           error={errors.cpf}
         />
         <FormGroup
           label="Telefone"
+          inputType="text"
           register={register}
           registerName="phoneNumber"
           error={errors.phoneNumber}
         />
 
         <div className="form-group">
-          <button type="submit" className="btn btn-primary">
-            Register
-          </button>
+          <button type="submit">Cadastrar</button>
           <button
             type="button"
             onClick={() => reset()}

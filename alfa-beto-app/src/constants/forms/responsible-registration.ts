@@ -1,6 +1,5 @@
 export type ResponsibleRegistrationFormProps = {
   email: string
-  confirmEmail: string
   password: string
   confirmPassword: string
   firstName: string
