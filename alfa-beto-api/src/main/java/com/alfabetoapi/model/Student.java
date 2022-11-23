@@ -31,4 +31,7 @@ public class Student {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
     private List<Bond> bonds;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
+    private List<BondInvite> bondInvites;
 }

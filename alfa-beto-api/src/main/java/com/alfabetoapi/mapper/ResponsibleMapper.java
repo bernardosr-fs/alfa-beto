@@ -11,6 +11,10 @@ public class ResponsibleMapper {
     public Responsible toEntity(ResponsibleRegisterRequest request) {
         return Responsible.builder()
                 .email(request.getEmail())
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
+                .cpf(request.getCpf())
+                .phoneNumber(request.getPhoneNumber())
                 .build();
     }
 

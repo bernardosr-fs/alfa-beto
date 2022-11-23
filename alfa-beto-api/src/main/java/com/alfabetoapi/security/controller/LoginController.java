@@ -14,12 +14,12 @@ public class LoginController {
 
     private final LoginService loginService;
 
-    @PostMapping("responsible")
+    @PostMapping("/responsible")
     public ResponsibleResponse responsibleLogin() {
         return loginService.responsibleLogin();
     }
 
-    @PostMapping("student")
+    @PostMapping("/student")
     public StudentResponse studentLogin() {
         return loginService.studentLogin();
     }
