@@ -1,7 +1,6 @@
 package com.alfabetoapi.controller;
 
-import com.alfabetoapi.controller.response.BondInviteResponse;
-import com.alfabetoapi.controller.response.StudentDetailedResponse;
+import com.alfabetoapi.controller.response.*;
 import com.alfabetoapi.service.BondService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +15,19 @@ public class BondController {
 
     private final BondService bondService;
 
-    @GetMapping("/students")
+    @GetMapping("/bonded-students")
     public List<StudentDetailedResponse> getAllBondedStudents() {
         return bondService.getAllBondedStudents();
+    }
+
+    @GetMapping("/bonded-responsibles")
+    public List<ResponsibleDetailedResponse> getAllBondedResponsibles() {
+        return bondService.getAllBondedResponsibles();
+    }
+
+    @GetMapping("/{studentId}")
+    public List<BondedResponsibleResponse> getAllBondsFromStudent(@PathVariable Long studentId) {
+        return bondService.getAllBondsFromStudent(studentId);
     }
 
     @GetMapping("/invites")

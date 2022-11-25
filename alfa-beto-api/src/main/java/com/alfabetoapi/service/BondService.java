@@ -1,9 +1,13 @@
 package com.alfabetoapi.service;
 
 import com.alfabetoapi.controller.response.BondInviteResponse;
+import com.alfabetoapi.controller.response.BondedResponsibleResponse;
+import com.alfabetoapi.controller.response.ResponsibleDetailedResponse;
 import com.alfabetoapi.controller.response.StudentDetailedResponse;
 import com.alfabetoapi.enums.BondInviteStatusEnum;
 import com.alfabetoapi.mapper.BondInviteMapper;
+import com.alfabetoapi.mapper.BondMapper;
+import com.alfabetoapi.mapper.ResponsibleMapper;
 import com.alfabetoapi.mapper.StudentMapper;
 import com.alfabetoapi.model.Bond;
 import com.alfabetoapi.model.BondInvite;
@@ -11,6 +15,7 @@ import com.alfabetoapi.model.Responsible;
 import com.alfabetoapi.model.Student;
 import com.alfabetoapi.repository.BondInviteRepository;
 import com.alfabetoapi.repository.BondRepository;
+import com.alfabetoapi.repository.ResponsibleRepository;
 import com.alfabetoapi.repository.StudentRepository;
 import com.alfabetoapi.security.service.LoginService;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +33,7 @@ public class BondService {
     private final LoginService loginService;
     private final FindByIdService findByIdService;
 
+    private final ResponsibleRepository responsibleRepository;
     private final StudentRepository studentRepository;
     private final BondRepository bondRepository;
     private final BondInviteRepository bondInviteRepository;
@@ -105,5 +111,24 @@ public class BondService {
         List<Student> students = studentRepository.findAllBondedStudents(responsible.getId());
 
         return students.stream().map(StudentMapper::toDetailedResponse).collect(Collectors.toList());
+    }
+
+    public List<ResponsibleDetailedResponse> getAllBondedResponsibles() {
+        Student student = loginService.getLoggedStudent();
+
+        List<Responsible> responsibles = responsibleRepository.findAllBondedResponsibles(student.getId());
+
+        return responsibles.stream().map(ResponsibleMapper::toDetailedResponse).collect(Collectors.toList());
+    }
+
+    public List<BondedResponsibleResponse> getAllBondsFromStudent(Long studentId) {
+        Responsible responsible = loginService.getLoggedResponsible();
+
+        if (!bondRepository.existsByResponsible_idAndStudent_id(responsible.getId(), studentId))
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Não existe um vínculo entre você e esse estudante.");
+
+        List<Bond> bonds = bondRepository.findAllByStudent_id(studentId);
+
+        return bonds.stream().map(BondMapper::toResponsibleResponse).collect(Collectors.toList());
     }
 }

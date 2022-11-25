@@ -1,6 +1,7 @@
 package com.alfabetoapi.mapper;
 
 import com.alfabetoapi.controller.request.ResponsibleRegisterRequest;
+import com.alfabetoapi.controller.response.ResponsibleDetailedResponse;
 import com.alfabetoapi.controller.response.ResponsibleResponse;
 import com.alfabetoapi.model.Responsible;
 import lombok.experimental.UtilityClass;
@@ -22,6 +23,17 @@ public class ResponsibleMapper {
         return ResponsibleResponse.builder()
                 .id(responsible.getId())
                 .email(responsible.getEmail())
+                .build();
+    }
+
+    public ResponsibleDetailedResponse toDetailedResponse(Responsible responsible) {
+        return ResponsibleDetailedResponse.builder()
+                .id(responsible.getId())
+                .email(responsible.getEmail())
+                .firstName(responsible.getFirstName())
+                .lastName(responsible.getLastName())
+                .cpf(responsible.getCpf())
+                .phoneNumber(responsible.getPhoneNumber())
                 .build();
     }
 }
