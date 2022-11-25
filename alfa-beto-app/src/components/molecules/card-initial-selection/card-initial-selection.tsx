@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useState } from "react"
+import { Navigate } from "react-router-dom"
 import { PATHS } from "../../../constants"
 import "./card-initial-selection.scss"
 
@@ -15,6 +16,7 @@ export const CardInitialSelection = ({
   imgNumber,
   path,
 }: Props) => {
+  const [redirectNow, setRedirectNow] = useState(false)
   const renderImage = () => {
     if (imgNumber === 1) {
       return (
@@ -34,12 +36,14 @@ export const CardInitialSelection = ({
     }
   }
 
-  const redirectToPage = () => {}
-
   return (
-    <div className={`card-selection card-selection__${side}`}>
+    <div
+      className={`card-selection card-selection__${side}`}
+      onClick={() => setRedirectNow(true)}
+    >
       {renderImage()}
       <span>{text}</span>
+      {redirectNow && <Navigate to={path} replace />}
     </div>
   )
 }

@@ -9,10 +9,23 @@ import "./responsible-registration-form.scss"
 export const ResponsibleRegistrationForm = () => {
   const validationSchema = Yup.object().shape({
     email: Yup.string().required("Email é necessário").email("Email inválido"),
-    //letra maiuscula, minuscula e 8
     password: Yup.string()
       .required("Senha é necessário")
-      .min(8, "A Senha deve ter no mínimo 8 caracteres"),
+      .min(8, "A Senha deve ter no mínimo 8 caracteres")
+      .test("isValidPass", "Senha inválida", (value, context) => {
+        const hasUpperCase = /[A-Z]/.test(value ?? "")
+        const hasLowerCase = /[a-z]/.test(value ?? "")
+        let validConditions = 0
+        const numberOfMustBeValidConditions = 2
+        const conditions = [hasLowerCase, hasUpperCase]
+        conditions.forEach((condition) =>
+          condition ? validConditions++ : null
+        )
+        if (validConditions >= numberOfMustBeValidConditions) {
+          return true
+        }
+        return false
+      }),
     confirmPassword: Yup.string()
       .required("Confirmar a senha é necessário")
       .oneOf([Yup.ref("password"), null], "A senha não confere"),
@@ -94,14 +107,14 @@ export const ResponsibleRegistrationForm = () => {
           error={errors.phoneNumber}
         />
 
-        <div className="form-group">
+        <div className="form-buttons">
           <button type="submit">Cadastrar</button>
           <button
             type="button"
             onClick={() => reset()}
             className="btn btn-warning float-right"
           >
-            Reset
+            Limpar
           </button>
         </div>
       </form>

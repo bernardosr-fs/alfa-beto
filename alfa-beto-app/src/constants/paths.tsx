@@ -1,4 +1,5 @@
 export enum PATHS {
-  initialSelection = "/",
+  login = "/",
   responsibleRegistration = "/cadastro/responsavel",
+  initialSelection = "/cadastro/selecao",
 }

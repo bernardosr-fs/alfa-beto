@@ -1,12 +1,11 @@
 import { FieldError, UseFormRegister } from "react-hook-form"
-import { ResponsibleRegistrationFormProps } from "~/constants/forms/responsible-registration"
 
 import "./form-group.scss"
 
 type Props = {
   label: string
   inputType: string
-  register: UseFormRegister<ResponsibleRegistrationFormProps>
+  register: UseFormRegister<any>
   registerName:
     | "email"
     | "password"

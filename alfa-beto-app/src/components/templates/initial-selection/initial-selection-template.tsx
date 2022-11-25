@@ -11,7 +11,7 @@ export const InitialSelectionTemplate = () => (
         side={"right"}
         text={"Responsável"}
         imgNumber={1}
-        path={PATHS.initialSelection}
+        path={PATHS.responsibleRegistration}
       />
       <CardInitialSelection
         side={"left"}
