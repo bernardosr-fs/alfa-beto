@@ -1,10 +1,8 @@
 package com.alfabetoapi.mapper;
 
-import com.alfabetoapi.controller.request.ResponsibleRegisterRequest;
 import com.alfabetoapi.controller.request.StudentRegisterRequest;
-import com.alfabetoapi.controller.response.ResponsibleResponse;
+import com.alfabetoapi.controller.response.StudentDetailedResponse;
 import com.alfabetoapi.controller.response.StudentResponse;
-import com.alfabetoapi.model.Responsible;
 import com.alfabetoapi.model.Student;
 import lombok.experimental.UtilityClass;
 
@@ -14,6 +12,8 @@ public class StudentMapper {
     public Student toEntity(StudentRegisterRequest request) {
         return Student.builder()
                 .userName(request.getUserName())
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
                 .build();
     }
 
@@ -21,6 +21,16 @@ public class StudentMapper {
         return StudentResponse.builder()
                 .id(student.getId())
                 .userName(student.getUserName())
+                .build();
+    }
+
+    public StudentDetailedResponse toDetailedResponse(Student student) {
+        return StudentDetailedResponse.builder()
+                .id(student.getId())
+                .userName(student.getUserName())
+                .firstName(student.getFirstName())
+                .lastName(student.getLastName())
+                .coins(student.getCoins())
                 .build();
     }
 }

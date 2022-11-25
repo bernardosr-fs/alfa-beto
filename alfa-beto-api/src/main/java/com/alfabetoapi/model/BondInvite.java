@@ -1,5 +1,6 @@
 package com.alfabetoapi.model;
 
+import com.alfabetoapi.enums.BondInviteStatusEnum;
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Bond {
+public class BondInvite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,7 +20,9 @@ public class Bond {
     @Builder.Default
     private LocalDate date = LocalDate.now();
 
-    private boolean firstBond;
+    @Builder.Default
+    @Enumerated(EnumType.STRING)
+    private BondInviteStatusEnum status = BondInviteStatusEnum.PENDING;
 
     @ManyToOne
     @JoinColumn(name = "responsible_id")

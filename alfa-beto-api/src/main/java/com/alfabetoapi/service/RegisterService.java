@@ -27,10 +27,13 @@ public class RegisterService {
     public static String STUDENT_ROLE = "STUDENT";
 
     private final LoginService loginService;
+
     private final ResponsibleRepository responsibleRepository;
     private final StudentRepository studentRepository;
     private final BondRepository bondRepository;
+
     private final PasswordEncoder passwordEncoder;
+
     private final RegisterValidator registerValidator;
 
     public void responsibleRegister(ResponsibleRegisterRequest request) {
@@ -40,8 +43,9 @@ public class RegisterService {
         var responsible = ResponsibleMapper.toEntity(request);
         responsible.setPassword(passwordEncoder.encode(request.getPassword()));
 
-        var role = new Role();
-        role.setName(RESPONSIBLE_ROLE);
+        var role = Role.builder()
+                .name(RESPONSIBLE_ROLE)
+                .build();
 
         responsible.setRoles(new HashSet<>(List.of(role)));
 
@@ -57,16 +61,19 @@ public class RegisterService {
         var student = StudentMapper.toEntity(request);
         student.setPassword(passwordEncoder.encode(request.getPassword()));
 
-        var role = new Role();
-        role.setName(STUDENT_ROLE);
+        var role = Role.builder()
+                .name(STUDENT_ROLE)
+                .build();
 
         student.setRoles(new HashSet<>(List.of(role)));
 
         studentRepository.save(student);
 
-        var bond = new Bond();
-        bond.setStudent(student);
-        bond.setResponsible(responsible);
+        var bond = Bond.builder()
+                .firstBond(true)
+                .student(student)
+                .responsible(responsible)
+                .build();
 
         bondRepository.save(bond);
     }
