@@ -14,6 +14,6 @@ public interface ResponsibleRepository extends JpaRepository<Responsible, Long> 
     boolean existsByEmail(String email);
 
     @Query("SELECT r FROM Responsible r "+
-            "WHERE r.id IN (SELECT r.responsible.id FROM Bond b WHERE b.student.id = ?1)")
+            "WHERE r.id IN (SELECT b.responsible.id FROM Bond b WHERE b.student.id = ?1)")
     List<Responsible> findAllBondedResponsibles(Long studentId);
 }

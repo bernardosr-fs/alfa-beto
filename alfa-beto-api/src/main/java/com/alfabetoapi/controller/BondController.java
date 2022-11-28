@@ -15,38 +15,23 @@ public class BondController {
 
     private final BondService bondService;
 
-    @GetMapping("/bonded-students")
+    @GetMapping("/students")
     public List<StudentDetailedResponse> getAllBondedStudents() {
         return bondService.getAllBondedStudents();
     }
 
-    @GetMapping("/bonded-responsibles")
+    @GetMapping("/responsibles")
     public List<ResponsibleDetailedResponse> getAllBondedResponsibles() {
         return bondService.getAllBondedResponsibles();
     }
 
-    @GetMapping("/{studentId}")
-    public List<BondedResponsibleResponse> getAllBondsFromStudent(@PathVariable Long studentId) {
-        return bondService.getAllBondsFromStudent(studentId);
+    @GetMapping("/{studentId}/responsibles")
+    public List<BondedResponsibleResponse> getAllBondsFromBondedStudent(@PathVariable Long studentId) {
+        return bondService.getAllBondsFromBondedStudent(studentId);
     }
 
-    @GetMapping("/invites")
-    public List<BondInviteResponse> getAllPendingInvites() {
-        return bondService.getAllPendingInvites();
-    }
-
-    @PostMapping("/send-invite/{studentId}")
-    public void sendInvite(@PathVariable Long studentId) {
-        bondService.sendInvite(studentId);
-    }
-
-    @PostMapping("/accept-invite/{inviteId}")
-    public void acceptInvite(@PathVariable Long inviteId) {
-        bondService.acceptInvite(inviteId);
-    }
-
-    @PutMapping("/recuse-invite/{inviteId}")
-    public void recuseInvite(@PathVariable Long inviteId) {
-        bondService.recuseInvite(inviteId);
+    @DeleteMapping("/{bondId}/delete")
+    public void deleteBondFromBondedStudent(@PathVariable Long bondId) {
+        bondService.deleteBondFromBondedStudent(bondId);
     }
 }

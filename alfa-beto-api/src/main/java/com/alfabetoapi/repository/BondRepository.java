@@ -9,5 +9,7 @@ public interface BondRepository extends JpaRepository<Bond, Long> {
 
     boolean existsByResponsible_idAndStudent_id(Long responsibleId, Long studentId);
 
+    boolean existsByResponsible_idAndStudent_idAndFirstBond(Long responsibleId, Long studentId, boolean firstBond);
+
     List<Bond> findAllByStudent_id(Long studentId);
 }

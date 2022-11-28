@@ -5,7 +5,6 @@ import com.alfabetoapi.controller.request.StudentRegisterRequest;
 import com.alfabetoapi.mapper.ResponsibleMapper;
 import com.alfabetoapi.mapper.StudentMapper;
 import com.alfabetoapi.model.Bond;
-import com.alfabetoapi.model.Responsible;
 import com.alfabetoapi.repository.BondRepository;
 import com.alfabetoapi.repository.ResponsibleRepository;
 import com.alfabetoapi.repository.StudentRepository;
@@ -56,7 +55,7 @@ public class RegisterService {
 
         registerValidator.studentValidation(request);
 
-        Responsible responsible = loginService.getLoggedResponsible();
+        var responsible = loginService.getLoggedResponsible();
 
         var student = StudentMapper.toEntity(request);
         student.setPassword(passwordEncoder.encode(request.getPassword()));
