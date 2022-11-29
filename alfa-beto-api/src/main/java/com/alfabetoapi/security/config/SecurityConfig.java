@@ -33,8 +33,18 @@ public class SecurityConfig {
                 .csrf().disable()
                 .cors().and()
                 .authorizeRequests().antMatchers("/login/**", "/register/responsible").permitAll().and()
-                .authorizeRequests().antMatchers("/register/student", "/search/student/**", "/bond/send-invite/**").hasRole("RESPONSIBLE").and()
-                .authorizeRequests().antMatchers("/invites", "/bond/accept-invite/**", "/bond/recuse-invite/**").hasRole("STUDENT").and()
+                .authorizeRequests().antMatchers(
+                        "/bond/students",
+                        "/bond/{\\d+}/responsibles",
+                        "/bond/{\\d+}/delete",
+                        "/register/student",
+                        "/search/student/**",
+                        "/bond-invite/send/**").hasRole("RESPONSIBLE").and()
+                .authorizeRequests().antMatchers(
+                        "/bond/responsibles",
+                        "/bond-invite/pending-invites",
+                        "/bond-invite/{\\d+}/accept",
+                        "/bond-invite/{\\d+}/recuse").hasRole("STUDENT").and()
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
                 .formLogin()

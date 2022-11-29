@@ -1,7 +1,6 @@
 package com.alfabetoapi.controller;
 
-import com.alfabetoapi.controller.response.BondInviteResponse;
-import com.alfabetoapi.controller.response.StudentDetailedResponse;
+import com.alfabetoapi.controller.response.*;
 import com.alfabetoapi.service.BondService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -21,23 +20,18 @@ public class BondController {
         return bondService.getAllBondedStudents();
     }
 
-    @GetMapping("/invites")
-    public List<BondInviteResponse> getAllPendingInvites() {
-        return bondService.getAllPendingInvites();
+    @GetMapping("/responsibles")
+    public List<ResponsibleDetailedResponse> getAllBondedResponsibles() {
+        return bondService.getAllBondedResponsibles();
     }
 
-    @PostMapping("/send-invite/{studentId}")
-    public void sendInvite(@PathVariable Long studentId) {
-        bondService.sendInvite(studentId);
+    @GetMapping("/{studentId}/responsibles")
+    public List<BondedResponsibleResponse> getAllBondsFromBondedStudent(@PathVariable Long studentId) {
+        return bondService.getAllBondsFromBondedStudent(studentId);
     }
 
-    @PostMapping("/accept-invite/{inviteId}")
-    public void acceptInvite(@PathVariable Long inviteId) {
-        bondService.acceptInvite(inviteId);
-    }
-
-    @PutMapping("/recuse-invite/{inviteId}")
-    public void recuseInvite(@PathVariable Long inviteId) {
-        bondService.recuseInvite(inviteId);
+    @DeleteMapping("/{bondId}/delete")
+    public void deleteBondFromBondedStudent(@PathVariable Long bondId) {
+        bondService.deleteBondFromBondedStudent(bondId);
     }
 }

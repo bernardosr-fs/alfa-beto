@@ -9,8 +9,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.Objects;
 import java.util.regex.Pattern;
+
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+import static java.util.regex.Pattern.compile;
 
 @Component
 @RequiredArgsConstructor
@@ -34,7 +37,7 @@ public class RegisterValidator {
     }
 
     private void validateEmail(String email) {
-        if (Objects.isNull(email))
+        if (isNull(email))
             throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "Um email é necessário.");
 
         if (!email.contains("@"))
@@ -45,13 +48,13 @@ public class RegisterValidator {
     }
 
     private void validateUserName(String userName) {
-        if (Objects.isNull(userName))
+        if (isNull(userName))
             throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "Um nome de usuário é necessário.");
 
         if (userName.length() > 24)
             throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "O nome de usuário deve ter no máximo 24 caracteres.");
 
-        if (Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE).matcher(userName).find())
+        if (compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE).matcher(userName).find())
             throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "O nome de usuário não deve conter caracteres especiais.");
 
         if (studentRepository.existsByUserName(userName))
@@ -59,7 +62,7 @@ public class RegisterValidator {
     }
 
     private void validatePassword(String password) {
-        if (Objects.isNull(password))
+        if (isNull(password))
             throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "Uma senha é necessária.");
 
         if (password.length() < 8)
@@ -67,9 +70,9 @@ public class RegisterValidator {
     }
 
     private void validateResponsiblePassword(String password, String confirmPassword) {
-        var upperCasePattern = Pattern.compile("[A-Z ]");
-        var lowerCasePattern = Pattern.compile("[a-z ]");
-        var numbersPattern = Pattern.compile("[0-9 ]");
+        var upperCasePattern = compile("[A-Z ]");
+        var lowerCasePattern = compile("[a-z ]");
+        var numbersPattern = compile("[0-9 ]");
 
         validatePassword(password);
 
@@ -84,9 +87,9 @@ public class RegisterValidator {
     }
 
     private void validateStudentPassword(String password, String confirmPassword) {
-        var lettersPattern = Pattern.compile("[a-zA-Z ]");
-        var numbersPattern = Pattern.compile("[0-9 ]");
-        var specialCharsPattern = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
+        var lettersPattern = compile("[a-zA-Z ]");
+        var numbersPattern = compile("[0-9 ]");
+        var specialCharsPattern = compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
 
         validatePassword(password);
 
@@ -101,21 +104,21 @@ public class RegisterValidator {
     }
 
     private void validateFirstName(String firstName) {
-        if (Objects.isNull(firstName) || firstName.isEmpty())
+        if (isNull(firstName) || firstName.isEmpty())
             throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "Um nome é necessário.");
     }
 
     private void validateCpf(String cpf) {
-        if (Objects.isNull(cpf))
+        if (isNull(cpf))
             throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "Um CPF é necessário.");
 
-        if (Pattern.compile("[^0-9 ]").matcher(cpf).find() || cpf.length() != 11)
+        if (compile("[^0-9 ]").matcher(cpf).find() || cpf.length() != 11)
             throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "CPF inválido.");
     }
 
     private void validatePhoneNumber(String phoneNumber) {
-        if (Objects.nonNull(phoneNumber) && !phoneNumber.isEmpty()) {
-            if (Pattern.compile("[^0-9 ]").matcher(phoneNumber).find() || phoneNumber.length() != 11)
+        if (nonNull(phoneNumber) && !phoneNumber.isEmpty()) {
+            if (compile("[^0-9 ]").matcher(phoneNumber).find() || phoneNumber.length() != 11)
                 throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "Número de telefone inválido.");
         }
     }
