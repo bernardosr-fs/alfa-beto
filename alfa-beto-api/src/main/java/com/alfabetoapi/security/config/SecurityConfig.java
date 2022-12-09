@@ -39,12 +39,16 @@ public class SecurityConfig {
                         "/bond/{\\d+}/delete",
                         "/register/student",
                         "/search/student/**",
-                        "/bond-invite/send/**").hasRole("RESPONSIBLE").and()
+                        "/bond-invite/send/**",
+                        "/group/of-responsible/**",
+                        "/group/create",
+                        "/group/add").hasRole("RESPONSIBLE").and()
                 .authorizeRequests().antMatchers(
                         "/bond/responsibles",
                         "/bond-invite/pending-invites",
                         "/bond-invite/{\\d+}/accept",
-                        "/bond-invite/{\\d+}/recuse").hasRole("STUDENT").and()
+                        "/bond-invite/{\\d+}/recuse",
+                        "/group/of-student/**").hasRole("STUDENT").and()
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
                 .formLogin()

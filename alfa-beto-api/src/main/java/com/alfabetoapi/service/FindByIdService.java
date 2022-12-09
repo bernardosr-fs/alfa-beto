@@ -3,8 +3,10 @@ package com.alfabetoapi.service;
 import com.alfabetoapi.model.Bond;
 import com.alfabetoapi.model.BondInvite;
 import com.alfabetoapi.model.Student;
+import com.alfabetoapi.model.StudentGroup;
 import com.alfabetoapi.repository.BondInviteRepository;
 import com.alfabetoapi.repository.BondRepository;
+import com.alfabetoapi.repository.StudentGroupRepository;
 import com.alfabetoapi.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,6 +20,7 @@ public class FindByIdService {
     private final StudentRepository studentRepository;
     private final BondRepository bondRepository;
     private final BondInviteRepository bondInviteRepository;
+    private final StudentGroupRepository studentGroupRepository;
 
     public Student findStudent(Long id) {
         return studentRepository.findById(id)
@@ -32,5 +35,10 @@ public class FindByIdService {
     public BondInvite findBondInvite(Long id) {
         return bondInviteRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Não existe um convite de vínculo com esse id"));
+    }
+
+    public StudentGroup findGroup(Long id) {
+        return studentGroupRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Não existe um grupo com esse id"));
     }
 }

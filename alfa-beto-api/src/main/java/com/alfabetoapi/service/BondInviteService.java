@@ -62,7 +62,7 @@ public class BondInviteService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Esse convite de vínculo não é seu.");
 
         if (!bondInvite.getStatus().equals(BondInviteStatusEnum.PENDING))
-            throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "Esse convite de vínculo não está pendente.");
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Esse convite de vínculo não está pendente.");
 
         bondInvite.setStatus(BondInviteStatusEnum.ACCEPTED);
 
