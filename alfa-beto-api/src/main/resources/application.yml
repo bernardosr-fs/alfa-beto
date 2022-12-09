@@ -8,9 +8,9 @@ server:
     include-message: always
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/alfa-beto
+    url: jdbc:mysql://localhost:3306/alfa_beto
     username: root
-    password:
+    password: root
   jpa:
     hibernate:
       #ddl-auto: create-drop

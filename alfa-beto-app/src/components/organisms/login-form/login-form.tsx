@@ -6,7 +6,11 @@ import { ResponsibleLoginFormProps } from "~/constants/forms/responsible-login"
 
 import "./login-form.scss"
 
-export const LoginForm = () => {
+type Props = {
+  onSumbitLogin: (payload: ResponsibleLoginFormProps) => void
+}
+
+export const LoginForm = ({ onSumbitLogin }: Props) => {
   const validationSchema = Yup.object().shape({
     email: Yup.string().required("Email é necessário"),
     password: Yup.string().required("Senha é necessário"),
@@ -20,17 +24,13 @@ export const LoginForm = () => {
     resolver: yupResolver(validationSchema),
   })
 
-  const onSubmit = (data: ResponsibleLoginFormProps) => {
-    console.log(JSON.stringify(data, null, 2))
-  }
-
   return (
     <div className="login-form">
       <img
         src={require("../../../assets/images/logo.png")}
         alt="Logotipo alfabeto"
       />
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSumbitLogin)}>
         <FormGroup
           label="Email"
           inputType="text"

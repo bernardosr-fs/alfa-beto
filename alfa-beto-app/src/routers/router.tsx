@@ -1,6 +1,7 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom"
 import { PATHS } from "../constants"
 import {
+  Home,
   InitialSelection,
   Login,
   NotFound,
@@ -17,6 +18,7 @@ export const Router = (): JSX.Element => {
           path={PATHS.responsibleRegistration}
           element={<ResponsibleRegistration />}
         />
+        <Route path={PATHS.responsibleHome} element={<Home />} />
         <Route path={"*"} element={<NotFound />} />
       </Routes>
     </BrowserRouter>

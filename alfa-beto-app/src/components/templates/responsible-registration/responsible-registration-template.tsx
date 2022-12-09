@@ -1,11 +1,20 @@
 import { Container, ResponsibleRegistrationForm } from "../../index"
+import { ResponsibleRegistrationFormProps } from "../../../constants"
 
 import "./responsible-registration-template.scss"
 
-export const ResponsibleRegistrationTemplate = () => (
+type Props = {
+  onSumbitRegistration: (payload: ResponsibleRegistrationFormProps) => void
+}
+
+export const ResponsibleRegistrationTemplate = ({
+  onSumbitRegistration,
+}: Props) => (
   <div className="responsible-registration-template">
     <Container className="responsible-registration-template__container">
-      <ResponsibleRegistrationForm />
+      <ResponsibleRegistrationForm
+        onSumbitRegistration={onSumbitRegistration}
+      />
     </Container>
   </div>
 )

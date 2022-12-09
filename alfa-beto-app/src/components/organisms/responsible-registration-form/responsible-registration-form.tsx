@@ -6,7 +6,12 @@ import { FormGroup } from "../../"
 
 import "./responsible-registration-form.scss"
 
-export const ResponsibleRegistrationForm = () => {
+type Props = {
+  onSumbitRegistration: (payload: ResponsibleRegistrationFormProps) => void
+}
+export const ResponsibleRegistrationForm = ({
+  onSumbitRegistration,
+}: Props) => {
   const validationSchema = Yup.object().shape({
     email: Yup.string().required("Email é necessário").email("Email inválido"),
     password: Yup.string()
@@ -49,14 +54,10 @@ export const ResponsibleRegistrationForm = () => {
     resolver: yupResolver(validationSchema),
   })
 
-  const onSubmit = (data: ResponsibleRegistrationFormProps) => {
-    console.log(JSON.stringify(data, null, 2))
-  }
-
   return (
     <div className="register-form">
       <h1>Cadastro Responsável</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSumbitRegistration)}>
         <FormGroup
           label="Email"
           inputType="text"

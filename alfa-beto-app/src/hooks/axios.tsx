@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
-export const useAxios = (axiosParams: AxiosRequestConfig) => {
+export const useAxios = () => {
   const [response, setResponse] = useState<AxiosResponse>()
   const [error, setError] = useState<AxiosError>()
   const [loading, setLoading] = useState(true)
@@ -15,10 +15,9 @@ export const useAxios = (axiosParams: AxiosRequestConfig) => {
     } finally {
       setLoading(false)
     }
-  }
-  useEffect(() => {
-    fetchData(axiosParams)
-  }, [])
 
-  return { response, error, loading }
+    return { response, error, loading }
+  }
+
+  return { fetchData }
 }
