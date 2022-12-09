@@ -1,7 +1,6 @@
 package com.alfabetoapi.repository;
 
 import com.alfabetoapi.model.Responsible;
-import com.alfabetoapi.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

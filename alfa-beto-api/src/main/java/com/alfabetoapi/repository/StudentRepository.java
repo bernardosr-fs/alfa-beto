@@ -15,4 +15,8 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     @Query("SELECT s FROM Student s "+
             "WHERE s.id IN (SELECT b.student.id FROM Bond b WHERE b.responsible.id = ?1)")
     List<Student> findAllBondedStudents(Long responsibleId);
+
+    @Query("SELECT s FROM Student s "+
+            "WHERE s.id IN (SELECT ge.student.id FROM GroupEntry ge WHERE ge.group.id = ?1)")
+    List<Student> findAllStudentsInGroup(Long groupId);
 }

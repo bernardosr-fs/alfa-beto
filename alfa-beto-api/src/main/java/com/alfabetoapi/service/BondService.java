@@ -7,6 +7,7 @@ import com.alfabetoapi.mapper.BondMapper;
 import com.alfabetoapi.mapper.ResponsibleMapper;
 import com.alfabetoapi.mapper.StudentMapper;
 import com.alfabetoapi.repository.BondRepository;
+import com.alfabetoapi.repository.GroupEntryRepository;
 import com.alfabetoapi.repository.ResponsibleRepository;
 import com.alfabetoapi.repository.StudentRepository;
 import com.alfabetoapi.security.service.LoginService;
@@ -28,6 +29,7 @@ public class BondService {
     private final ResponsibleRepository responsibleRepository;
     private final StudentRepository studentRepository;
     private final BondRepository bondRepository;
+    private final GroupEntryRepository groupEntryRepository;
 
     public List<StudentDetailedResponse> getAllBondedStudents() {
         var responsible = loginService.getLoggedResponsible();
@@ -70,5 +72,6 @@ public class BondService {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Você não pode remover o seu próprio vínculo.");
 
         bondRepository.delete(bond);
+        groupEntryRepository.deleteAllByStudent_idAndGroup_responsible_id(bond.getStudent().getId(), bond.getResponsible().getId());
     }
 }

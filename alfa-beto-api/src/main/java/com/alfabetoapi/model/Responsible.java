@@ -31,4 +31,7 @@ public class Responsible {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
     private List<Bond> bonds;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "responsible")
+    private List<StudentGroup> groups;
 }
