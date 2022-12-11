@@ -1,5 +1,7 @@
 package com.alfabetoapi.validator;
 
+import com.alfabetoapi.controller.request.EditResponsibleRequest;
+import com.alfabetoapi.controller.request.EditStudentRequest;
 import com.alfabetoapi.controller.request.ResponsibleRegisterRequest;
 import com.alfabetoapi.controller.request.StudentRegisterRequest;
 import com.alfabetoapi.repository.ResponsibleRepository;
@@ -17,12 +19,12 @@ import static java.util.regex.Pattern.compile;
 
 @Component
 @RequiredArgsConstructor
-public class RegisterValidator {
+public class UserValidator {
 
     private final ResponsibleRepository responsibleRepository;
     private final StudentRepository studentRepository;
 
-    public void responsibleValidation(ResponsibleRegisterRequest request) {
+    public void registerResponsibleValidation(ResponsibleRegisterRequest request) {
         validateEmail(request.getEmail());
         validateResponsiblePassword(request.getPassword(), request.getConfirmPassword());
         validateFirstName(request.getFirstName());
@@ -30,8 +32,20 @@ public class RegisterValidator {
         validatePhoneNumber(request.getPhoneNumber());
     }
 
-    public void studentValidation(StudentRegisterRequest request) {
+    public void editResponsibleValidation(EditResponsibleRequest request) {
+        validateResponsiblePassword(request.getPassword(), request.getConfirmPassword());
+        validateFirstName(request.getFirstName());
+        validateCpf(request.getCpf());
+        validatePhoneNumber(request.getPhoneNumber());
+    }
+
+    public void registerStudentValidation(StudentRegisterRequest request) {
         validateUserName(request.getUserName());
+        validateStudentPassword(request.getPassword(), request.getConfirmPassword());
+        validateFirstName(request.getFirstName());
+    }
+
+    public void editStudentValidation(EditStudentRequest request) {
         validateStudentPassword(request.getPassword(), request.getConfirmPassword());
         validateFirstName(request.getFirstName());
     }

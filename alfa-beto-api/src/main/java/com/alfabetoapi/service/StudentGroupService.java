@@ -106,4 +106,18 @@ public class StudentGroupService {
 
         return students.map(StudentMapper::toDetailedResponse).collect(Collectors.toList());
     }
+
+    public void editGroup(Long groupId, StudentGroupRequest request) {
+        var group = findByIdService.findGroup(groupId);
+
+        var responsible = loginService.getLoggedResponsible();
+
+        if (!group.getResponsible().getId().equals(responsible.getId()))
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Esse grupo não é seu.");
+
+        group.setName(request.getName());
+        group.setDescription(request.getDescription());
+
+        studentGroupRepository.save(group);
+    }
 }

@@ -42,13 +42,17 @@ public class SecurityConfig {
                         "/bond-invite/send/**",
                         "/group/of-responsible/**",
                         "/group/create",
-                        "/group/add").hasRole("RESPONSIBLE").and()
+                        "/group/add",
+                        "/group/edit/**",
+                        "/responsible/profile",
+                        "/student/profile/{\\d+}").hasRole("RESPONSIBLE").and()
                 .authorizeRequests().antMatchers(
                         "/bond/responsibles",
                         "/bond-invite/pending-invites",
                         "/bond-invite/{\\d+}/accept",
                         "/bond-invite/{\\d+}/recuse",
-                        "/group/of-student/**").hasRole("STUDENT").and()
+                        "/group/of-student/**",
+                        "/student/profile").hasRole("STUDENT").and()
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
                 .formLogin()
