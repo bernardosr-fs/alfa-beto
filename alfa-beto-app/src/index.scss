@@ -40,5 +40,31 @@ code {
   --white: #ffffff;
   --transparent-white: rgba(255, 255, 255, 0.5);
 
+  --grey: #7a7a7a;
+  --dark-grey: #424242;
+
   --black: rgb(0, 0, 0);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--white);
+  border-radius: 10px;
+  margin: 10px 0 10px 0;
+  padding: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--grey);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-grey);
 }
