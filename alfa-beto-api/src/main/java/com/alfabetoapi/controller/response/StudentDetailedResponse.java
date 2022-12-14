@@ -13,4 +13,5 @@ public class StudentDetailedResponse {
     private String firstName;
     private String lastName;
     private BigInteger coins;
+    private boolean firstBond;
 }

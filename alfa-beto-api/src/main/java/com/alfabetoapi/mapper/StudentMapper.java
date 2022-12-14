@@ -24,13 +24,14 @@ public class StudentMapper {
                 .build();
     }
 
-    public StudentDetailedResponse toDetailedResponse(Student student) {
+    public StudentDetailedResponse toDetailedResponse(Student student, boolean firstBond) {
         return StudentDetailedResponse.builder()
                 .id(student.getId())
                 .userName(student.getUserName())
                 .firstName(student.getFirstName())
                 .lastName(student.getLastName())
                 .coins(student.getCoins())
+                .firstBond(firstBond)
                 .build();
     }
 }

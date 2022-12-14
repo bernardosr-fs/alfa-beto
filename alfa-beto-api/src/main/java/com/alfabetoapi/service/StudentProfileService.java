@@ -31,7 +31,7 @@ public class StudentProfileService {
     public StudentDetailedResponse getProfile() {
         var student = loginService.getLoggedStudent();
 
-        return StudentMapper.toDetailedResponse(student);
+        return StudentMapper.toDetailedResponse(student, false);
     }
 
     public void editProfile(Long studentId, EditStudentRequest request) {

@@ -35,8 +35,13 @@ public class BondService {
         var responsible = loginService.getLoggedResponsible();
 
         var students = studentRepository.findAllBondedStudents(responsible.getId());
+        var firstBondedStudentsIds = bondRepository.findAllFirstBondedStudentsIds(responsible.getId());
 
-        return students.stream().map(StudentMapper::toDetailedResponse).collect(Collectors.toList());
+        return students.stream().map(s -> {
+            if (firstBondedStudentsIds.contains(s.getId()))
+                return StudentMapper.toDetailedResponse(s, true);
+            return StudentMapper.toDetailedResponse(s, false);
+        }).collect(Collectors.toList());
     }
 
     public List<ResponsibleDetailedResponse> getAllBondedResponsibles() {
