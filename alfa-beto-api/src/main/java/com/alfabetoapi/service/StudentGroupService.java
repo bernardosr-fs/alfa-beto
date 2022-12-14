@@ -89,8 +89,13 @@ public class StudentGroupService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Esse grupo não é seu.");
 
         var students = studentRepository.findAllStudentsInGroup(group.getId());
+        var firstBondedStudentsIds = bondRepository.findAllFirstBondedStudentsIds(responsible.getId());
 
-        return students.stream().map(StudentMapper::toDetailedResponse).collect(Collectors.toList());
+        return students.stream().map(s -> {
+            if (firstBondedStudentsIds.contains(s.getId()))
+                return StudentMapper.toDetailedResponse(s, true);
+            return StudentMapper.toDetailedResponse(s, false);
+        }).collect(Collectors.toList());
     }
 
     public List<StudentDetailedResponse> studentGetAllStudentsInGroup(Long groupId) {
@@ -104,7 +109,7 @@ public class StudentGroupService {
         var students = studentRepository.findAllStudentsInGroup(group.getId())
                 .stream().filter(s -> !s.getId().equals(student.getId()));
 
-        return students.map(StudentMapper::toDetailedResponse).collect(Collectors.toList());
+        return students.map(s -> StudentMapper.toDetailedResponse(s, false)).collect(Collectors.toList());
     }
 
     public void editGroup(Long groupId, StudentGroupRequest request) {

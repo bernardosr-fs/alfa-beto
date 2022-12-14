@@ -55,8 +55,6 @@ public class SecurityConfig {
                         "/student/profile").hasRole("STUDENT").and()
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .and()
                 .httpBasic();
 
         return http.build();
