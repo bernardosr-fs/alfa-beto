@@ -4,12 +4,12 @@ import "./responsible-home-options.scss"
 const options = [
   {
     name: "Grupos",
-    redirectPath: "/grupos",
+    redirectPath: "/responsavel/grupos",
     icon: "teste",
   },
   {
     name: "Estudantes",
-    redirectPath: "/estudantes",
+    redirectPath: "/responsavel/estudantes-vinculados",
     icon: "teste2",
   },
 ]

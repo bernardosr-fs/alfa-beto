@@ -5,6 +5,7 @@ import {
   InitialSelection,
   Login,
   NotFound,
+  ResponsibleGroups,
   ResponsibleRegistration,
 } from "../pages"
 
@@ -19,6 +20,7 @@ export const Router = (): JSX.Element => {
           element={<ResponsibleRegistration />}
         />
         <Route path={PATHS.responsibleHome} element={<Home />} />
+        <Route path={PATHS.responsibleGroups} element={<ResponsibleGroups />} />
         <Route path={"*"} element={<NotFound />} />
       </Routes>
     </BrowserRouter>
