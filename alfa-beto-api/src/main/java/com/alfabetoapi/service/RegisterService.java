@@ -10,7 +10,7 @@ import com.alfabetoapi.repository.ResponsibleRepository;
 import com.alfabetoapi.repository.StudentRepository;
 import com.alfabetoapi.security.model.Role;
 import com.alfabetoapi.security.service.LoginService;
-import com.alfabetoapi.validator.RegisterValidator;
+import com.alfabetoapi.validator.UserValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -33,11 +33,11 @@ public class RegisterService {
 
     private final PasswordEncoder passwordEncoder;
 
-    private final RegisterValidator registerValidator;
+    private final UserValidator userValidator;
 
     public void responsibleRegister(ResponsibleRegisterRequest request) {
 
-        registerValidator.responsibleValidation(request);
+        userValidator.registerResponsibleValidation(request);
 
         var responsible = ResponsibleMapper.toEntity(request);
         responsible.setPassword(passwordEncoder.encode(request.getPassword()));
@@ -53,7 +53,7 @@ public class RegisterService {
 
     public void studentRegister(StudentRegisterRequest request) {
 
-        registerValidator.studentValidation(request);
+        userValidator.registerStudentValidation(request);
 
         var responsible = loginService.getLoggedResponsible();
 

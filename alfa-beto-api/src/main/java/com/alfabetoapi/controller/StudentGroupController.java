@@ -47,4 +47,9 @@ public class StudentGroupController {
     public void addStudent(@RequestBody AddStudentRequest request) {
         studentGroupService.addStudent(request);
     }
+
+    @PutMapping("/edit/{groupId}")
+    public void editGroup(@PathVariable Long groupId, @RequestBody StudentGroupRequest request) {
+        studentGroupService.editGroup(groupId, request);
+    }
 }
