@@ -5,11 +5,12 @@ import { useNavigate } from "react-router-dom"
 
 export const Login = () => {
   const navigate = useNavigate()
-  const postAuthentication = usePostAuthentication()
+  const { call } = usePostAuthentication()
 
   const onSumbitLogin = async (payload: ResponsibleLoginFormProps) => {
-    const { error, loading } = await postAuthentication.call(payload)
-    if (!error && !loading) {
+    const { error, loading } = await call(payload)
+
+    if (!error && !loading && false) {
       navigate(PATHS.responsibleHome)
     }
   }
