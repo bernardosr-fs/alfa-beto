@@ -7,7 +7,7 @@ import {
 } from "../../constants"
 import { useAxios } from ".."
 
-export const usePostAuthentication = () => {
+export const usePostResponsibleAuthentication = () => {
   const { fetchData } = useAxios()
 
   const axiosParams: AxiosRequestConfig = {

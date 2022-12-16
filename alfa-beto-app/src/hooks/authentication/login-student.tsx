@@ -7,8 +7,8 @@ import {
 } from "../../constants"
 import { useAxios } from ".."
 
-export const usePostAuthentication = () => {
-  //const { fetchData } = useAxios()
+export const usePostStudentAuthentication = () => {
+  const { fetchData } = useAxios()
 
   const axiosParams: AxiosRequestConfig = {
     baseURL: BASE_URL.BASE,
@@ -21,10 +21,7 @@ export const usePostAuthentication = () => {
       username: username,
       password: password,
     }
-    //const { response, error, loading } = await fetchData(axiosParams)
-    //console.log(response, error, loading)
-
-    //return { response, error, loading }
+    return await fetchData(axiosParams)
   }
 
   return { call }
