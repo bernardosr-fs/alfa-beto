@@ -11,7 +11,7 @@ export const NotFoundTemplate = () => {
       setTimeout(() => setCountDown(countDown - 1), 1000)
     } else {
       //TO-DO: decidir qual home mandar
-      navigate(PATHS.responsibleHome)
+      navigate(PATHS.login)
     }
   }, [countDown, navigate])
 

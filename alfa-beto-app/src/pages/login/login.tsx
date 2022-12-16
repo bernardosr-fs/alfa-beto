@@ -8,9 +8,9 @@ export const Login = () => {
   const { call } = usePostAuthentication()
 
   const onSumbitLogin = async (payload: ResponsibleLoginFormProps) => {
-    const { error, loading } = await call(payload)
+    const { response, error } = await call(payload)
 
-    if (!error && !loading && false) {
+    if (!error) {
       navigate(PATHS.responsibleHome)
     }
   }

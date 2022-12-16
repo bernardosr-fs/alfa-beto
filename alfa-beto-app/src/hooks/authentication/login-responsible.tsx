@@ -8,7 +8,7 @@ import {
 import { useAxios } from ".."
 
 export const usePostAuthentication = () => {
-  const { response, error, loading, fetchData } = useAxios()
+  const { fetchData } = useAxios()
 
   const axiosParams: AxiosRequestConfig = {
     baseURL: BASE_URL.BASE,
@@ -25,5 +25,5 @@ export const usePostAuthentication = () => {
     return fetchData(axiosParams)
   }
 
-  return { response, error, loading, call }
+  return { call }
 }

@@ -2,7 +2,8 @@ import * as Yup from "yup"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { FormGroup } from "../../"
-import { ResponsibleLoginFormProps } from "~/constants/forms/responsible-login"
+import { useNavigate } from "react-router-dom"
+import { PATHS, ResponsibleLoginFormProps } from "../../../constants"
 
 import "./login-form.scss"
 
@@ -11,6 +12,7 @@ type Props = {
 }
 
 export const LoginForm = ({ onSumbitLogin }: Props) => {
+  const navigate = useNavigate()
   const validationSchema = Yup.object().shape({
     email: Yup.string().required("Email é necessário"),
     password: Yup.string().required("Senha é necessário"),
@@ -45,6 +47,12 @@ export const LoginForm = ({ onSumbitLogin }: Props) => {
           registerName="password"
           error={errors.password}
         />
+        <div
+          className="register-redirect"
+          onClick={() => navigate(PATHS.initialSelection)}
+        >
+          Não tem uma conta? Cadastre-se
+        </div>
         <div className="form-buttons">
           <button type="submit">Entrar</button>
         </div>

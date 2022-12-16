@@ -8,7 +8,7 @@ import {
 import { useAxios } from ".."
 
 export const usePostResponsibleRegistration = () => {
-  //const axios = useAxios()
+  const axios = useAxios()
 
   const axiosParams: AxiosRequestConfig = {
     baseURL: BASE_URL.BASE,
@@ -34,7 +34,7 @@ export const usePostResponsibleRegistration = () => {
       cpf: cpf,
       phoneNumber: phoneNumber,
     }
-    //return await axios.fetchData(axiosParams)
+    return await axios.fetchData(axiosParams)
   }
 
   return { call }
