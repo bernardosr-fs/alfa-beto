@@ -1,6 +1,6 @@
-export type Responsible = {
-  email: string
+export type EditResponsible = {
   password: string
+  confirmPassword: string
   firstName: string
   lastName: string
   cpf: string

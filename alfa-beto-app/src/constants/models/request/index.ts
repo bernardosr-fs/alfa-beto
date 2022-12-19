@@ -1,0 +1,6 @@
+export * from "./add-student"
+export * from "./edit-student"
+export * from "./register-student"
+export * from "./edit-responsible"
+export * from "./register-student-group"
+export * from "./register-responsible"
