@@ -23,5 +23,5 @@ public class Customization {
     private CustomizationTypeEnum type;
 
     private BigInteger price;
-    private String value;
+    private String customValue;
 }
