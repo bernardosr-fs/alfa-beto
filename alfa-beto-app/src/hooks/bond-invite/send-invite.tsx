@@ -7,7 +7,7 @@ export const useSendInvite = () => {
 
   const axiosParams: AxiosRequestConfig = {
     baseURL: BASE_URL.BASE,
-    method: HTTP_METHODS.GET,
+    method: HTTP_METHODS.POST,
   }
 
   const call = async (studentId: number) => {

@@ -7,7 +7,7 @@ export const useDeleteBondFromBondedStudent = () => {
 
   const axiosParams: AxiosRequestConfig = {
     baseURL: BASE_URL.BASE,
-    method: HTTP_METHODS.GET,
+    method: HTTP_METHODS.DELETE,
   }
 
   const call = async (bondId: number) => {

@@ -7,7 +7,7 @@ export const useRecuseInvite = () => {
 
   const axiosParams: AxiosRequestConfig = {
     baseURL: BASE_URL.BASE,
-    method: HTTP_METHODS.GET,
+    method: HTTP_METHODS.PUT,
   }
 
   const call = async (inviteId: number) => {
