@@ -15,8 +15,6 @@ import static java.util.Objects.isNull;
 @RequiredArgsConstructor
 public class SearchStudentService {
 
-    private final LoginService loginService;
-
     private final StudentRepository studentRepository;
 
     public StudentResponse searchStudent(String userName) {

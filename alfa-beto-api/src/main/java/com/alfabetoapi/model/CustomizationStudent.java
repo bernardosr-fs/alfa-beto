@@ -19,6 +19,9 @@ public class CustomizationStudent {
     @Builder.Default
     private LocalDate date = LocalDate.now();
 
+    @Builder.Default
+    private boolean equipped = false;
+
     @ManyToOne
     @JoinColumn(name = "customization_id")
     private Customization customization;

@@ -1,13 +1,7 @@
 package com.alfabetoapi.service;
 
-import com.alfabetoapi.model.Bond;
-import com.alfabetoapi.model.BondInvite;
-import com.alfabetoapi.model.Student;
-import com.alfabetoapi.model.StudentGroup;
-import com.alfabetoapi.repository.BondInviteRepository;
-import com.alfabetoapi.repository.BondRepository;
-import com.alfabetoapi.repository.StudentGroupRepository;
-import com.alfabetoapi.repository.StudentRepository;
+import com.alfabetoapi.model.*;
+import com.alfabetoapi.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -21,6 +15,7 @@ public class FindByIdService {
     private final BondRepository bondRepository;
     private final BondInviteRepository bondInviteRepository;
     private final StudentGroupRepository studentGroupRepository;
+    private final CustomizationRepository customizationRepository;
 
     public Student findStudent(Long id) {
         return studentRepository.findById(id)
@@ -40,5 +35,10 @@ public class FindByIdService {
     public StudentGroup findGroup(Long id) {
         return studentGroupRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Não existe um grupo com esse id"));
+    }
+
+    public Customization findCustomization(Long id) {
+        return customizationRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Não existe uma personalização com esse id"));
     }
 }

@@ -52,7 +52,8 @@ public class SecurityConfig {
                         "/bond-invite/{\\d+}/accept",
                         "/bond-invite/{\\d+}/recuse",
                         "/group/of-student/**",
-                        "/student/profile").hasRole("STUDENT").and()
+                        "/student/profile",
+                        "/shop/**").hasRole("STUDENT").and()
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
                 .httpBasic();
