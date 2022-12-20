@@ -1,15 +1,16 @@
 import { PATHS, ResponsibleLoginFormProps } from "../../constants"
-import { usePostAuthentication } from "../../hooks"
+import { usePostResponsibleAuthentication } from "../../hooks"
 import { LoginTemplate } from "../../components"
 import { useNavigate } from "react-router-dom"
 
 export const Login = () => {
   const navigate = useNavigate()
-  const postAuthentication = usePostAuthentication()
+  const { call } = usePostResponsibleAuthentication()
 
   const onSumbitLogin = async (payload: ResponsibleLoginFormProps) => {
-    const { error, loading } = await postAuthentication.call(payload)
-    if (!error && !loading) {
+    const { response, error } = await call(payload)
+
+    if (!error) {
       navigate(PATHS.responsibleHome)
     }
   }

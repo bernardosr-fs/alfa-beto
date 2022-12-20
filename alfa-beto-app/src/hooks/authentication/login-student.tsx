@@ -3,26 +3,25 @@ import {
   BASE_URL,
   HTTP_METHODS,
   LOGIN_ENDPOINTS,
-  ResponsibleLoginFormProps,
+  StudentLoginFormProps,
 } from "../../constants"
 import { useAxios } from ".."
 
-export const usePostResponsibleAuthentication = () => {
+export const usePostStudentAuthentication = () => {
   const { fetchData } = useAxios()
 
   const axiosParams: AxiosRequestConfig = {
     baseURL: BASE_URL.BASE,
     method: HTTP_METHODS.POST,
-    url: LOGIN_ENDPOINTS.RESPONSIBLE,
+    url: LOGIN_ENDPOINTS.STUDENT,
   }
 
-  const call = async ({ email, password }: ResponsibleLoginFormProps) => {
+  const call = async ({ username, password }: StudentLoginFormProps) => {
     axiosParams.auth = {
-      username: email,
+      username: username,
       password: password,
     }
-
-    return fetchData(axiosParams)
+    return await fetchData(axiosParams)
   }
 
   return { call }

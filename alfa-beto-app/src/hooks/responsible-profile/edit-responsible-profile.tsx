@@ -2,31 +2,29 @@ import { AxiosRequestConfig } from "axios"
 import {
   BASE_URL,
   HTTP_METHODS,
-  REGISTER_ENDPOINTS,
-  ResponsibleRegistrationFormProps,
+  RESPONSIBLE_PROFILE_ENDPOINTS,
 } from "../../constants"
+import { EditResponsibleRequest } from "../../models"
 import { useAxios } from ".."
 
-export const usePostResponsibleRegistration = () => {
-  const axios = useAxios()
+export const usePutResponsibleProfile = () => {
+  const { fetchData } = useAxios()
 
   const axiosParams: AxiosRequestConfig = {
     baseURL: BASE_URL.BASE,
-    method: HTTP_METHODS.POST,
-    url: REGISTER_ENDPOINTS.RESPONSIBLE,
+    method: HTTP_METHODS.PUT,
+    url: RESPONSIBLE_PROFILE_ENDPOINTS.EDIT_PROFILE,
   }
 
   const call = async ({
-    email,
     password,
     confirmPassword,
     firstName,
     lastName,
     cpf,
     phoneNumber,
-  }: ResponsibleRegistrationFormProps) => {
+  }: EditResponsibleRequest) => {
     axiosParams.data = {
-      email: email,
       password: password,
       confirmPassword: confirmPassword,
       firstName: firstName,
@@ -34,7 +32,7 @@ export const usePostResponsibleRegistration = () => {
       cpf: cpf,
       phoneNumber: phoneNumber,
     }
-    return await axios.fetchData(axiosParams)
+    return await fetchData(axiosParams)
   }
 
   return { call }

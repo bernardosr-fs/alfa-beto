@@ -1,6 +1,6 @@
-export type Responsible = {
+export type ResponsibleDetailedResponse = {
+  id: number
   email: string
-  password: string
   firstName: string
   lastName: string
   cpf: string
