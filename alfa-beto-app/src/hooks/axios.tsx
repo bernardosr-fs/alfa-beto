@@ -1,5 +1,4 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios"
-import { useState } from "react"
+import axios, { AxiosRequestConfig } from "axios"
 
 export const useAxios = () => {
   const fetchData = async (params: AxiosRequestConfig) => {

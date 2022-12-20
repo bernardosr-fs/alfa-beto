@@ -7,16 +7,20 @@ import {
 } from "../../constants"
 import { useAxios } from ".."
 
-export const useCreateGroup = () => {
+export const useEditGroup = () => {
   const { fetchData } = useAxios()
 
   const axiosParams: AxiosRequestConfig = {
     baseURL: BASE_URL.BASE,
-    method: HTTP_METHODS.POST,
-    url: STUDENT_GROUP_ENDPOINTS.POST_NEW_GROUP,
+    method: HTTP_METHODS.PUT,
   }
 
-  const call = async ({ name, description }: RegisterStudentGroupRequest) => {
+  const call = async (
+    groupId: number,
+    { name, description }: RegisterStudentGroupRequest
+  ) => {
+    axiosParams.url = STUDENT_GROUP_ENDPOINTS.EDIT_GROUP + "/" + groupId
+
     axiosParams.data = {
       name: name,
       description: description,

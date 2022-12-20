@@ -3,23 +3,23 @@ import {
   BASE_URL,
   HTTP_METHODS,
   STUDENT_GROUP_ENDPOINTS,
-  RegisterStudentGroupRequest,
+  AddStudentRequest,
 } from "../../constants"
 import { useAxios } from ".."
 
-export const useCreateGroup = () => {
+export const useAddStudentToGroup = () => {
   const { fetchData } = useAxios()
 
   const axiosParams: AxiosRequestConfig = {
     baseURL: BASE_URL.BASE,
     method: HTTP_METHODS.POST,
-    url: STUDENT_GROUP_ENDPOINTS.POST_NEW_GROUP,
+    url: STUDENT_GROUP_ENDPOINTS.ADD_NEW_STUDENT,
   }
 
-  const call = async ({ name, description }: RegisterStudentGroupRequest) => {
+  const call = async ({ studentId, groupId }: AddStudentRequest) => {
     axiosParams.data = {
-      name: name,
-      description: description,
+      studentId: studentId,
+      groupId: groupId,
     }
     return await fetchData(axiosParams)
   }

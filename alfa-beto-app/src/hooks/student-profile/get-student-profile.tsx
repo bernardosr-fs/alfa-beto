@@ -2,20 +2,20 @@ import { AxiosRequestConfig } from "axios"
 import {
   BASE_URL,
   HTTP_METHODS,
-  SEARCH_STUDENT_ENDPOINTS,
+  STUDENT_PROFILE_ENDPOINTS,
 } from "../../constants"
 import { useAxios } from ".."
 
-export const useGetSearchStudent = () => {
+export const useGetStudentProfile = () => {
   const { fetchData } = useAxios()
 
   const axiosParams: AxiosRequestConfig = {
     baseURL: BASE_URL.BASE,
     method: HTTP_METHODS.GET,
+    url: STUDENT_PROFILE_ENDPOINTS.GET_PROFILE,
   }
 
-  const call = async (username: string) => {
-    axiosParams.url = SEARCH_STUDENT_ENDPOINTS.SEARCH_STUDENT + "/" + username
+  const call = async () => {
     return await fetchData(axiosParams)
   }
 

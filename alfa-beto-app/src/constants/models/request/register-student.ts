@@ -1,5 +1,5 @@
-export type RegisterStudent = {
-  username: string
+export type RegisterStudentRequest = {
+  userName: string
   password: string
   confirmPassword: string
   firstName: string

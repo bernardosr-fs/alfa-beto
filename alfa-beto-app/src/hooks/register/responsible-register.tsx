@@ -3,7 +3,7 @@ import {
   BASE_URL,
   HTTP_METHODS,
   REGISTER_ENDPOINTS,
-  ResponsibleRegistrationFormProps,
+  RegisterResponsibleRequest,
 } from "../../constants"
 import { useAxios } from ".."
 
@@ -24,7 +24,7 @@ export const usePostResponsibleRegistration = () => {
     lastName,
     cpf,
     phoneNumber,
-  }: ResponsibleRegistrationFormProps) => {
+  }: RegisterResponsibleRequest) => {
     axiosParams.data = {
       email: email,
       password: password,

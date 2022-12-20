@@ -1,4 +1,4 @@
-export type AddStudent = {
+export type AddStudentRequest = {
   studentId: number
   groupId: number
 }

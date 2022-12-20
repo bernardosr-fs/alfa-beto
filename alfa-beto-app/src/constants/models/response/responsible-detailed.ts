@@ -1,7 +1,6 @@
-export type RegisterResponsibleRequest = {
+export type ResponsibleDetailedResponse = {
+  id: number
   email: string
-  password: string
-  confirmPassword: string
   firstName: string
   lastName: string
   cpf: string

@@ -2,34 +2,32 @@ import { AxiosRequestConfig } from "axios"
 import {
   BASE_URL,
   HTTP_METHODS,
-  REGISTER_ENDPOINTS,
-  RegisterStudentRequest,
+  STUDENT_PROFILE_ENDPOINTS,
+  EditStudentRequest,
 } from "../../constants"
 import { useAxios } from ".."
 
-export const usePostStudentRegistration = () => {
+export const useEditStudentProfile = () => {
   const { fetchData } = useAxios()
 
   const axiosParams: AxiosRequestConfig = {
     baseURL: BASE_URL.BASE,
-    method: HTTP_METHODS.POST,
-    url: REGISTER_ENDPOINTS.STUDENT,
+    method: HTTP_METHODS.PUT,
   }
 
-  const call = async ({
-    userName,
-    password,
-    confirmPassword,
-    firstName,
-    lastName,
-  }: RegisterStudentRequest) => {
+  const call = async (
+    studentId: number,
+    { password, confirmPassword, firstName, lastName }: EditStudentRequest
+  ) => {
+    axiosParams.url = STUDENT_PROFILE_ENDPOINTS.BASE + "/" + studentId
+
     axiosParams.data = {
-      userName: userName,
       password: password,
       confirmPassword: confirmPassword,
       firstName: firstName,
       lastName: lastName,
     }
+
     return await fetchData(axiosParams)
   }
 

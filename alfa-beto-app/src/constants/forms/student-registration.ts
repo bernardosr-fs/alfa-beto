@@ -3,4 +3,5 @@ export type StudentRegistrationFormProps = {
   password: string
   confirmPassword: string
   firstName: string
+  lastName: string
 }

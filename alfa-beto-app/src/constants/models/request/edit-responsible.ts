@@ -1,4 +1,4 @@
-export type EditResponsible = {
+export type EditResponsibleRequest = {
   password: string
   confirmPassword: string
   firstName: string

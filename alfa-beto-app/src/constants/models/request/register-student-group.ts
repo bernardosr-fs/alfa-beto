@@ -1,4 +1,4 @@
-export type RegisterStudentGroup = {
+export type RegisterStudentGroupRequest = {
   name: string
   description: string
 }
