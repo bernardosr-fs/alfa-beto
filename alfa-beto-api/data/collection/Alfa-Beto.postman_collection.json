@@ -771,6 +771,228 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Pegar todos os Exercícios de Português",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/exercise/list/portuguese",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"exercise",
+								"list",
+								"portuguese"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pegar todos os Exercícios de Matemática",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/exercise/list/math",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"exercise",
+								"list",
+								"math"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Iniciar Exercício",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/exercise/1/start",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"exercise",
+								"1",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Finalizar Exercício",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/exercise/attempt/2/finish",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"exercise",
+								"attempt",
+								"2",
+								"finish"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Falhar Exercício",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/exercise/attempt/1/fail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"exercise",
+								"attempt",
+								"1",
+								"fail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pegar todos os Avatares possuídos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/student/profile/customizations/avatars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"profile",
+								"customizations",
+								"avatars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pegar todas as Cores de Perfil possuídas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/student/profile/customizations/profile-colors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"profile",
+								"customizations",
+								"profile-colors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Equipar Personalização",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/student/profile/customizations/1/equip",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"profile",
+								"customizations",
+								"1",
+								"equip"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
