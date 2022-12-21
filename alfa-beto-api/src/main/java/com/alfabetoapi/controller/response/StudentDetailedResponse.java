@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.math.BigInteger;
+import java.util.List;
 
 @Data
 @Builder
@@ -14,4 +15,5 @@ public class StudentDetailedResponse {
     private String lastName;
     private BigInteger coins;
     private boolean firstBond;
+    private List<OwnedCustomizationResponse> equippedCustomizations;
 }

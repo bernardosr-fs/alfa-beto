@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 @Entity
-public class CustomizationStudent {
+public class OwnedCustomization {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

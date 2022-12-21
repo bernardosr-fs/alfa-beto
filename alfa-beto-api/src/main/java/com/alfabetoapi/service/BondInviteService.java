@@ -29,7 +29,8 @@ public class BondInviteService {
     public List<BondInviteResponse> getAllPendingInvites() {
         var student = loginService.getLoggedStudent();
 
-        var bondInvites = bondInviteRepository.findAllByStudent_idAndStatusOrderByDateDesc(student.getId(), BondInviteStatusEnum.PENDING);
+        var bondInvites =
+                bondInviteRepository.findAllByStudent_idAndStatusOrderByDateDesc(student.getId(), BondInviteStatusEnum.PENDING);
 
         return bondInvites.stream().map(BondInviteMapper::toResponse).collect(Collectors.toList());
     }

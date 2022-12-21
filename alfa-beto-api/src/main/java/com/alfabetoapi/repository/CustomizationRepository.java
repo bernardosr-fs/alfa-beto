@@ -10,7 +10,7 @@ import java.util.List;
 public interface CustomizationRepository extends JpaRepository<Customization, Long> {
 
     @Query("SELECT c FROM Customization c "+
-            "WHERE c.id NOT IN (SELECT cs.customization.id FROM CustomizationStudent cs WHERE cs.student.id = ?1)" +
+            "WHERE c.id NOT IN (SELECT oc.customization.id FROM OwnedCustomization oc WHERE oc.student.id = ?1)" +
             "AND c.type = ?2")
     List<Customization> findAllNotOwnedCustomizationsOfType(Long studentId, CustomizationTypeEnum type);
 }

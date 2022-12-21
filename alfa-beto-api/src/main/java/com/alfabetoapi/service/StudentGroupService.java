@@ -7,10 +7,7 @@ import com.alfabetoapi.controller.response.StudentGroupResponse;
 import com.alfabetoapi.mapper.StudentGroupMapper;
 import com.alfabetoapi.mapper.StudentMapper;
 import com.alfabetoapi.model.GroupEntry;
-import com.alfabetoapi.repository.BondRepository;
-import com.alfabetoapi.repository.GroupEntryRepository;
-import com.alfabetoapi.repository.StudentGroupRepository;
-import com.alfabetoapi.repository.StudentRepository;
+import com.alfabetoapi.repository.*;
 import com.alfabetoapi.security.service.LoginService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -31,6 +28,7 @@ public class StudentGroupService {
     private final GroupEntryRepository groupEntryRepository;
     private final BondRepository bondRepository;
     private final StudentRepository studentRepository;
+    private final OwnedCustomizationRepository ownedCustomizationRepository;
 
     public void createGroup(StudentGroupRequest request) {
         var responsible = loginService.getLoggedResponsible();
@@ -93,8 +91,8 @@ public class StudentGroupService {
 
         return students.stream().map(s -> {
             if (firstBondedStudentsIds.contains(s.getId()))
-                return StudentMapper.toDetailedResponse(s, true);
-            return StudentMapper.toDetailedResponse(s, false);
+                return StudentMapper.toDetailedResponse(s, true, ownedCustomizationRepository.findAllByStudent_idAndEquipped(s.getId(),true));
+            return StudentMapper.toDetailedResponse(s, false, ownedCustomizationRepository.findAllByStudent_idAndEquipped(s.getId(),true));
         }).collect(Collectors.toList());
     }
 
@@ -109,7 +107,9 @@ public class StudentGroupService {
         var students = studentRepository.findAllStudentsInGroup(group.getId())
                 .stream().filter(s -> !s.getId().equals(student.getId()));
 
-        return students.map(s -> StudentMapper.toDetailedResponse(s, false)).collect(Collectors.toList());
+        return students.map(s ->
+                StudentMapper.toDetailedResponse(s, false, ownedCustomizationRepository.findAllByStudent_idAndEquipped(s.getId(),true)))
+                .collect(Collectors.toList());
     }
 
     public void editGroup(Long groupId, StudentGroupRequest request) {

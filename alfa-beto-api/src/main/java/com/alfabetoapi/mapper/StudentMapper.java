@@ -3,8 +3,12 @@ package com.alfabetoapi.mapper;
 import com.alfabetoapi.controller.request.StudentRegisterRequest;
 import com.alfabetoapi.controller.response.StudentDetailedResponse;
 import com.alfabetoapi.controller.response.StudentResponse;
+import com.alfabetoapi.model.OwnedCustomization;
 import com.alfabetoapi.model.Student;
 import lombok.experimental.UtilityClass;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @UtilityClass
 public class StudentMapper {
@@ -24,7 +28,7 @@ public class StudentMapper {
                 .build();
     }
 
-    public StudentDetailedResponse toDetailedResponse(Student student, boolean firstBond) {
+    public StudentDetailedResponse toDetailedResponse(Student student, boolean firstBond, List<OwnedCustomization> ownedCustomizations) {
         return StudentDetailedResponse.builder()
                 .id(student.getId())
                 .userName(student.getUserName())
@@ -32,6 +36,8 @@ public class StudentMapper {
                 .lastName(student.getLastName())
                 .coins(student.getCoins())
                 .firstBond(firstBond)
+                .equippedCustomizations
+                        (ownedCustomizations.stream().map(OwnedCustomizationMapper::toResponse).collect(Collectors.toList()))
                 .build();
     }
 }
