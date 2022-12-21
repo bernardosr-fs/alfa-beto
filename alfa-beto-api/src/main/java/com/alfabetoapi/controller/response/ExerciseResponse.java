@@ -1,30 +1,18 @@
-package com.alfabetoapi.model;
+package com.alfabetoapi.controller.response;
 
 import com.alfabetoapi.enums.ExerciseDifficultyEnum;
 import com.alfabetoapi.enums.ExerciseTypeEnum;
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 
-import javax.persistence.*;
 import java.math.BigInteger;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Builder
-@Entity
-public class Exercise {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ExerciseResponse {
     private Long id;
-
     private String name;
-
-    @Enumerated(EnumType.STRING)
     private ExerciseTypeEnum type;
-
-    @Enumerated(EnumType.STRING)
     private ExerciseDifficultyEnum difficulty;
-
     private BigInteger rewardCoins;
 }

@@ -1,9 +1,13 @@
 package com.alfabetoapi.service;
 
 import com.alfabetoapi.controller.request.EditStudentRequest;
+import com.alfabetoapi.controller.response.OwnedCustomizationResponse;
 import com.alfabetoapi.controller.response.StudentDetailedResponse;
+import com.alfabetoapi.enums.CustomizationTypeEnum;
+import com.alfabetoapi.mapper.OwnedCustomizationMapper;
 import com.alfabetoapi.mapper.StudentMapper;
 import com.alfabetoapi.repository.BondRepository;
+import com.alfabetoapi.repository.OwnedCustomizationRepository;
 import com.alfabetoapi.repository.StudentRepository;
 import com.alfabetoapi.security.service.LoginService;
 import com.alfabetoapi.validator.UserValidator;
@@ -12,6 +16,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.Objects.nonNull;
 
 @Service
 @RequiredArgsConstructor
@@ -22,6 +31,7 @@ public class StudentProfileService {
 
     private final StudentRepository studentRepository;
     private final BondRepository bondRepository;
+    private final OwnedCustomizationRepository ownedCustomizationRepository;
 
     private final PasswordEncoder passwordEncoder;
 
@@ -31,7 +41,7 @@ public class StudentProfileService {
     public StudentDetailedResponse getProfile() {
         var student = loginService.getLoggedStudent();
 
-        return StudentMapper.toDetailedResponse(student, false);
+        return StudentMapper.toDetailedResponse(student, false, ownedCustomizationRepository.findAllByStudent_idAndEquipped(student.getId(),true));
     }
 
     public void editProfile(Long studentId, EditStudentRequest request) {
@@ -49,5 +59,35 @@ public class StudentProfileService {
         student.setLastName(request.getLastName());
 
         studentRepository.save(student);
+    }
+
+    public List<OwnedCustomizationResponse> getOwnedCustomizations(CustomizationTypeEnum type) {
+        var student = loginService.getLoggedStudent();
+
+        var ownedCustomizations =
+                ownedCustomizationRepository.findAllByStudent_idAndCustomization_type(student.getId(), type);
+
+        return ownedCustomizations.stream().map(OwnedCustomizationMapper::toResponse).collect(Collectors.toList());
+    }
+
+    public void equipCustomization(Long ownedCustomizationId) {
+        var ownedCustomization = findByIdService.findOwnedCustomization(ownedCustomizationId);
+
+        var student = loginService.getLoggedStudent();
+
+        if (!ownedCustomization.getStudent().getId().equals(student.getId()))
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Essa personalização não é sua.");
+
+        var alreadyEquippedCustomization =
+                ownedCustomizationRepository.findByStudent_idAndCustomization_typeAndEquipped(student.getId(), ownedCustomization.getCustomization().getType(), true);
+
+        if (nonNull(alreadyEquippedCustomization)) {
+            alreadyEquippedCustomization.setEquipped(false);
+            ownedCustomizationRepository.save(alreadyEquippedCustomization);
+        }
+
+        ownedCustomization.setEquipped(true);
+
+        ownedCustomizationRepository.save(ownedCustomization);
     }
 }

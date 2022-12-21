@@ -44,8 +44,8 @@ public class Student {
     private List<ExerciseAttempt> exerciseAttempts;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
-    private List<MedalStudent> medals;
+    private List<OwnedMedal> medals;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
-    private List<CustomizationStudent> customizations;
+    private List<OwnedCustomization> customizations;
 }

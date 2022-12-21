@@ -3,9 +3,9 @@ package com.alfabetoapi.service;
 import com.alfabetoapi.controller.response.CustomizationResponse;
 import com.alfabetoapi.enums.CustomizationTypeEnum;
 import com.alfabetoapi.mapper.CustomizationMapper;
-import com.alfabetoapi.model.CustomizationStudent;
+import com.alfabetoapi.model.OwnedCustomization;
 import com.alfabetoapi.repository.CustomizationRepository;
-import com.alfabetoapi.repository.CustomizationStudentRepository;
+import com.alfabetoapi.repository.OwnedCustomizationRepository;
 import com.alfabetoapi.repository.StudentRepository;
 import com.alfabetoapi.security.service.LoginService;
 import lombok.RequiredArgsConstructor;
@@ -24,14 +24,14 @@ public class ShopService {
     private final FindByIdService findByIdService;
 
     private final CustomizationRepository customizationRepository;
-    private final CustomizationStudentRepository customizationStudentRepository;
+    private final OwnedCustomizationRepository ownedCustomizationRepository;
     private final StudentRepository studentRepository;
 
     public List<CustomizationResponse> getShop(CustomizationTypeEnum type) {
         var student = loginService.getLoggedStudent();
 
-        var customizations = customizationRepository.
-                findAllNotOwnedCustomizationsOfType(student.getId(), type);
+        var customizations =
+                customizationRepository.findAllNotOwnedCustomizationsOfType(student.getId(), type);
 
         return customizations.stream().map(CustomizationMapper::toResponse).collect(Collectors.toList());
     }
@@ -41,7 +41,7 @@ public class ShopService {
 
         var student = loginService.getLoggedStudent();
 
-        if (customizationStudentRepository.existsByStudent_idAndCustomization_id(student.getId(), customization.getId()))
+        if (ownedCustomizationRepository.existsByStudent_idAndCustomization_id(student.getId(), customization.getId()))
             throw new ResponseStatusException(HttpStatus.FOUND, "Você já possui essa personalização.");
 
         if (student.getCoins().compareTo(customization.getPrice()) < 0)
@@ -51,11 +51,11 @@ public class ShopService {
 
         studentRepository.save(student);
 
-        CustomizationStudent customizationStudent = CustomizationStudent.builder()
+        OwnedCustomization ownedCustomization = OwnedCustomization.builder()
                 .student(student)
                 .customization(customization)
                 .build();
 
-        customizationStudentRepository.save(customizationStudent);
+        ownedCustomizationRepository.save(ownedCustomization);
     }
 }
