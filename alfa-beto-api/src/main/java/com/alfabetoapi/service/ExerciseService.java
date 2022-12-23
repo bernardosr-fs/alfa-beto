@@ -25,6 +25,7 @@ public class ExerciseService {
 
     private final LoginService loginService;
     private final FindByIdService findByIdService;
+    private final MedalService medalService;
 
     private final ExerciseRepository exerciseRepository;
     private final ExerciseAttemptRepository exerciseAttemptRepository;
@@ -71,6 +72,8 @@ public class ExerciseService {
         exerciseAttempt.setStatus(ExerciseAttemptStatusEnum.FINISHED);
 
         exerciseAttemptRepository.save(exerciseAttempt);
+
+        medalService.checkForExerciseMedals(student, exerciseAttempt.getExercise().getType());
     }
 
     public void failExercise(Long attemptId) {

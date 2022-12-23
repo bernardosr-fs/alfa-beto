@@ -37,8 +37,8 @@ public class BondService {
 
         return students.stream().map(s -> {
             if (firstBondedStudentsIds.contains(s.getId()))
-                return StudentMapper.toDetailedResponse(s, true, ownedCustomizationRepository.findAllByStudent_idAndEquipped(s.getId(),true));
-            return StudentMapper.toDetailedResponse(s, false, ownedCustomizationRepository.findAllByStudent_idAndEquipped(s.getId(),true));
+                return StudentMapper.toDetailedResponse(s, true);
+            return StudentMapper.toDetailedResponse(s, false);
         }).collect(Collectors.toList());
     }
 
@@ -75,6 +75,7 @@ public class BondService {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Você não pode remover o seu próprio vínculo.");
 
         bondRepository.delete(bond);
+
         groupEntryRepository.deleteAllByStudent_idAndGroup_responsible_id(bond.getStudent().getId(), bond.getResponsible().getId());
     }
 }

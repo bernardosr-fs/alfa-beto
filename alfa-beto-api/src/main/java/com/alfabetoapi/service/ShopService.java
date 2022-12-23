@@ -51,7 +51,7 @@ public class ShopService {
 
         studentRepository.save(student);
 
-        OwnedCustomization ownedCustomization = OwnedCustomization.builder()
+        var ownedCustomization = OwnedCustomization.builder()
                 .student(student)
                 .customization(customization)
                 .build();

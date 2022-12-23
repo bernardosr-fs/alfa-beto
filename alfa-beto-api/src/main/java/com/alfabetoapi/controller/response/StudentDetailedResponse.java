@@ -16,4 +16,5 @@ public class StudentDetailedResponse {
     private BigInteger coins;
     private boolean firstBond;
     private List<OwnedCustomizationResponse> equippedCustomizations;
+    private List<MedalResponse> achievedMedals;
 }

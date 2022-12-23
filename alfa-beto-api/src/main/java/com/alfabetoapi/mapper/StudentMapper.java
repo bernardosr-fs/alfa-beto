@@ -4,6 +4,7 @@ import com.alfabetoapi.controller.request.StudentRegisterRequest;
 import com.alfabetoapi.controller.response.StudentDetailedResponse;
 import com.alfabetoapi.controller.response.StudentResponse;
 import com.alfabetoapi.model.OwnedCustomization;
+import com.alfabetoapi.model.OwnedMedal;
 import com.alfabetoapi.model.Student;
 import lombok.experimental.UtilityClass;
 
@@ -28,7 +29,7 @@ public class StudentMapper {
                 .build();
     }
 
-    public StudentDetailedResponse toDetailedResponse(Student student, boolean firstBond, List<OwnedCustomization> ownedCustomizations) {
+    public StudentDetailedResponse toDetailedResponse(Student student, boolean firstBond) {
         return StudentDetailedResponse.builder()
                 .id(student.getId())
                 .userName(student.getUserName())
@@ -36,8 +37,8 @@ public class StudentMapper {
                 .lastName(student.getLastName())
                 .coins(student.getCoins())
                 .firstBond(firstBond)
-                .equippedCustomizations
-                        (ownedCustomizations.stream().map(OwnedCustomizationMapper::toResponse).collect(Collectors.toList()))
+                .equippedCustomizations(student.getCustomizations().stream().map(OwnedCustomizationMapper::toResponse).collect(Collectors.toList()))
+                .achievedMedals(student.getMedals().stream().map(MedalMapper::toResponse).collect(Collectors.toList()))
                 .build();
     }
 }
