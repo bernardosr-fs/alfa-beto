@@ -54,7 +54,7 @@ public class StudentGroupService {
         if (!groupEntryRepository.existsByStudent_idAndGroup_id(student.getId(), group.getId()))
             throw new ResponseStatusException(HttpStatus.FOUND, "Esse estudante já está nesse grupo.");
 
-        GroupEntry groupEntry = GroupEntry.builder()
+        var groupEntry = GroupEntry.builder()
                 .student(student)
                 .group(group)
                 .build();
@@ -91,8 +91,8 @@ public class StudentGroupService {
 
         return students.stream().map(s -> {
             if (firstBondedStudentsIds.contains(s.getId()))
-                return StudentMapper.toDetailedResponse(s, true, ownedCustomizationRepository.findAllByStudent_idAndEquipped(s.getId(),true));
-            return StudentMapper.toDetailedResponse(s, false, ownedCustomizationRepository.findAllByStudent_idAndEquipped(s.getId(),true));
+                return StudentMapper.toDetailedResponse(s, true);
+            return StudentMapper.toDetailedResponse(s, false);
         }).collect(Collectors.toList());
     }
 
@@ -107,9 +107,7 @@ public class StudentGroupService {
         var students = studentRepository.findAllStudentsInGroup(group.getId())
                 .stream().filter(s -> !s.getId().equals(student.getId()));
 
-        return students.map(s ->
-                StudentMapper.toDetailedResponse(s, false, ownedCustomizationRepository.findAllByStudent_idAndEquipped(s.getId(),true)))
-                .collect(Collectors.toList());
+        return students.map(s -> StudentMapper.toDetailedResponse(s, false)).collect(Collectors.toList());
     }
 
     public void editGroup(Long groupId, StudentGroupRequest request) {

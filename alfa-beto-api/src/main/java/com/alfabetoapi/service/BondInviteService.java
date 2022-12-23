@@ -22,6 +22,7 @@ public class BondInviteService {
 
     private final LoginService loginService;
     private final FindByIdService findByIdService;
+    private final MedalService medalService;
 
     private final BondRepository bondRepository;
     private final BondInviteRepository bondInviteRepository;
@@ -76,6 +77,8 @@ public class BondInviteService {
                 .build();
 
         bondRepository.save(bond);
+
+        medalService.checkForBondMedals(student);
     }
 
     public void recuseInvite(Long inviteId) {

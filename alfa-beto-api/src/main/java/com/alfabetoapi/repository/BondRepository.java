@@ -1,5 +1,7 @@
 package com.alfabetoapi.repository;
 
+import com.alfabetoapi.enums.ExerciseAttemptStatusEnum;
+import com.alfabetoapi.enums.ExerciseTypeEnum;
 import com.alfabetoapi.model.Bond;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -17,4 +19,6 @@ public interface BondRepository extends JpaRepository<Bond, Long> {
     @Query("SELECT b.student.id FROM Bond b "+
             "WHERE b.responsible.id = ?1 AND b.firstBond = true")
     List<Long> findAllFirstBondedStudentsIds(Long responsibleId);
+
+    Long countByStudent_id(Long studentId);
 }

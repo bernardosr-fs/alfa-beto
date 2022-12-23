@@ -19,6 +19,8 @@ public class FindByIdService {
     private final OwnedCustomizationRepository ownedCustomizationRepository;
     private final ExerciseRepository exerciseRepository;
     private final ExerciseAttemptRepository exerciseAttemptRepository;
+    private final MedalRepository medalRepository;
+    private final OwnedMedalRepository ownedMedalRepository;
 
     public Student findStudent(Long id) {
         return studentRepository.findById(id)
@@ -58,5 +60,15 @@ public class FindByIdService {
     public ExerciseAttempt findExerciseAttempt(Long id) {
         return exerciseAttemptRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Não existe uma tentativa de exercício com esse id."));
+    }
+
+    public Medal findMedal(Long id) {
+        return medalRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Não existe uma medalha com esse id."));
+    }
+
+    public OwnedMedal findOwnedMedal(Long id) {
+        return ownedMedalRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Não existe uma medalha com esse id."));
     }
 }

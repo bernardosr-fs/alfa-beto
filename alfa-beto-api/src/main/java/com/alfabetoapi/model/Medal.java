@@ -21,6 +21,6 @@ public class Medal {
     @Enumerated(EnumType.STRING)
     private MedalTypeEnum type;
 
-    private Integer achievingCondition;
+    private Long achievingCondition;
     private String image;
 }
