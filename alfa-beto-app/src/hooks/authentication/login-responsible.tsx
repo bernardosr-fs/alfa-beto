@@ -22,7 +22,7 @@ export const usePostResponsibleAuthentication = () => {
       password: password,
     }
 
-    return fetchData(axiosParams)
+    return fetchData(axiosParams, false)
   }
 
   return { call }

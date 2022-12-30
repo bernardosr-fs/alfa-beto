@@ -21,7 +21,7 @@ export const usePostStudentAuthentication = () => {
       username: username,
       password: password,
     }
-    return await fetchData(axiosParams)
+    return await fetchData(axiosParams, false)
   }
 
   return { call }

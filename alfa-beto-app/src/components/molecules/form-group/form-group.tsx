@@ -6,15 +6,9 @@ type Props = {
   label: string
   inputType: string
   register: UseFormRegister<any>
-  registerName:
-    | "email"
-    | "password"
-    | "confirmPassword"
-    | "firstName"
-    | "lastName"
-    | "cpf"
-    | "phoneNumber"
+  registerName: string
   error: FieldError | undefined
+  disableAutoComplete?: boolean
 }
 
 export const FormGroup = ({
@@ -23,6 +17,7 @@ export const FormGroup = ({
   register,
   registerName,
   error,
+  disableAutoComplete,
 }: Props) => {
   return (
     <div className="form-group">
@@ -31,6 +26,7 @@ export const FormGroup = ({
         type={inputType}
         {...register(registerName)}
         className={`form-control ${error ? "is-invalid" : ""}`}
+        autoComplete={disableAutoComplete ? "off" : "on"}
       />
       <div className="invalid-feedback">{error?.message}</div>
     </div>

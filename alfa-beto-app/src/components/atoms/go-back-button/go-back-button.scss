@@ -1,0 +1,21 @@
+.go-back-button {
+  width: 100px;
+  height: 30px;
+
+  position: absolute;
+
+  left: 20px;
+  top: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 18px;
+  font-family: "FredokaOne";
+
+  z-index: 10;
+
+  background-color: transparent;
+  border: none;
+}

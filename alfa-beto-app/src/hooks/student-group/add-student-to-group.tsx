@@ -21,7 +21,7 @@ export const useAddStudentToGroup = () => {
       studentId: studentId,
       groupId: groupId,
     }
-    return await fetchData(axiosParams)
+    return await fetchData(axiosParams, true)
   }
 
   return { call }

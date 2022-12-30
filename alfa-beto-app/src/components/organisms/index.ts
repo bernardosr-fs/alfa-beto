@@ -1,3 +1,5 @@
 export { LoginForm } from "./login-form/login-form"
+export { CreateNewGroup } from "./create-new-group/create-new-group"
+export { ResponsibleGroupList } from "./responsible-group-list/responsible-group-list"
 export { ResponsibleHomeOptions } from "./responsible-home-options/responsible-home-options"
 export { ResponsibleRegistrationForm } from "./responsible-registration-form/responsible-registration-form"

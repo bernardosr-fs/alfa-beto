@@ -1,9 +1,32 @@
+import {
+  ResponsibleGroupList,
+  Container,
+  CreateNewGroup,
+  GoBackButton,
+} from "../.."
+import {
+  StudentGroupResponse,
+  RegisterStudentGroupRequest,
+  PATHS,
+} from "../../../constants"
 import "./responsible-groups-template.scss"
 
-export const ResponsibleGroupsTemplate = () => {
+type Props = {
+  responsibleGroups: Array<StudentGroupResponse> | undefined
+  onSubmitCreateNewGroup: (payload: RegisterStudentGroupRequest) => void
+}
+
+export const ResponsibleGroupsTemplate = ({
+  responsibleGroups,
+  onSubmitCreateNewGroup,
+}: Props) => {
   return (
-    <div className="responsible-groups">
-      THIS IS THE RESPONSIBLE GROUP SCREEN
+    <div className="responsible-groups-template">
+      <GoBackButton path={PATHS.responsibleHome} />
+      <Container className="responsible-groups-template__container">
+        <CreateNewGroup onSubmitCreateNewGroup={onSubmitCreateNewGroup} />
+        <ResponsibleGroupList responsibleGroups={responsibleGroups} />
+      </Container>
     </div>
   )
 }

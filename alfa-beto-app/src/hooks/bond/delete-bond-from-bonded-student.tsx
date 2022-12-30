@@ -17,7 +17,7 @@ export const useDeleteBondFromBondedStudent = () => {
       bondId +
       BOND_ENDPOINTS.DELETE_BOND_FROM_BONDED_STUDENT
 
-    return fetchData(axiosParams)
+    return fetchData(axiosParams, true)
   }
 
   return { call }
