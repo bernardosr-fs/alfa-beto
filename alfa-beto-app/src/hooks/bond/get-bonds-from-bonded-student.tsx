@@ -17,7 +17,7 @@ export const useGetAllBondsFromBondedStudent = () => {
       studentId +
       BOND_ENDPOINTS.GET_ALL_BONDS_FROM_BONDED_STUDENT
 
-    return fetchData(axiosParams)
+    return fetchData(axiosParams, true)
   }
 
   return { call }

@@ -32,7 +32,7 @@ export const usePutResponsibleProfile = () => {
       cpf: cpf,
       phoneNumber: phoneNumber,
     }
-    return await fetchData(axiosParams)
+    return await fetchData(axiosParams, true)
   }
 
   return { call }

@@ -17,7 +17,7 @@ export const useAcceptInvite = () => {
       inviteId +
       BOND_INVITE_ENDPOINTS.ACCEPT_INVITE
 
-    return fetchData(axiosParams)
+    return fetchData(axiosParams, true)
   }
 
   return { call }

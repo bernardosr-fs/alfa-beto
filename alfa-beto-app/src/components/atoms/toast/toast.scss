@@ -1,0 +1,34 @@
+.toast {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  & span {
+    margin-left: 10px;
+  }
+}
+
+.costum-toast {
+  &--success {
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+
+    background-color: var(--light-blue);
+  }
+
+  &--error {
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+
+    background-color: var(--red);
+  }
+}
+
+.progress-bar {
+  background: var(--white);
+  border-radius: 2px;
+}

@@ -16,7 +16,7 @@ export const useGetStudentProfile = () => {
   }
 
   const call = async () => {
-    return await fetchData(axiosParams)
+    return await fetchData(axiosParams, true)
   }
 
   return { call }

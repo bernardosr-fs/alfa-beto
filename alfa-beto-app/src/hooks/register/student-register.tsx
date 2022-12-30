@@ -30,7 +30,7 @@ export const usePostStudentRegistration = () => {
       firstName: firstName,
       lastName: lastName,
     }
-    return await fetchData(axiosParams)
+    return await fetchData(axiosParams, false)
   }
 
   return { call }

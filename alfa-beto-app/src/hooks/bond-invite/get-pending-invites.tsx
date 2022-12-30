@@ -12,7 +12,7 @@ export const useGetAllPendingInvites = () => {
   }
 
   const call = async () => {
-    return fetchData(axiosParams)
+    return fetchData(axiosParams, true)
   }
 
   return { call }

@@ -16,7 +16,7 @@ export const useGetSearchStudent = () => {
 
   const call = async (username: string) => {
     axiosParams.url = SEARCH_STUDENT_ENDPOINTS.SEARCH_STUDENT + "/" + username
-    return await fetchData(axiosParams)
+    return await fetchData(axiosParams, true)
   }
 
   return { call }

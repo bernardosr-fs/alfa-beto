@@ -21,7 +21,7 @@ export const useGetStudentsInGroupFromResponsible = () => {
       groupId +
       STUDENT_GROUP_ENDPOINTS.GET_ALL_STUDENTS_FROM_GROUP
 
-    return await fetchData(axiosParams)
+    return await fetchData(axiosParams, true)
   }
 
   return { call }

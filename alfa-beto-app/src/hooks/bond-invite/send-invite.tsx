@@ -14,7 +14,7 @@ export const useSendInvite = () => {
     axiosParams.url =
       BOND_INVITE_ENDPOINTS.GET_ALL_PENDING_INVITES + "/" + studentId
 
-    return fetchData(axiosParams)
+    return fetchData(axiosParams, true)
   }
 
   return { call }

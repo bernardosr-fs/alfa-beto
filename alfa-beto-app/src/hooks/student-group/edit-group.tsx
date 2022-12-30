@@ -25,7 +25,7 @@ export const useEditGroup = () => {
       name: name,
       description: description,
     }
-    return await fetchData(axiosParams)
+    return await fetchData(axiosParams, true)
   }
 
   return { call }

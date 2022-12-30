@@ -12,7 +12,7 @@ export const useGetAllBondedStudents = () => {
   }
 
   const call = async () => {
-    return fetchData(axiosParams)
+    return fetchData(axiosParams, true)
   }
 
   return { call }

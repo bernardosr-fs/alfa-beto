@@ -17,7 +17,7 @@ export const useRecuseInvite = () => {
       inviteId +
       BOND_INVITE_ENDPOINTS.RECUSE_INVITE
 
-    return fetchData(axiosParams)
+    return fetchData(axiosParams, true)
   }
 
   return { call }

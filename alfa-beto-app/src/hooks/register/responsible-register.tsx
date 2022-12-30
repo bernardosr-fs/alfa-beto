@@ -34,7 +34,7 @@ export const usePostResponsibleRegistration = () => {
       cpf: cpf,
       phoneNumber: phoneNumber,
     }
-    return await fetchData(axiosParams)
+    return await fetchData(axiosParams, false)
   }
 
   return { call }
