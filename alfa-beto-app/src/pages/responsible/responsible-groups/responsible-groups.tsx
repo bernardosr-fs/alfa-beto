@@ -1,10 +1,10 @@
-import { useCreateGroup, useGetResponsibleGroups } from "../../hooks"
-import { ResponsibleGroupsTemplate, showToast } from "../../components"
+import { useCreateGroup, useGetResponsibleGroups } from "../../../hooks"
+import { ResponsibleGroupsTemplate, showToast } from "../../../components"
 import { useEffect, useState } from "react"
 import {
   RegisterStudentGroupRequest,
   StudentGroupResponse,
-} from "../../constants"
+} from "../../../constants"
 
 export const ResponsibleGroups = () => {
   const getResponsibleGroups = useGetResponsibleGroups()

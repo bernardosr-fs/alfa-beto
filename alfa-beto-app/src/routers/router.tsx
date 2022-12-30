@@ -1,7 +1,7 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom"
 import { PATHS } from "../constants"
 import {
-  Home,
+  ResponsibleHome,
   InitialSelection,
   Login,
   NotFound,
@@ -55,7 +55,7 @@ export const Router = (): JSX.Element => {
             <ProtectedRoute>
               <>
                 {renderToastContainer()}
-                <Home />
+                <ResponsibleHome />
               </>
             </ProtectedRoute>
           }

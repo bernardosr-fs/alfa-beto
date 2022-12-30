@@ -1,5 +1,5 @@
-import { Container, ResponsibleRegistrationForm } from "../../index"
-import { ResponsibleRegistrationFormProps } from "../../../constants"
+import { Container, ResponsibleRegistrationForm } from "../../../index"
+import { ResponsibleRegistrationFormProps } from "../../../../constants"
 
 import "./responsible-registration-template.scss"
 

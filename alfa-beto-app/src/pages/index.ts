@@ -1,6 +1,4 @@
-export { Home } from "./home/home"
 export { Login } from "./login/login"
 export { NotFound } from "./not-found/not-found"
 export { InitialSelection } from "./initial-selection/initial-selection"
-export { ResponsibleGroups } from "./responsible-groups/responsible-groups"
-export { ResponsibleRegistration } from "./responsible-registration/responsible-registration"
+export * from "./responsible"

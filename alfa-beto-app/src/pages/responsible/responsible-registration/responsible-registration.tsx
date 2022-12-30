@@ -1,7 +1,7 @@
 import React from "react"
-import { ResponsibleRegistrationFormProps } from "../../constants"
-import { usePostResponsibleRegistration } from "../../hooks"
-import { ResponsibleRegistrationTemplate } from "../../components"
+import { ResponsibleRegistrationFormProps } from "../../../constants"
+import { usePostResponsibleRegistration } from "../../../hooks"
+import { ResponsibleRegistrationTemplate } from "../../../components"
 
 export const ResponsibleRegistration = () => {
   const postResponsibleRegistration = usePostResponsibleRegistration()
