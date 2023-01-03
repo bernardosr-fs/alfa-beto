@@ -37,8 +37,13 @@ public class StudentMapper {
                 .lastName(student.getLastName())
                 .coins(student.getCoins())
                 .firstBond(firstBond)
-                .equippedCustomizations(student.getCustomizations().stream().map(OwnedCustomizationMapper::toResponse).collect(Collectors.toList()))
-                .achievedMedals(student.getMedals().stream().map(MedalMapper::toResponse).collect(Collectors.toList()))
+                .equippedCustomizations(student.getCustomizations().stream()
+                        .filter(OwnedCustomization::isEquipped)
+                        .map(OwnedCustomizationMapper::toResponse)
+                        .collect(Collectors.toList()))
+                .achievedMedals(student.getMedals().stream()
+                        .map(MedalMapper::toResponse)
+                        .collect(Collectors.toList()))
                 .build();
     }
 }
