@@ -1,7 +1,7 @@
 export type StudentGroupResponse = {
   id: number
   name: string
-  description: number
+  description: string
   responsibleFirstName: string
   responsibleLastName: string
 }

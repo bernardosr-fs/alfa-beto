@@ -6,4 +6,5 @@ export enum PATHS {
   studentHome = "/pagina-inicial/estudante",
   responsibleGroups = "/responsavel/grupos",
   studentGroups = "/estudante/grupos",
+  groupDetails = "/responsavel/groupo/detalhes",
 }

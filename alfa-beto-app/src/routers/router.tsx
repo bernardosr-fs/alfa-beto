@@ -7,6 +7,7 @@ import {
   NotFound,
   ResponsibleGroups,
   ResponsibleRegistration,
+  ResponsibleGroupDetails,
 } from "../pages"
 import { ProtectedRoute } from "./protected-route"
 import { ToastContainer } from "react-toastify"
@@ -67,6 +68,17 @@ export const Router = (): JSX.Element => {
               <>
                 {renderToastContainer()}
                 <ResponsibleGroups />
+              </>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={PATHS.groupDetails}
+          element={
+            <ProtectedRoute>
+              <>
+                {renderToastContainer()}
+                <ResponsibleGroupDetails />
               </>
             </ProtectedRoute>
           }
