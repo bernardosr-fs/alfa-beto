@@ -51,7 +51,7 @@ public class StudentGroupService {
         if (!group.getResponsible().getId().equals(responsible.getId()))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Esse grupo não é seu.");
 
-        if (!groupEntryRepository.existsByStudent_idAndGroup_id(student.getId(), group.getId()))
+        if (groupEntryRepository.existsByStudent_idAndGroup_id(student.getId(), group.getId()))
             throw new ResponseStatusException(HttpStatus.FOUND, "Esse estudante já está nesse grupo.");
 
         var groupEntry = GroupEntry.builder()
