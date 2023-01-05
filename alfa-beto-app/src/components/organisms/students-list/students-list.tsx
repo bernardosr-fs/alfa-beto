@@ -1,4 +1,5 @@
-import { GroupCard } from "../.."
+import { useState } from "react"
+import { GroupCard, StudentAccordion } from "../.."
 import { StudentDetailedResponse } from "../../../constants"
 import "./students-list.scss"
 
@@ -7,9 +8,19 @@ type Props = {
 }
 
 export const StudentsList = ({ students }: Props) => {
+  const [selected, setSelected] = useState<number | null>(null)
+
   const renderStudents = () => {
-    return students?.map((student) => {
-      return <p>{student.firstName}</p>
+    return students?.map((student, index) => {
+      return (
+        <StudentAccordion
+          key={index}
+          student={student}
+          index={index}
+          selected={selected}
+          setSelected={setSelected}
+        />
+      )
     })
   }
   return (

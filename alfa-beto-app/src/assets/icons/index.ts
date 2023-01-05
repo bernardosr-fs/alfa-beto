@@ -1,3 +1,5 @@
 export { default as check } from "./check"
 export { default as error } from "./error"
 export { default as arrowLeft } from "./arrow-left"
+export { default as chevronUp } from "./chevron-up"
+export { default as chevronDown } from "./chevron-down"
