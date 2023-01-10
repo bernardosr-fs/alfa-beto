@@ -17,7 +17,8 @@ export const StudentAccordion = ({
   selected,
   setSelected,
 }: Props) => {
-  const { id, userName, firstName, lastName, coins, firstBond } = student
+  const { firstName, lastName, coins, achievedMedals, equippedCustomizations } =
+    student
 
   const toggle = (index: number) => {
     if (selected === index) {
@@ -29,7 +30,7 @@ export const StudentAccordion = ({
   return (
     <div className="student-accordion--item">
       <div className="student-accordion--name" onClick={() => toggle(index)}>
-        {`${firstName} ${lastName ? lastName : ""}`}
+        {`${firstName} ${lastName ?? ""}`}
         <Icon
           name="chevronUp"
           className={
@@ -44,7 +45,13 @@ export const StudentAccordion = ({
           selected === index ? "student-accordion--content--show" : ""
         }`}
       >
-        <span>Moedas: {coins}</span>
+        <span className="coins">Moedas: {coins}</span>
+        <div className="medals">
+          Medalhas
+          {achievedMedals?.map((medal) => (
+            <span>{medal.name}</span>
+          ))}
+        </div>
       </div>
     </div>
   )

@@ -9,19 +9,24 @@ import {
   StudentDetailedResponse,
   StudentGroupResponse,
   RegisterStudentGroupRequest,
+  AddStudentRequest,
 } from "../../../../constants"
 import "./responsible-group-details.scss"
 
 type Props = {
-  students: Array<StudentDetailedResponse> | undefined
+  studentsFromGroup: Array<StudentDetailedResponse> | undefined
+  studentsAvaibleToAddToGroup: Array<StudentDetailedResponse> | undefined
   group: StudentGroupResponse
   onSubmitEditGroupDetails: (payload: RegisterStudentGroupRequest) => void
+  onAddStudentToGroup: (payload: AddStudentRequest) => void
 }
 
 export const ResponsibleGroupDetailsTemplate = ({
-  students,
+  studentsFromGroup,
+  studentsAvaibleToAddToGroup,
   group,
   onSubmitEditGroupDetails,
+  onAddStudentToGroup,
 }: Props) => {
   return (
     <div className="responsible-group-details">
@@ -31,7 +36,13 @@ export const ResponsibleGroupDetailsTemplate = ({
           group={group}
           onSubmitEditGroupDetails={onSubmitEditGroupDetails}
         />
-        <StudentsList students={students} />
+        <StudentsList
+          studentsFromGroup={studentsFromGroup}
+          studentsAvaibleToAddToGroup={studentsAvaibleToAddToGroup}
+          onAddStudentToGroup={onAddStudentToGroup}
+          shouldRenderAddStudentButton={true}
+          groupId={group.id}
+        />
       </Container>
     </div>
   )

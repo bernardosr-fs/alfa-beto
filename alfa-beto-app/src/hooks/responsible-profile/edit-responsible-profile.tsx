@@ -3,8 +3,8 @@ import {
   BASE_URL,
   HTTP_METHODS,
   RESPONSIBLE_PROFILE_ENDPOINTS,
+  EditResponsibleRequest,
 } from "../../constants"
-import { EditResponsibleRequest } from "../../models"
 import { useAxios } from ".."
 
 export const usePutResponsibleProfile = () => {

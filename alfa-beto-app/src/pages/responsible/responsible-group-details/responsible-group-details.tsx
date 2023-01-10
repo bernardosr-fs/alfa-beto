@@ -1,14 +1,13 @@
 import {
   useEditGroup,
   useGetStudentsInGroupFromResponsible,
+  useAddStudentToGroup,
+  useGetAllBondedStudents,
 } from "../../../hooks"
-import {
-  ResponsibleGroupDetailsTemplate,
-  ResponsibleGroupsTemplate,
-  showToast,
-} from "../../../components"
+import { ResponsibleGroupDetailsTemplate, showToast } from "../../../components"
 import { useEffect, useState } from "react"
 import {
+  AddStudentRequest,
   RegisterStudentGroupRequest,
   StudentDetailedResponse,
 } from "../../../constants"
@@ -19,6 +18,8 @@ export const ResponsibleGroupDetails = () => {
   const getStudentsInGroupFromResponsible =
     useGetStudentsInGroupFromResponsible()
   const editGroup = useEditGroup()
+  const addStudentToGroup = useAddStudentToGroup()
+  const getAllBondedStudents = useGetAllBondedStudents()
 
   const { id, name, description, responsibleFirstName, responsibleLastName } =
     location.state
@@ -30,18 +31,42 @@ export const ResponsibleGroupDetails = () => {
     responsibleLastName,
   }
 
-  const [students, setStudents] = useState<Array<StudentDetailedResponse>>()
+  const [studentsFromGroup, setStudentsFromGroup] =
+    useState<Array<StudentDetailedResponse>>()
+
+  const [studentsAvaibleToAddToGroup, setStudentsAvaibleToAddToGroup] =
+    useState<Array<StudentDetailedResponse>>()
 
   useEffect(() => {
     const callGetGroupStudents = async () => {
       const { call } = getStudentsInGroupFromResponsible
       const { response, error } = await call(id)
       if (response && !error) {
-        setStudents(response?.data)
+        setStudentsFromGroup(response?.data)
       }
     }
     callGetGroupStudents()
   }, [])
+
+  useEffect(() => {
+    const callGetBondedStudents = async () => {
+      const { call } = getAllBondedStudents
+      const { response, error } = await call()
+      if (response && !error) {
+        setStudentsAvaibleToAddToGroup(response.data)
+      }
+    }
+    callGetBondedStudents()
+  }, [])
+
+  const filterStudentThatAreNotInGroup = () => {
+    return studentsAvaibleToAddToGroup?.filter(
+      (student) =>
+        !studentsFromGroup?.find(
+          (studentFromGroup) => studentFromGroup.id === student.id
+        )
+    )
+  }
 
   const onSubmitEditGroupDetails = async (
     payload: RegisterStudentGroupRequest
@@ -57,11 +82,25 @@ export const ResponsibleGroupDetails = () => {
     }
   }
 
+  const onAddStudentToGroup = async (payload: AddStudentRequest) => {
+    const { call } = addStudentToGroup
+
+    const { response, error } = await call(payload)
+
+    if (response && !error) {
+      showToast("success", "Estudante adicionado com sucesso!", "check")
+    } else {
+      showToast("error", "Erro ao adicionar estudante", "error")
+    }
+  }
+
   return (
     <ResponsibleGroupDetailsTemplate
-      students={students}
+      studentsFromGroup={studentsFromGroup}
+      studentsAvaibleToAddToGroup={filterStudentThatAreNotInGroup()}
       group={group}
       onSubmitEditGroupDetails={onSubmitEditGroupDetails}
+      onAddStudentToGroup={onAddStudentToGroup}
     />
   )
 }
