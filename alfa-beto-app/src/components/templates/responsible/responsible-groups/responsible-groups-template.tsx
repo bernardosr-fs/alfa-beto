@@ -3,12 +3,12 @@ import {
   Container,
   CreateNewGroup,
   GoBackButton,
-} from "../.."
+} from "../../.."
 import {
   StudentGroupResponse,
   RegisterStudentGroupRequest,
   PATHS,
-} from "../../../constants"
+} from "../../../../constants"
 import "./responsible-groups-template.scss"
 
 type Props = {

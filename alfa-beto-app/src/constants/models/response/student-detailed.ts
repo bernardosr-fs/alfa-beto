@@ -1,3 +1,5 @@
+import { MedalResponse, OwnedCustomizationResponse } from "."
+
 export type StudentDetailedResponse = {
   id: number
   userName: string
@@ -5,4 +7,6 @@ export type StudentDetailedResponse = {
   lastName: string
   coins: number
   firstBond: boolean
+  equippedCustomizations: Array<OwnedCustomizationResponse>
+  achievedMedals: Array<MedalResponse>
 }

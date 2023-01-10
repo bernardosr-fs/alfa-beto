@@ -1,0 +1,41 @@
+.edit-group-details {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 75px 0 20px 0;
+
+  &--form {
+    width: 100%;
+    height: 200px;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &--name {
+      border: none;
+    }
+
+    &--description {
+      border: none;
+    }
+  }
+
+  & input {
+    border: none;
+  }
+
+  & button {
+    width: 50px;
+    height: 50px;
+    border: none;
+
+    top: 0;
+    right: 0;
+
+    position: absolute;
+  }
+}

@@ -1,6 +1,6 @@
 import { PATHS, ResponsibleLoginFormProps } from "../../constants"
 import { useLocalStorage, usePostResponsibleAuthentication } from "../../hooks"
-import { LoginTemplate } from "../../components"
+import { LoginTemplate, showToast } from "../../components"
 import { useNavigate } from "react-router-dom"
 
 export const Login = () => {
@@ -15,6 +15,8 @@ export const Login = () => {
       const token = localStorage.getHeader(response, "X-Auth-Token")
       localStorage.save("token", token)
       navigate(PATHS.responsibleHome)
+    } else {
+      showToast("error", "Usuário ou senha incorreto(s).", "error")
     }
   }
 

@@ -13,16 +13,24 @@
   margin-top: auto;
   margin-bottom: auto;
 
-  padding: 30px 20px;
+  padding: 50px 20px;
 
   background-color: var(--white);
   border: 1px solid var(--black);
   border-radius: 5px;
 
   .close-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     position: absolute;
     top: 20px;
     right: 20px;
+
+    background: none;
+    border: none;
+    padding: 0;
   }
 }
 

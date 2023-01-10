@@ -1,4 +1,5 @@
 import { Dispatch, ReactNode, SetStateAction } from "react"
+import { Icon } from ".."
 import "./modal.scss"
 
 type Props = {
@@ -20,8 +21,7 @@ export const Modal = ({
         className="close-button"
         onClick={() => setMustShowModal(!mustShow)}
       >
-        {" "}
-        X{" "}
+        <Icon name="xCircle" />
       </button>
       {children}
     </div>

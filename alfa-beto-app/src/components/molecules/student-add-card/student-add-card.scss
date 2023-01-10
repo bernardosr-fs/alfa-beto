@@ -1,0 +1,23 @@
+.student-add-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--black);
+  border-radius: 4px;
+  padding: 10px;
+
+  & button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  & button:disabled {
+    opacity: 0.5;
+  }
+}

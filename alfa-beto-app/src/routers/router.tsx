@@ -1,12 +1,13 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom"
 import { PATHS } from "../constants"
 import {
-  Home,
+  ResponsibleHome,
   InitialSelection,
   Login,
   NotFound,
   ResponsibleGroups,
   ResponsibleRegistration,
+  ResponsibleGroupDetails,
 } from "../pages"
 import { ProtectedRoute } from "./protected-route"
 import { ToastContainer } from "react-toastify"
@@ -55,7 +56,7 @@ export const Router = (): JSX.Element => {
             <ProtectedRoute>
               <>
                 {renderToastContainer()}
-                <Home />
+                <ResponsibleHome />
               </>
             </ProtectedRoute>
           }
@@ -67,6 +68,17 @@ export const Router = (): JSX.Element => {
               <>
                 {renderToastContainer()}
                 <ResponsibleGroups />
+              </>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={PATHS.groupDetails}
+          element={
+            <ProtectedRoute>
+              <>
+                {renderToastContainer()}
+                <ResponsibleGroupDetails />
               </>
             </ProtectedRoute>
           }
