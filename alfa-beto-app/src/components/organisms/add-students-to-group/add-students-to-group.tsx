@@ -21,6 +21,7 @@ export const AddStudentToGroup = ({
       return students?.map((student, index) => {
         return (
           <StudentAddCard
+            addType="group"
             key={index}
             groupId={groupId}
             student={student}

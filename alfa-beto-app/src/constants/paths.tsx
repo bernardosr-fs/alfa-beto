@@ -7,4 +7,6 @@ export enum PATHS {
   responsibleGroups = "/responsavel/grupos",
   studentGroups = "/estudante/grupos",
   groupDetails = "/responsavel/groupo/detalhes",
+  bondedStudentsFromResponsible = "/responsavel/estudantes-vinculados",
+  studentProfile = "/estudante/perfil",
 }

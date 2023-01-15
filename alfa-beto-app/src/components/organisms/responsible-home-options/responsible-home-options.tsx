@@ -17,8 +17,9 @@ const options = [
 export const ResponsibleHomeOptions = () => {
   return (
     <div className="responsible-home-options">
-      {options.map((option) => (
+      {options.map((option, index) => (
         <HomeOptionButton
+          key={index}
           name={option.name}
           redirectPath={option.redirectPath}
           icon={option.icon}

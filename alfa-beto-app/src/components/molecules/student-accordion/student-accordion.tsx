@@ -1,6 +1,7 @@
 import { SetStateAction, Dispatch } from "react"
+import { useNavigate } from "react-router-dom"
 import { Icon } from "../.."
-import { StudentDetailedResponse } from "../../../constants"
+import { PATHS, StudentDetailedResponse } from "../../../constants"
 
 import "./student-accordion.scss"
 
@@ -9,6 +10,7 @@ type Props = {
   student: StudentDetailedResponse
   selected: number | null
   setSelected: Dispatch<SetStateAction<number | null>>
+  redirectPath?: PATHS
 }
 
 export const StudentAccordion = ({
@@ -16,9 +18,10 @@ export const StudentAccordion = ({
   student,
   selected,
   setSelected,
+  redirectPath,
 }: Props) => {
-  const { firstName, lastName, coins, achievedMedals, equippedCustomizations } =
-    student
+  const navigate = useNavigate()
+  const { firstName, lastName, coins, achievedMedals } = student
 
   const toggle = (index: number) => {
     if (selected === index) {
@@ -27,10 +30,20 @@ export const StudentAccordion = ({
     setSelected(index)
   }
 
+  const handleCardClick = () => {
+    if (redirectPath) {
+      navigate(redirectPath, {
+        state: student,
+      })
+    }
+  }
+
   return (
     <div className="student-accordion--item">
       <div className="student-accordion--name" onClick={() => toggle(index)}>
-        {`${firstName} ${lastName ?? ""}`}
+        <span onClick={handleCardClick}>
+          {`${firstName} ${lastName ?? ""}`}
+        </span>
         <Icon
           name="chevronUp"
           className={
@@ -49,7 +62,7 @@ export const StudentAccordion = ({
         <div className="medals">
           Medalhas
           {achievedMedals?.map((medal) => (
-            <span>{medal.name}</span>
+            <span key={medal.id}>{medal.name}</span>
           ))}
         </div>
       </div>

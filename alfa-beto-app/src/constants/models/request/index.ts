@@ -1,5 +1,6 @@
 export * from "./add-student"
 export * from "./edit-student"
+export * from "./search-student"
 export * from "./register-student"
 export * from "./edit-responsible"
 export * from "./register-responsible"

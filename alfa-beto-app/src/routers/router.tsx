@@ -8,6 +8,8 @@ import {
   ResponsibleGroups,
   ResponsibleRegistration,
   ResponsibleGroupDetails,
+  ResponsibleStudents,
+  StudentProfile,
 } from "../pages"
 import { ProtectedRoute } from "./protected-route"
 import { ToastContainer } from "react-toastify"
@@ -79,6 +81,28 @@ export const Router = (): JSX.Element => {
               <>
                 {renderToastContainer()}
                 <ResponsibleGroupDetails />
+              </>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={PATHS.bondedStudentsFromResponsible}
+          element={
+            <ProtectedRoute>
+              <>
+                {renderToastContainer()}
+                <ResponsibleStudents />
+              </>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={PATHS.studentProfile}
+          element={
+            <ProtectedRoute>
+              <>
+                {renderToastContainer()}
+                <StudentProfile />
               </>
             </ProtectedRoute>
           }
