@@ -1,5 +1,6 @@
 export { default as check } from "./check"
 export { default as error } from "./error"
+export { default as trash } from "./trash"
 export { default as search } from "./search"
 export { default as xCircle } from "./error"
 export { default as userPlus } from "./user-plus"

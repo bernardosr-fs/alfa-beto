@@ -1,7 +1,8 @@
 import { SetStateAction, Dispatch } from "react"
 import { useNavigate } from "react-router-dom"
-import { Icon } from "../.."
+import { Avatar, Icon } from "../.."
 import { PATHS, StudentDetailedResponse } from "../../../constants"
+import { getAvatarName } from "../../../utils"
 
 import "./student-accordion.scss"
 
@@ -21,7 +22,8 @@ export const StudentAccordion = ({
   redirectPath,
 }: Props) => {
   const navigate = useNavigate()
-  const { firstName, lastName, coins, achievedMedals } = student
+  const { firstName, lastName, coins, achievedMedals, equippedCustomizations } =
+    student
 
   const toggle = (index: number) => {
     if (selected === index) {
@@ -41,9 +43,15 @@ export const StudentAccordion = ({
   return (
     <div className="student-accordion--item">
       <div className="student-accordion--name" onClick={() => toggle(index)}>
-        <span onClick={handleCardClick}>
-          {`${firstName} ${lastName ?? ""}`}
-        </span>
+        <div className="student-accordion--avatar-and-name">
+          <Avatar
+            className="student-accordion--avatar"
+            name={getAvatarName(equippedCustomizations)}
+          />
+          <span onClick={handleCardClick}>
+            {`${firstName} ${lastName ?? ""}`}
+          </span>
+        </div>
         <Icon
           name="chevronUp"
           className={

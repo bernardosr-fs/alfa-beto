@@ -1,0 +1,24 @@
+.avatar {
+  width: 220px;
+  height: 220px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid rgba(140, 47, 251, 1);
+
+  background: rgb(28, 0, 41);
+  background: linear-gradient(
+    310deg,
+    rgba(28, 0, 41, 1) 0%,
+    rgba(140, 47, 251, 1) 85%,
+    rgba(237, 62, 255, 1) 100%
+  );
+  border-radius: 220px;
+
+  img {
+    max-width: 150px;
+    max-height: 150px;
+  }
+}

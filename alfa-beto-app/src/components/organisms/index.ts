@@ -6,4 +6,5 @@ export { AddStudentToGroup } from "./add-students-to-group/add-students-to-group
 export { ResponsibleGroupList } from "./responsible-group-list/responsible-group-list"
 export { ResponsibleHomeOptions } from "./responsible-home-options/responsible-home-options"
 export { SendBondInviteToStudent } from "./send-bond-invite-to-student/send-bond-invite-to-student"
+export { BondedResponsiblesSection } from "./bonded-responsibles-section/bonded-responsibles-section"
 export { ResponsibleRegistrationForm } from "./responsible-registration-form/responsible-registration-form"
