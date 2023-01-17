@@ -1,6 +1,7 @@
 export { GroupCard } from "./group-card/group-card"
 export { FormGroup } from "./form-group/form-group"
 export { StudentAddCard } from "./student-add-card/student-add-card"
+export { ResponsibleCard } from "./responsible-card/responsible-card"
 export { StudentAccordion } from "./student-accordion/student-accordion"
 export { HomeOptionButton } from "./home-option-button/home-option-button"
 export { CardInitialSelection } from "./card-initial-selection/card-initial-selection"

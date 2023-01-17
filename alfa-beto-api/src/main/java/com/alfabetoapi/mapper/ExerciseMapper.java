@@ -14,6 +14,7 @@ public class ExerciseMapper {
                 .type(exercise.getType())
                 .difficulty(exercise.getDifficulty())
                 .rewardCoins(exercise.getRewardCoins())
+                .errorsPermitted(exercise.getErrorsPermitted())
                 .build();
     }
 }

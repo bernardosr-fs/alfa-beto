@@ -11,8 +11,7 @@ export const useSendInvite = () => {
   }
 
   const call = async (studentId: number) => {
-    axiosParams.url =
-      BOND_INVITE_ENDPOINTS.GET_ALL_PENDING_INVITES + "/" + studentId
+    axiosParams.url = BOND_INVITE_ENDPOINTS.SEND_INVITE + "/" + studentId
 
     return fetchData(axiosParams, true)
   }

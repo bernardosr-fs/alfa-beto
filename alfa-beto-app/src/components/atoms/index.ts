@@ -1,5 +1,6 @@
 export { Icon } from "./icon/icon"
 export { Modal } from "./modal/modal"
+export { Avatar } from "./avatar/avatar"
 export { Banner } from "./banner/banner"
 export { showToast } from "./toast/toast"
 export { Container } from "./container/container"

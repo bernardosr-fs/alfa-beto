@@ -65,6 +65,7 @@ public class ExerciseService {
         if (!exerciseAttempt.getStatus().equals(ExerciseAttemptStatusEnum.STARTED))
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Essa tentativa de exercício já foi finalizada ou falhada.");
 
+        student.incrementExercisesDone(exerciseAttempt.getExercise().getDifficulty());
         student.setCoins(student.getCoins().add(exerciseAttempt.getExercise().getRewardCoins()));
 
         studentRepository.save(student);

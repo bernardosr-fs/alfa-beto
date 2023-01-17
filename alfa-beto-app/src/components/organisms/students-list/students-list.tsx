@@ -1,22 +1,39 @@
 import { useState } from "react"
-import { StudentAccordion, AddStudentToGroup } from "../.."
-import { StudentDetailedResponse, AddStudentRequest } from "../../../constants"
+import {
+  StudentAccordion,
+  AddStudentToGroup,
+  SendBondInviteToStudent,
+} from "../.."
+import {
+  StudentDetailedResponse,
+  AddStudentRequest,
+  StudentResponse,
+  SearchStudentRequest,
+  PATHS,
+} from "../../../constants"
 import "./students-list.scss"
 
 type Props = {
-  studentsFromGroup: Array<StudentDetailedResponse> | undefined
-  studentsAvaibleToAddToGroup: Array<StudentDetailedResponse> | undefined
-  onAddStudentToGroup: (payload: AddStudentRequest) => void
+  studentToSendInvite?: StudentResponse
+  studentsFromGroup?: Array<StudentDetailedResponse>
+  studentsAvaibleToAddToGroup?: Array<StudentDetailedResponse>
+  onAddStudentToGroup?: (payload: AddStudentRequest) => void
+  onSendStudentBondInvite?: (id: number) => void
+  onSearchStudent?: (payload: SearchStudentRequest) => void
   shouldRenderAddStudentButton: boolean
-  groupId: number
+  groupId?: number
+  redirectOnClick?: boolean
 }
 
 export const StudentsList = ({
+  studentToSendInvite,
   studentsFromGroup,
-  studentsAvaibleToAddToGroup,
+  studentsAvaibleToAddToGroup = undefined,
   onAddStudentToGroup,
-  shouldRenderAddStudentButton,
-  groupId,
+  onSendStudentBondInvite,
+  onSearchStudent,
+  shouldRenderAddStudentButton = false,
+  groupId = 0,
 }: Props) => {
   const [selected, setSelected] = useState<number | null>(null)
 
@@ -25,26 +42,47 @@ export const StudentsList = ({
       return studentsFromGroup?.map((student, index) => {
         return (
           <StudentAccordion
-            key={index}
+            key={student.id}
             student={student}
             index={index}
             selected={selected}
             setSelected={setSelected}
+            redirectPath={
+              onSendStudentBondInvite && onSearchStudent
+                ? PATHS.studentProfile
+                : undefined
+            }
           />
         )
       })
     }
   }
+
+  const renderButton = () => {
+    if (shouldRenderAddStudentButton) {
+      if (groupId && onAddStudentToGroup) {
+        return (
+          <AddStudentToGroup
+            groupId={groupId}
+            students={studentsAvaibleToAddToGroup}
+            onAddStudentToGroup={onAddStudentToGroup}
+          />
+        )
+      } else if (onSendStudentBondInvite && onSearchStudent) {
+        return (
+          <SendBondInviteToStudent
+            student={studentToSendInvite}
+            onAddStudent={onSendStudentBondInvite}
+            onSearchStudent={onSearchStudent}
+          />
+        )
+      }
+    }
+  }
   return (
     <div className="student-list">
       <h3>Estudantes</h3>
-      {shouldRenderAddStudentButton && (
-        <AddStudentToGroup
-          groupId={groupId}
-          students={studentsAvaibleToAddToGroup}
-          onAddStudentToGroup={onAddStudentToGroup}
-        />
-      )}
+      {renderButton()}
       {renderStudents() ??
         "Parece que não há nenhum estudante neste grupo ainda!"}
     </div>
