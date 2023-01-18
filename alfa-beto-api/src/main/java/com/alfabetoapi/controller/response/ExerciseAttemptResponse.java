@@ -15,5 +15,6 @@ public class ExerciseAttemptResponse {
     private ExerciseTypeEnum type;
     private ExerciseDifficultyEnum difficulty;
     private BigInteger rewardCoins;
+    private Long errorsPermitted;
     private Long exerciseAttemptId;
 }

@@ -1,5 +1,6 @@
 package com.alfabetoapi.model;
 
+import com.alfabetoapi.enums.ExerciseDifficultyEnum;
 import com.alfabetoapi.security.model.Role;
 import lombok.*;
 
@@ -27,6 +28,15 @@ public class Student {
     @Builder.Default
     private BigInteger coins = BigInteger.valueOf(0);
 
+    @Builder.Default
+    private Long easyExercisesDone = 0L;
+
+    @Builder.Default
+    private Long mediumExercisesDone = 0L;
+
+    @Builder.Default
+    private Long hardExercisesDone = 0L;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "student_id")
     private Set<Role> roles;
@@ -48,4 +58,12 @@ public class Student {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
     private List<OwnedCustomization> customizations;
+
+    public void incrementExercisesDone(ExerciseDifficultyEnum difficulty) {
+        switch (difficulty) {
+            case EASY -> easyExercisesDone++;
+            case MEDIUM -> mediumExercisesDone++;
+            case HARD -> hardExercisesDone++;
+        }
+    }
 }

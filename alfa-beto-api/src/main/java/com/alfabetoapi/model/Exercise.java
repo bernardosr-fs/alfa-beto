@@ -27,4 +27,5 @@ public class Exercise {
     private ExerciseDifficultyEnum difficulty;
 
     private BigInteger rewardCoins;
+    private Long errorsPermitted;
 }
