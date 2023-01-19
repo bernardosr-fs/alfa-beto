@@ -11,7 +11,7 @@ export const ExerciseTypeSelectionTemplate = () => (
         side={"right"}
         text={"Português"}
         imgNumber={3}
-        path={PATHS.responsibleRegistration}
+        path={PATHS.portExerciseSelection}
       />
       <CardInitialSelection
         side={"left"}

@@ -19,13 +19,19 @@
   }
 
   img {
-    width: 700px;
+    width: 500px;
     height: auto;
 
     position: absolute;
     right: 25vw;
     bottom: 5vh;
     z-index: 5;
+  }
+
+  .exercise-type-image {
+    width: 200px;
+    right: 32vw;
+    background: transparent;
   }
 
   .student-image {
