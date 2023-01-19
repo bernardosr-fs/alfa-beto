@@ -11,6 +11,7 @@ import {
   ResponsibleStudents,
   StudentProfile,
   StudentRegistration,
+  ExerciseTypeSelection,
   StudentLogin,
 } from "../pages"
 import { ProtectedRoute } from "./protected-route"
@@ -126,6 +127,17 @@ export const Router = (): JSX.Element => {
               <>
                 {renderToastContainer()}
                 <StudentRegistration />
+              </>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={PATHS.exerciseTypeSelection}
+          element={
+            <ProtectedRoute>
+              <>
+                {renderToastContainer()}
+                <ExerciseTypeSelection />
               </>
             </ProtectedRoute>
           }

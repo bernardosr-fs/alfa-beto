@@ -18,21 +18,23 @@ export const CardInitialSelection = ({
 }: Props) => {
   const [redirectNow, setRedirectNow] = useState(false)
   const renderImage = () => {
-    if (imgNumber === 1) {
-      return (
-        <img
-          src={require(`../../../assets/images/characters/responsible-1.png`)}
-          alt={"Responável"}
-        />
-      )
-    } else {
-      return (
-        <img
-          src={require(`../../../assets/images/characters/student-1.png`)}
-          alt={"Estudante"}
-          className="student-image"
-        />
-      )
+    switch (imgNumber) {
+      case 1: {
+        return (
+          <img
+            src={require(`../../../assets/images/exercise/type/portuguese-1.png`)}
+            alt={"Português"}
+          />
+        )
+      }
+      case 2: {
+        return (
+          <img
+            src={require(`../../../assets/images/exercise/type/math-1.png`)}
+            alt={"Matemática"}
+          />
+        )
+      }
     }
   }
 
