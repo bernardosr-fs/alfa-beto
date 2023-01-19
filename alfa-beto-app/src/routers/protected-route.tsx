@@ -10,7 +10,7 @@ export const ProtectedRoute = ({ children }: Props) => {
   const token = localStorage.get("token")
 
   if (!token) {
-    return <Navigate to={PATHS.login} />
+    return <Navigate to={PATHS.initialSelection} />
   }
 
   return children

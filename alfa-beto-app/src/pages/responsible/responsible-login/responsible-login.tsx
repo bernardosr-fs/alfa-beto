@@ -1,9 +1,12 @@
-import { PATHS, ResponsibleLoginFormProps } from "../../constants"
-import { useLocalStorage, usePostResponsibleAuthentication } from "../../hooks"
-import { LoginTemplate, showToast } from "../../components"
+import { PATHS, ResponsibleLoginFormProps } from "../../../constants"
+import {
+  useLocalStorage,
+  usePostResponsibleAuthentication,
+} from "../../../hooks"
+import { ResponsibleLoginTemplate, showToast } from "../../../components"
 import { useNavigate } from "react-router-dom"
 
-export const Login = () => {
+export const ResponsibleLogin = () => {
   const navigate = useNavigate()
   const { call } = usePostResponsibleAuthentication()
   const localStorage = useLocalStorage()
@@ -20,5 +23,5 @@ export const Login = () => {
     }
   }
 
-  return <LoginTemplate onSumbitLogin={onSumbitLogin} />
+  return <ResponsibleLoginTemplate onSumbitLogin={onSumbitLogin} />
 }

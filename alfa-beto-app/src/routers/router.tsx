@@ -3,7 +3,7 @@ import { PATHS } from "../constants"
 import {
   ResponsibleHome,
   InitialSelection,
-  Login,
+  ResponsibleLogin,
   NotFound,
   ResponsibleGroups,
   ResponsibleRegistration,
@@ -12,6 +12,7 @@ import {
   StudentProfile,
   StudentRegistration,
   ExerciseTypeSelection,
+  StudentLogin,
 } from "../pages"
 import { ProtectedRoute } from "./protected-route"
 import { ToastContainer } from "react-toastify"
@@ -35,16 +36,25 @@ export const Router = (): JSX.Element => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path={PATHS.initialSelection} element={<InitialSelection />} />
         <Route
-          path={PATHS.login}
+          path={PATHS.responsibleLogin}
           element={
             <>
               {renderToastContainer()}
-              <Login />
+              <ResponsibleLogin />
             </>
           }
         />
-        <Route path={PATHS.initialSelection} element={<InitialSelection />} />
+        <Route
+          path={PATHS.studentLogin}
+          element={
+            <>
+              {renderToastContainer()}
+              <StudentLogin />
+            </>
+          }
+        />
         <Route
           path={PATHS.responsibleRegistration}
           element={

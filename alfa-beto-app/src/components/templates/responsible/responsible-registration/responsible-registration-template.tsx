@@ -16,7 +16,7 @@ export const ResponsibleRegistrationTemplate = ({
 }: Props) => (
   <div className="responsible-registration-template">
     <Container className="responsible-registration-template__container">
-      <GoBackButton path={PATHS.login} />
+      <GoBackButton path={PATHS.responsibleLogin} />
       <ResponsibleRegistrationForm
         onSumbitRegistration={onSumbitRegistration}
       />

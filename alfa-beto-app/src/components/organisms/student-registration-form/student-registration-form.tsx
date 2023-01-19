@@ -11,7 +11,7 @@ type Props = {
 }
 export const StudentRegistrationForm = ({ onSumbitRegistration }: Props) => {
   const validationSchema = Yup.object().shape({
-    username: Yup.string().required("Usuário é necessário"),
+    userName: Yup.string().required("Usuário é necessário"),
     password: Yup.string()
       .required("Senha é necessário")
       .min(8, "A Senha deve ter no mínimo 8 caracteres"),

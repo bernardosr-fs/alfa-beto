@@ -1,18 +1,18 @@
-import { getAvatarName } from "../../../utils"
+import { getAvatarName } from "../../../../utils"
 import {
   Avatar,
   Container,
   GoBackButton,
   BondedResponsiblesSection,
   ExercisesSection,
-} from "../.."
+} from "../../.."
 import {
   BondedResponsibleResponse,
   PATHS,
   StudentDetailedResponse,
-} from "../../../constants"
+} from "../../../../constants"
 
-import "./student-profile.scss"
+import "./student-profile-template.scss"
 
 type Props = {
   student: StudentDetailedResponse
