@@ -1,6 +1,7 @@
 export enum PATHS {
   login = "/",
-  responsibleRegistration = "/cadastro/responsavel",
+  responsibleRegistration = "/cadastrar/responsavel",
+  studentRegistration = "/cadastrar/estudante",
   initialSelection = "/cadastro/selecao",
   responsibleHome = "/pagina-inicial/responsavel",
   studentHome = "/pagina-inicial/estudante",

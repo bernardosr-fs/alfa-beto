@@ -4,7 +4,7 @@ export type OwnedCustomizationResponse = {
   customizationId: number
   name: string
   type: CUSTOMIZATION_TYPE
-  custom_value:
+  value:
     | "comet"
     | "earth"
     | "mars"

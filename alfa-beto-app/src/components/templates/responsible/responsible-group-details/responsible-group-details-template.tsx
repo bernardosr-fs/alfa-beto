@@ -11,7 +11,7 @@ import {
   RegisterStudentGroupRequest,
   AddStudentRequest,
 } from "../../../../constants"
-import "./responsible-group-details.scss"
+import "./responsible-group-details-template.scss"
 
 type Props = {
   studentsFromGroup: Array<StudentDetailedResponse> | undefined

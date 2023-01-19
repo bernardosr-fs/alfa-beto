@@ -10,6 +10,7 @@ import {
   ResponsibleGroupDetails,
   ResponsibleStudents,
   StudentProfile,
+  StudentRegistration,
 } from "../pages"
 import { ProtectedRoute } from "./protected-route"
 import { ToastContainer } from "react-toastify"
@@ -108,6 +109,17 @@ export const Router = (): JSX.Element => {
           }
         />
         <Route path={"*"} element={<NotFound />} />
+        <Route
+          path={PATHS.studentRegistration}
+          element={
+            <ProtectedRoute>
+              <>
+                {renderToastContainer()}
+                <StudentRegistration />
+              </>
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   )

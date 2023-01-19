@@ -1,13 +1,24 @@
-import React from "react"
-import { ResponsibleRegistrationFormProps } from "../../../constants"
+import { RegisterResponsibleRequest } from "../../../constants"
 import { usePostResponsibleRegistration } from "../../../hooks"
-import { ResponsibleRegistrationTemplate } from "../../../components"
+import { ResponsibleRegistrationTemplate, showToast } from "../../../components"
 
 export const ResponsibleRegistration = () => {
   const postResponsibleRegistration = usePostResponsibleRegistration()
 
-  const onSumbitRegistration = (payload: ResponsibleRegistrationFormProps) => {
-    postResponsibleRegistration.call(payload)
+  const onSumbitRegistration = async (payload: RegisterResponsibleRequest) => {
+    const { call } = postResponsibleRegistration
+
+    const { response, error } = await call(payload)
+
+    if (response && !error) {
+      showToast("success", "Conta criada com sucesso!", "check")
+    } else {
+      showToast(
+        "error",
+        error.response.data.message ?? "Erro ao criar conta",
+        "error"
+      )
+    }
   }
 
   return (

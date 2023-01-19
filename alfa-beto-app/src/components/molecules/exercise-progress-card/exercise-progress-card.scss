@@ -1,0 +1,32 @@
+.exercises-progress-card {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: space-between;
+
+  &--character {
+    max-width: 200px;
+  }
+
+  &--title {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  &--concluded-exercises {
+    font-size: 40px;
+  }
+}
+
+.easy {
+  color: var(--light-blue);
+}
+
+.medium {
+  color: var(--purple);
+}
+
+.hard {
+  color: var(--red);
+}

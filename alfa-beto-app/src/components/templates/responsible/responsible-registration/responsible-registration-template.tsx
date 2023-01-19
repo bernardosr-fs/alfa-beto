@@ -1,10 +1,14 @@
-import { Container, ResponsibleRegistrationForm } from "../../../index"
-import { ResponsibleRegistrationFormProps } from "../../../../constants"
+import {
+  Container,
+  GoBackButton,
+  ResponsibleRegistrationForm,
+} from "../../../index"
+import { PATHS, RegisterResponsibleRequest } from "../../../../constants"
 
 import "./responsible-registration-template.scss"
 
 type Props = {
-  onSumbitRegistration: (payload: ResponsibleRegistrationFormProps) => void
+  onSumbitRegistration: (payload: RegisterResponsibleRequest) => void
 }
 
 export const ResponsibleRegistrationTemplate = ({
@@ -12,6 +16,7 @@ export const ResponsibleRegistrationTemplate = ({
 }: Props) => (
   <div className="responsible-registration-template">
     <Container className="responsible-registration-template__container">
+      <GoBackButton path={PATHS.login} />
       <ResponsibleRegistrationForm
         onSumbitRegistration={onSumbitRegistration}
       />

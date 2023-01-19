@@ -1,5 +1,4 @@
-import { useState } from "react"
-import { Icon, Modal, ResponsibleCard, StudentAddCard } from "../.."
+import { ResponsibleCard } from "../.."
 import { BondedResponsibleResponse } from "../../../constants"
 import "./bonded-responsibles-section.scss"
 

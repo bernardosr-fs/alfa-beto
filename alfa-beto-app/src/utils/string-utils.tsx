@@ -5,5 +5,5 @@ export const getAvatarName = (
 ) => {
   return equippedCustomizations.filter(
     (customization) => customization.type === CUSTOMIZATION_TYPE.AVATAR
-  )[0]?.custom_value
+  )[0]?.value
 }

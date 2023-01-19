@@ -4,6 +4,7 @@ import {
   Container,
   GoBackButton,
   BondedResponsiblesSection,
+  ExercisesSection,
 } from "../.."
 import {
   BondedResponsibleResponse,
@@ -26,7 +27,14 @@ export const StudentProfileTemplate = ({
   responsibles,
   onRemoveResponsibleBond,
 }: Props) => {
-  const { firstName, lastName, equippedCustomizations } = student
+  const {
+    firstName,
+    lastName,
+    equippedCustomizations,
+    easyExercisesDone,
+    mediumExercisesDone,
+    hardExercisesDone,
+  } = student
 
   return (
     <div className="student-profile">
@@ -43,6 +51,11 @@ export const StudentProfileTemplate = ({
             onRemoveResponsibleBond={onRemoveResponsibleBond}
           />
         )}
+        <ExercisesSection
+          easyExercisesDone={easyExercisesDone}
+          mediumExercisesDone={mediumExercisesDone}
+          hardExercisesDone={hardExercisesDone}
+        />
       </Container>
     </div>
   )
