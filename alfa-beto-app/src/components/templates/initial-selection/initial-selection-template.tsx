@@ -11,13 +11,13 @@ export const InitialSelectionTemplate = () => (
         side={"right"}
         text={"Responsável"}
         imgNumber={1}
-        path={PATHS.responsibleRegistration}
+        path={PATHS.responsibleLogin}
       />
       <CardInitialSelection
         side={"left"}
         text={"Aluno"}
         imgNumber={2}
-        path={PATHS.initialSelection}
+        path={PATHS.studentLogin}
       />
     </div>
   </div>
