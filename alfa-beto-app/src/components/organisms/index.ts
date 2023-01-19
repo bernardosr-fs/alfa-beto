@@ -11,3 +11,5 @@ export { StudentRegistrationForm } from "./student-registration-form/student-reg
 export { SendBondInviteToStudent } from "./send-bond-invite-to-student/send-bond-invite-to-student"
 export { BondedResponsiblesSection } from "./bonded-responsibles-section/bonded-responsibles-section"
 export { ResponsibleRegistrationForm } from "./responsible-registration-form/responsible-registration-form"
+export { StudentHomeOptions } from "./student-home-options/student-home-options"
+export { ExerciseList } from "./exercise-list/exercise-list"

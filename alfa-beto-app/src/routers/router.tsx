@@ -11,7 +11,10 @@ import {
   ResponsibleStudents,
   StudentProfile,
   StudentRegistration,
+  ExerciseTypeSelection,
+  PortExerciseSelection,
   StudentLogin,
+  StudentHome,
 } from "../pages"
 import { ProtectedRoute } from "./protected-route"
 import { ToastContainer } from "react-toastify"
@@ -126,6 +129,39 @@ export const Router = (): JSX.Element => {
               <>
                 {renderToastContainer()}
                 <StudentRegistration />
+              </>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={PATHS.studentHome}
+          element={
+            <ProtectedRoute>
+              <>
+                {renderToastContainer()}
+                <StudentHome />
+              </>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={PATHS.exerciseTypeSelection}
+          element={
+            <ProtectedRoute>
+              <>
+                {renderToastContainer()}
+                <ExerciseTypeSelection />
+              </>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={PATHS.portExerciseSelection}
+          element={
+            <ProtectedRoute>
+              <>
+                {renderToastContainer()}
+                <PortExerciseSelection />
               </>
             </ProtectedRoute>
           }
