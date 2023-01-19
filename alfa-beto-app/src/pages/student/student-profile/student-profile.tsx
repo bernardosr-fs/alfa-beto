@@ -3,13 +3,13 @@ import { useLocation } from "react-router-dom"
 import {
   useDeleteBondFromBondedStudent,
   useGetAllBondsFromBondedStudent,
-} from "../../hooks"
+} from "../../../hooks"
 
-import { showToast, StudentProfileTemplate } from "../../components"
+import { showToast, StudentProfileTemplate } from "../../../components"
 import {
   BondedResponsibleResponse,
   StudentDetailedResponse,
-} from "../../constants"
+} from "../../../constants"
 
 export const StudentProfile = () => {
   const location = useLocation()

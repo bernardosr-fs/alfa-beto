@@ -1,17 +1,17 @@
 import * as Yup from "yup"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { FormGroup } from "../../"
+import { FormGroup } from "../.."
 import { useNavigate } from "react-router-dom"
 import { PATHS, ResponsibleLoginFormProps } from "../../../constants"
 
-import "./login-form.scss"
+import "./responsible-login-form.scss"
 
 type Props = {
   onSumbitLogin: (payload: ResponsibleLoginFormProps) => void
 }
 
-export const LoginForm = ({ onSumbitLogin }: Props) => {
+export const ResponsibleLoginForm = ({ onSumbitLogin }: Props) => {
   const navigate = useNavigate()
   const validationSchema = Yup.object().shape({
     email: Yup.string().required("Email é necessário"),

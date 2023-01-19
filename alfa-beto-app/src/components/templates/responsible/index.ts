@@ -1,4 +1,5 @@
 export { ResponsibleHomeTemplate } from "./responsible-home/responsible-home-template"
+export { ResponsibleLoginTemplate } from "./responsible-login/responsible-login-template"
 export { ResponsibleGroupsTemplate } from "./responsible-groups/responsible-groups-template"
 export { ResponsibleStudentsTemplate } from "./responsible-students/responsible-students-template"
 export { StudentRegistrationTemplate } from "./student-registration/student-registration-template"
