@@ -1,7 +1,12 @@
 import { useState } from "react"
 import { useForm } from "react-hook-form"
+import { useNavigate } from "react-router-dom"
 import { Icon, Modal, StudentAddCard } from "../.."
-import { StudentResponse, SearchStudentRequest } from "../../../constants"
+import {
+  StudentResponse,
+  SearchStudentRequest,
+  PATHS,
+} from "../../../constants"
 
 import "./send-bond-invite-to-student.scss"
 
@@ -16,6 +21,8 @@ export const SendBondInviteToStudent = ({
   onAddStudent,
   onSearchStudent,
 }: Props) => {
+  const navigate = useNavigate()
+
   const [mustShowModal, setMustShowModal] = useState(false)
 
   const searchStudent = () => {
@@ -30,6 +37,21 @@ export const SendBondInviteToStudent = ({
   }
 
   const { register, handleSubmit } = useForm<SearchStudentRequest>()
+
+  const renderNoStudents = () => {
+    return (
+      <div>
+        <span>Parece que não há nenhum estudante neste grupo ainda!</span>
+        <div
+          className="register-student-link-button"
+          onClick={() => navigate(PATHS.studentRegistration)}
+        >
+          <span>Deseja cadastrar um novo?</span>
+          <Icon name="externalLink" />
+        </div>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -57,7 +79,7 @@ export const SendBondInviteToStudent = ({
           </button>
         </form>
 
-        {searchStudent() ?? "Parece que não há nenhum estudante disponível!"}
+        {searchStudent() ?? renderNoStudents()}
       </Modal>
     </>
   )

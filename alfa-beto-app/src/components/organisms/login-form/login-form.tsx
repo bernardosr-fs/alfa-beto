@@ -49,7 +49,7 @@ export const LoginForm = ({ onSumbitLogin }: Props) => {
         />
         <div
           className="register-redirect"
-          onClick={() => navigate(PATHS.initialSelection)}
+          onClick={() => navigate(PATHS.responsibleRegistration)}
         >
           Não tem uma conta? Cadastre-se
         </div>

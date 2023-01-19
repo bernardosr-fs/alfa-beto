@@ -6,7 +6,7 @@ import {
   StudentResponse,
 } from "../../../../constants"
 
-import "./responsible-students.scss"
+import "./responsible-students-template.scss"
 
 type Props = {
   students: Array<StudentDetailedResponse> | undefined
