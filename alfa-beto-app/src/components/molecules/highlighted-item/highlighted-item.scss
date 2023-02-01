@@ -1,0 +1,45 @@
+.highlighted-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &--avatar {
+    width: 100%;
+    height: 400px;
+
+    background: none;
+    border: none;
+    border-radius: 0;
+
+    img {
+      max-width: 350px;
+      max-height: 350px;
+    }
+  }
+}
+
+.price-div {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  font-size: 25px;
+
+  &--indicator {
+    margin-right: 8px;
+  }
+}
+
+.profile-color-div {
+  width: 220px;
+  height: 220px;
+
+  border: 2px solid var(--black);
+  border-radius: 220px;
+
+  margin: 80px 0;
+}

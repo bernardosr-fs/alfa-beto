@@ -1,0 +1,26 @@
+.price-tag {
+  width: 120px;
+  padding: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid var(--black);
+  border-radius: 15px;
+
+  font-size: 25px;
+  font-family: "AdumuRegular";
+  color: var(--yellow);
+  background-color: var(--dark-blue);
+
+  & svg {
+    stroke: var(--yellow);
+    fill: var(--yellow);
+  }
+
+  & span {
+    font-size: 22px;
+    padding-top: 4px;
+  }
+}

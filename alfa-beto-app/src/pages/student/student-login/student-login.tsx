@@ -9,8 +9,6 @@ export const StudentLogin = () => {
   const localStorage = useLocalStorage()
 
   const onSumbitLogin = async (payload: StudentLoginFormProps) => {
-    console.log(payload)
-
     const { response, error } = await call(payload)
 
     if (response && !error) {
