@@ -1,6 +1,6 @@
 package com.alfabetoapi.repository;
 
-import com.alfabetoapi.enums.BondInviteStatusEnum;
+import com.alfabetoapi.model.enums.BondInviteStatusEnum;
 import com.alfabetoapi.model.BondInvite;
 import org.springframework.data.jpa.repository.JpaRepository;
 

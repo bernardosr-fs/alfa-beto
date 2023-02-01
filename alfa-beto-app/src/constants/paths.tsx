@@ -12,5 +12,6 @@ export enum PATHS {
   bondedStudentsFromResponsible = "/responsavel/estudantes-vinculados",
   studentProfile = "/estudante/perfil",
   exerciseTypeSelection = "/exercicio/tipo/selecao",
-  portExerciseSelection = "/exercicio/portugues"
+  portExerciseSelection = "/exercicio/portugues",
+  startingExercise = "/exercicio/iniciar"
 }

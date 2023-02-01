@@ -5,7 +5,7 @@ import com.alfabetoapi.controller.response.ResponsibleDetailedResponse;
 import com.alfabetoapi.mapper.ResponsibleMapper;
 import com.alfabetoapi.repository.ResponsibleRepository;
 import com.alfabetoapi.security.service.LoginService;
-import com.alfabetoapi.validator.UserValidator;
+import com.alfabetoapi.service.validator.UserValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

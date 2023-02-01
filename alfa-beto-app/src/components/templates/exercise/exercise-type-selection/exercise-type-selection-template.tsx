@@ -1,11 +1,12 @@
 import React from "react"
 import { PATHS } from "../../../../constants"
-import { Banner, CardInitialSelection } from "../../../index"
+import { Banner, CardInitialSelection, GoBackButton } from "../../../index"
 import "./exercise-type-selection-template.scss"
 
 export const ExerciseTypeSelectionTemplate = () => (
   <div className="exercise-type-selection-template">
     <Banner />
+    <GoBackButton path={PATHS.studentHome} />
     <div className="exercise-type-selection-template__cards">
       <CardInitialSelection
         side={"right"}

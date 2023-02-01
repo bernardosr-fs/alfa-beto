@@ -3,7 +3,7 @@ package com.alfabetoapi.controller;
 import com.alfabetoapi.controller.request.EditStudentRequest;
 import com.alfabetoapi.controller.response.OwnedCustomizationResponse;
 import com.alfabetoapi.controller.response.StudentDetailedResponse;
-import com.alfabetoapi.enums.CustomizationTypeEnum;
+import com.alfabetoapi.model.enums.CustomizationTypeEnum;
 import com.alfabetoapi.service.StudentProfileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

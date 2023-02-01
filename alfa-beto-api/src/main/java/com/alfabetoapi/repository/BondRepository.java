@@ -1,7 +1,5 @@
 package com.alfabetoapi.repository;
 
-import com.alfabetoapi.enums.ExerciseAttemptStatusEnum;
-import com.alfabetoapi.enums.ExerciseTypeEnum;
 import com.alfabetoapi.model.Bond;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

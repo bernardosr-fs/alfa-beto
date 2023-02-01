@@ -10,7 +10,7 @@ import com.alfabetoapi.repository.ResponsibleRepository;
 import com.alfabetoapi.repository.StudentRepository;
 import com.alfabetoapi.security.model.Role;
 import com.alfabetoapi.security.service.LoginService;
-import com.alfabetoapi.validator.UserValidator;
+import com.alfabetoapi.service.validator.UserValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

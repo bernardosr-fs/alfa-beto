@@ -1,6 +1,6 @@
 package com.alfabetoapi.repository;
 
-import com.alfabetoapi.enums.CustomizationTypeEnum;
+import com.alfabetoapi.model.enums.CustomizationTypeEnum;
 import com.alfabetoapi.model.OwnedCustomization;
 import org.springframework.data.jpa.repository.JpaRepository;
 
