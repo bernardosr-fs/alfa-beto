@@ -13,4 +13,6 @@ public interface OwnedCustomizationRepository extends JpaRepository<OwnedCustomi
     List<OwnedCustomization> findAllByStudent_idAndCustomization_type(Long studentId, CustomizationTypeEnum type);
 
     OwnedCustomization findByStudent_idAndCustomization_typeAndEquipped(Long studentId, CustomizationTypeEnum type, boolean equipped);
+
+    OwnedCustomization findByCustomization_idAndStudent_id(Long customizationId, Long studentId);
 }

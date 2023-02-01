@@ -7,6 +7,11 @@ const options = [
     redirectPath: "/exercicio/tipo/selecao",
     icon: "teste1",
   },
+  {
+    name: "Loja",
+    redirectPath: "/loja",
+    icon: "teste2",
+  },
 ]
 
 export const StudentHomeOptions = () => {

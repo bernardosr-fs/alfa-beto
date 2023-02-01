@@ -1,14 +1,10 @@
 import { CUSTOMIZATION_TYPE } from "../.."
 
-export type OwnedCustomizationResponse = {
+export type AvatarCustomizationResponse = {
   id: number
   name: string
-  type: CUSTOMIZATION_TYPE
+  type: CUSTOMIZATION_TYPE.AVATAR
   value:
-    | "red"
-    | "green"
-    | "blue"
-    | "orange"
     | "comet"
     | "earth"
     | "mars"

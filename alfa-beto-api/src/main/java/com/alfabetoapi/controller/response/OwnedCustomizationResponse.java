@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @Builder
 public class OwnedCustomizationResponse {
-    private Long customizationId;
+    private Long id;
     private String name;
     private CustomizationTypeEnum type;
     private String value;

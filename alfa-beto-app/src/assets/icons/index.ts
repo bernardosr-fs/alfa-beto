@@ -1,3 +1,4 @@
+export { default as star } from "./star"
 export { default as check } from "./check"
 export { default as error } from "./error"
 export { default as trash } from "./trash"

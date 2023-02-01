@@ -70,13 +70,13 @@ public class StudentProfileService {
         return ownedCustomizations.stream().map(OwnedCustomizationMapper::toResponse).collect(Collectors.toList());
     }
 
-    public void equipCustomization(Long ownedCustomizationId) {
-        var ownedCustomization = findByIdService.findOwnedCustomization(ownedCustomizationId);
-
+    public void equipCustomization(Long customizationId) {
         var student = loginService.getLoggedStudent();
 
-        if (!ownedCustomization.getStudent().getId().equals(student.getId()))
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Essa personalização não é sua.");
+        var ownedCustomization = ownedCustomizationRepository.findByCustomization_idAndStudent_id(customizationId, student.getId());
+
+        if (ownedCustomization == null)
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Você ainda não possui esse item!");
 
         var alreadyEquippedCustomization =
                 ownedCustomizationRepository.findByStudent_idAndCustomization_typeAndEquipped(student.getId(), ownedCustomization.getCustomization().getType(), true);

@@ -38,8 +38,8 @@ public class StudentProfileController {
         studentProfileService.editProfile(studentId, request);
     }
 
-    @PutMapping("/customizations/{ownedCustomizationId}/equip")
-    public void equipCustomization(@PathVariable Long ownedCustomizationId) {
-        studentProfileService.equipCustomization(ownedCustomizationId);
+    @PutMapping("/customizations/{customizationId}/equip")
+    public void equipCustomization(@PathVariable Long customizationId) {
+        studentProfileService.equipCustomization(customizationId);
     }
 }
