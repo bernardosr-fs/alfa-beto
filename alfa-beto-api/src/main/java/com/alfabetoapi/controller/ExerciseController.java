@@ -2,7 +2,7 @@ package com.alfabetoapi.controller;
 
 import com.alfabetoapi.controller.response.ExerciseAttemptResponse;
 import com.alfabetoapi.controller.response.ExerciseResponse;
-import com.alfabetoapi.enums.ExerciseTypeEnum;
+import com.alfabetoapi.model.enums.ExerciseTypeEnum;
 import com.alfabetoapi.service.ExerciseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

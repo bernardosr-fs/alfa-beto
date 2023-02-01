@@ -1,9 +1,7 @@
 import { useGetAllPortugueseExercises } from "../../../hooks"
 import { PortExerciseSelectionTemplate, showToast } from "../../../components"
 import { useEffect, useState } from "react"
-import {
-  ExerciseResponse,
-} from "../../../constants"
+import { ExerciseResponse } from "../../../constants"
 
 export const PortExerciseSelection = () => {
   const getPortugueseExercises = useGetAllPortugueseExercises()
@@ -17,16 +15,11 @@ export const PortExerciseSelection = () => {
       const { response, error } = await call()
 
       if (response && !error) {
-        console.log(response)
         setPortugueseExercises(response?.data)
       }
     }
     callGetAllPortugueseExercises()
   }, [])
 
-  return (
-    <PortExerciseSelectionTemplate
-      exerciseList={portugueseExercises}
-    />
-  )
+  return <PortExerciseSelectionTemplate exerciseList={portugueseExercises} />
 }

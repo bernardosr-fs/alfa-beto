@@ -1,7 +1,7 @@
 package com.alfabetoapi.service;
 
 import com.alfabetoapi.controller.response.BondInviteResponse;
-import com.alfabetoapi.enums.BondInviteStatusEnum;
+import com.alfabetoapi.model.enums.BondInviteStatusEnum;
 import com.alfabetoapi.mapper.BondInviteMapper;
 import com.alfabetoapi.model.Bond;
 import com.alfabetoapi.model.BondInvite;

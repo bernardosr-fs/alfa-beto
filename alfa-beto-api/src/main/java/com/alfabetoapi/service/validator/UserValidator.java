@@ -1,4 +1,4 @@
-package com.alfabetoapi.validator;
+package com.alfabetoapi.service.validator;
 
 import com.alfabetoapi.controller.request.EditResponsibleRequest;
 import com.alfabetoapi.controller.request.EditStudentRequest;

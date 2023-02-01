@@ -1,7 +1,7 @@
 package com.alfabetoapi.service;
 
-import com.alfabetoapi.enums.ExerciseAttemptStatusEnum;
-import com.alfabetoapi.enums.ExerciseTypeEnum;
+import com.alfabetoapi.model.enums.ExerciseAttemptStatusEnum;
+import com.alfabetoapi.model.enums.ExerciseTypeEnum;
 import com.alfabetoapi.model.OwnedMedal;
 import com.alfabetoapi.model.Student;
 import com.alfabetoapi.repository.BondRepository;

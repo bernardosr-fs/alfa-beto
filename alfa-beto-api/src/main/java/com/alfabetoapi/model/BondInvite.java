@@ -1,6 +1,6 @@
 package com.alfabetoapi.model;
 
-import com.alfabetoapi.enums.BondInviteStatusEnum;
+import com.alfabetoapi.model.enums.BondInviteStatusEnum;
 import lombok.*;
 
 import javax.persistence.*;

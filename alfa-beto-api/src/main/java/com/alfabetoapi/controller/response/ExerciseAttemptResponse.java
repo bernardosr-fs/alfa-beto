@@ -1,7 +1,7 @@
 package com.alfabetoapi.controller.response;
 
-import com.alfabetoapi.enums.ExerciseDifficultyEnum;
-import com.alfabetoapi.enums.ExerciseTypeEnum;
+import com.alfabetoapi.model.enums.ExerciseDifficultyEnum;
+import com.alfabetoapi.model.enums.ExerciseTypeEnum;
 import lombok.Builder;
 import lombok.Data;
 

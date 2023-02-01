@@ -1,6 +1,6 @@
 package com.alfabetoapi.model;
 
-import com.alfabetoapi.enums.ExerciseAttemptStatusEnum;
+import com.alfabetoapi.model.enums.ExerciseAttemptStatusEnum;
 import lombok.*;
 
 import javax.persistence.*;

@@ -13,5 +13,6 @@ export enum PATHS {
   studentProfile = "/estudante/perfil",
   exerciseTypeSelection = "/exercicio/tipo/selecao",
   portExerciseSelection = "/exercicio/portugues",
+  startingExercise = "/exercicio/iniciar",
   store = "/loja",
 }

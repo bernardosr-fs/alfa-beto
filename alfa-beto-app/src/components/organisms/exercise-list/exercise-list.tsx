@@ -1,4 +1,4 @@
-import { GroupCard } from "../../"
+import { ExerciseCard } from "../../"
 import { ExerciseResponse } from "../../../constants"
 import "./exercise-list.scss"
 
@@ -9,9 +9,7 @@ type Props = {
 export const ExerciseList = ({ exerciseList }: Props) => {
   const renderGroups = () => {
     return exerciseList?.map((exercise) => {
-      return (
-        <span>{exercise.name}</span>
-      )
+      return <ExerciseCard key={exercise.id} exercise={exercise} />
     })
   }
   return (

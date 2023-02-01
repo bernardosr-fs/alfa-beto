@@ -2,8 +2,8 @@ package com.alfabetoapi.service;
 
 import com.alfabetoapi.controller.response.ExerciseAttemptResponse;
 import com.alfabetoapi.controller.response.ExerciseResponse;
-import com.alfabetoapi.enums.ExerciseAttemptStatusEnum;
-import com.alfabetoapi.enums.ExerciseTypeEnum;
+import com.alfabetoapi.model.enums.ExerciseAttemptStatusEnum;
+import com.alfabetoapi.model.enums.ExerciseTypeEnum;
 import com.alfabetoapi.mapper.ExerciseAttemptMapper;
 import com.alfabetoapi.mapper.ExerciseMapper;
 import com.alfabetoapi.model.ExerciseAttempt;

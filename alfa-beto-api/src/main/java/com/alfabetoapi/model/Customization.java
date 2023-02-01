@@ -1,6 +1,6 @@
 package com.alfabetoapi.model;
 
-import com.alfabetoapi.enums.CustomizationTypeEnum;
+import com.alfabetoapi.model.enums.CustomizationTypeEnum;
 import lombok.*;
 
 import javax.persistence.*;
