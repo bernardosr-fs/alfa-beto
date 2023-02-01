@@ -1,0 +1,12 @@
+.student-store-template {
+  &--title {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 20px;
+
+    font-size: 50px;
+  }
+}

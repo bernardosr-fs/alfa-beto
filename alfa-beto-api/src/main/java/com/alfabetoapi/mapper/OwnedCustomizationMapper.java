@@ -9,7 +9,7 @@ public class OwnedCustomizationMapper {
 
     public OwnedCustomizationResponse toResponse(OwnedCustomization ownedCustomization) {
         return OwnedCustomizationResponse.builder()
-                .customizationId(ownedCustomization.getCustomization().getId())
+                .id(ownedCustomization.getCustomization().getId())
                 .name(ownedCustomization.getCustomization().getName())
                 .type(ownedCustomization.getCustomization().getType())
                 .value(ownedCustomization.getCustomization().getCustomValue())
