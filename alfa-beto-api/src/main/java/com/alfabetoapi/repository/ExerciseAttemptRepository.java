@@ -1,7 +1,7 @@
 package com.alfabetoapi.repository;
 
-import com.alfabetoapi.enums.ExerciseAttemptStatusEnum;
-import com.alfabetoapi.enums.ExerciseTypeEnum;
+import com.alfabetoapi.model.enums.ExerciseAttemptStatusEnum;
+import com.alfabetoapi.model.enums.ExerciseTypeEnum;
 import com.alfabetoapi.model.ExerciseAttempt;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;

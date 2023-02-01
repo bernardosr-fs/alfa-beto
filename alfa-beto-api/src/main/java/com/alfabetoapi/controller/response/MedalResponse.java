@@ -1,6 +1,6 @@
 package com.alfabetoapi.controller.response;
 
-import com.alfabetoapi.enums.MedalTypeEnum;
+import com.alfabetoapi.model.enums.MedalTypeEnum;
 import lombok.Builder;
 import lombok.Data;
 

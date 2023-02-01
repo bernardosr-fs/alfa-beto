@@ -13,6 +13,7 @@ import {
   StudentRegistration,
   ExerciseTypeSelection,
   PortExerciseSelection,
+  ExerciseStart,
   StudentLogin,
   StudentHome,
   StudentStore,
@@ -163,6 +164,17 @@ export const Router = (): JSX.Element => {
               <>
                 {renderToastContainer()}
                 <PortExerciseSelection />
+              </>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={PATHS.startingExercise}
+          element={
+            <ProtectedRoute>
+              <>
+                {renderToastContainer()}
+                <ExerciseStart />
               </>
             </ProtectedRoute>
           }

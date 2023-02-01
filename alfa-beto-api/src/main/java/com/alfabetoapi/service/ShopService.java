@@ -1,7 +1,7 @@
 package com.alfabetoapi.service;
 
 import com.alfabetoapi.controller.response.CustomizationResponse;
-import com.alfabetoapi.enums.CustomizationTypeEnum;
+import com.alfabetoapi.model.enums.CustomizationTypeEnum;
 import com.alfabetoapi.mapper.CustomizationMapper;
 import com.alfabetoapi.model.OwnedCustomization;
 import com.alfabetoapi.repository.CustomizationRepository;

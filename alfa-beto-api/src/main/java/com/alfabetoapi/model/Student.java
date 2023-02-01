@@ -1,6 +1,6 @@
 package com.alfabetoapi.model;
 
-import com.alfabetoapi.enums.ExerciseDifficultyEnum;
+import com.alfabetoapi.model.enums.ExerciseDifficultyEnum;
 import com.alfabetoapi.security.model.Role;
 import lombok.*;
 

@@ -1,6 +1,6 @@
 package com.alfabetoapi.model;
 
-import com.alfabetoapi.enums.MedalTypeEnum;
+import com.alfabetoapi.model.enums.MedalTypeEnum;
 import lombok.*;
 
 import javax.persistence.*;

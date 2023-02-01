@@ -1,0 +1,20 @@
+.exercise-start-template {
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url("../../../../assets/images/background/login-blue-background.png");
+  background-size: 90%;
+  background-position: center;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+
+  span {
+    font-size: 30px;
+    font-style: bolder;
+
+    text-shadow: 2px 2px 8px var(--black);
+  }
+}
