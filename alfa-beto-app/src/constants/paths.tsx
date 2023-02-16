@@ -14,5 +14,6 @@ export enum PATHS {
   exerciseTypeSelection = "/exercicio/tipo/selecao",
   portExerciseSelection = "/exercicio/portugues",
   startingExercise = "/exercicio/iniciar",
+  memoryGame = "/exercicio/portugues/jogo-da-memoria",
   store = "/loja",
 }
