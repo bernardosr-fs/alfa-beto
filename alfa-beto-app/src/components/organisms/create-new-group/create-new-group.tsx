@@ -1,7 +1,7 @@
 import * as Yup from "yup"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { FormGroup, Modal } from "../../"
+import { FormGroup, Icon, Modal } from "../../"
 import { RegisterStudentGroupRequest } from "../../../constants"
 
 import "./create-new-group.scss"
@@ -29,10 +29,18 @@ export const CreateNewGroup = ({ onSubmitCreateNewGroup }: Props) => {
 
   return (
     <div className="create-new-group">
-      <button onClick={() => setMustShowModal(!mustShowModal)}>
-        Criar Novo Grupo
+      <button
+        className="create-new-group--create-button"
+        onClick={() => setMustShowModal(!mustShowModal)}
+      >
+        Criar Grupo
+        <Icon name="plusCircle" />
       </button>
-      <Modal mustShow={mustShowModal} setMustShowModal={setMustShowModal}>
+      <Modal
+        className="create-new-group--modal"
+        mustShow={mustShowModal}
+        setMustShowModal={setMustShowModal}
+      >
         <form
           onSubmit={handleSubmit(onSubmitCreateNewGroup)}
           autoComplete="off"
@@ -62,6 +70,7 @@ export const CreateNewGroup = ({ onSubmitCreateNewGroup }: Props) => {
             }
           >
             Criar
+            <Icon name="plusCircle" />
           </button>
         </form>
       </Modal>

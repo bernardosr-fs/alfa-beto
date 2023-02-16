@@ -1,9 +1,11 @@
 .student-list {
+  max-height: 430px;
+  overflow-y: auto;
+  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  border: 1px solid var(--grey);
   padding: 20px;
 
   position: relative;

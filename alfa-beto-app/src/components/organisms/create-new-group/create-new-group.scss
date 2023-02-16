@@ -5,4 +5,57 @@
   align-items: center;
   justify-content: flex-end;
   padding: 20px 0;
+
+  &--create-button {
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: var(--green);
+    color: var(--white);
+    border: 2px solid var(--white);
+    border-radius: 10px;
+    padding: 10px;
+
+    font-size: 16px;
+  }
+
+  &--modal {
+    border: 2px solid var(--white);
+    border-radius: 20px;
+
+    background-color: var(--bg-red);
+    color: var(--white);
+
+    & svg {
+      stroke: var(--white);
+    }
+
+    & form {
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & button {
+        width: 110px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        background-color: var(--bg-yellow);
+
+        border: 2px solid var(--white);
+        border-radius: 10px;
+
+        padding: 10px;
+
+        color: var(--whtie);
+        font-size: 20px;
+      }
+    }
+  }
 }

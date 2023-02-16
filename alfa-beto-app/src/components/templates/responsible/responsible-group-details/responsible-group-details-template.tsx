@@ -2,6 +2,7 @@ import {
   Container,
   EditGroupDetails,
   GoBackButton,
+  Header,
   StudentsList,
 } from "../../.."
 import {
@@ -30,13 +31,18 @@ export const ResponsibleGroupDetailsTemplate = ({
 }: Props) => {
   return (
     <div className="responsible-group-details">
-      <GoBackButton path={PATHS.responsibleGroups} />
+      <Header />
+      <GoBackButton
+        className="responsible-group-details--go-back-button"
+        path={PATHS.responsibleGroups}
+      />
       <Container className="responsible-group-details-template">
         <EditGroupDetails
           group={group}
           onSubmitEditGroupDetails={onSubmitEditGroupDetails}
         />
         <StudentsList
+          className="responsible-group-details--student-list"
           studentsFromGroup={studentsFromGroup}
           studentsAvaibleToAddToGroup={studentsAvaibleToAddToGroup}
           onAddStudentToGroup={onAddStudentToGroup}

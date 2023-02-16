@@ -26,6 +26,8 @@ public class StudentMapper {
         return StudentResponse.builder()
                 .id(student.getId())
                 .userName(student.getUserName())
+                .firstName(student.getFirstName())
+                .lastName(student.getLastName())
                 .build();
     }
 

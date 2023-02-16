@@ -14,6 +14,7 @@ import {
 import "./students-list.scss"
 
 type Props = {
+  className?: string
   studentToSendInvite?: StudentResponse
   studentsFromGroup?: Array<StudentDetailedResponse>
   studentsAvaibleToAddToGroup?: Array<StudentDetailedResponse>
@@ -26,6 +27,7 @@ type Props = {
 }
 
 export const StudentsList = ({
+  className,
   studentToSendInvite,
   studentsFromGroup,
   studentsAvaibleToAddToGroup = undefined,
@@ -80,7 +82,7 @@ export const StudentsList = ({
     }
   }
   return (
-    <div className="student-list">
+    <div className={`student-list ${className}`}>
       <h3>Estudantes</h3>
       {renderButton()}
       {renderStudents() ??

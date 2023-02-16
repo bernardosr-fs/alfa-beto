@@ -1,7 +1,7 @@
 import * as Yup from "yup"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { FormGroup } from "../../"
+import { FormGroup, Icon } from "../../"
 import {
   RegisterStudentGroupRequest,
   StudentGroupResponse,
@@ -62,7 +62,10 @@ export const EditGroupDetails = ({
           error={errors.description}
           disableAutoComplete={true}
         />
-        <button type="submit">Editar</button>
+        <button type="submit">
+          Editar
+          <Icon className="edit-pencil" name="pencil" />
+        </button>
       </form>
     </div>
   )
