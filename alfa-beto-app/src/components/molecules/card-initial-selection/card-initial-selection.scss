@@ -12,10 +12,10 @@
   transition: transform 0.5s;
 
   cursor: pointer;
-  background-color: var(--yellow);
+  background-color: var(--yellow-300);
 
   &__left {
-    background-color: var(--red);
+    background-color: var(--red-200);
   }
 
   img {

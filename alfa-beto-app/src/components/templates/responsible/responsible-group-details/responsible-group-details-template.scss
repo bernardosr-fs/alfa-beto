@@ -7,24 +7,17 @@
   align-items: flex-start;
   justify-content: center;
 
-  background-image: url("../../../../assets/images/background/red-background-1.png");
+  background-image: url("../../../../assets/images/background/responsible-yellow-background-3.png");
   background-size: 90%;
-  background-color: var(--bg-red);
+  background-color: var(--yellow-400);
   background-position: center;
   background-repeat: no-repeat;
-
-  &--go-back-button {
-    color: var(--white);
-    & svg {
-      stroke: var(--white);
-    }
-  }
 
   &--student-list {
     max-height: 430px;
     overflow-y: auto;
 
-    background-color: rgba(#f8bd49, 0.75);
+    background-color: rgba(#2c68b8, 0.75);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
     border: none;

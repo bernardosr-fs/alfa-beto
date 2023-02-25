@@ -10,10 +10,10 @@
   .invalid-feedback {
     display: flex;
     font-size: 15px;
-    color: var(--red);
+    color: var(--red-200);
   }
   .is-invalid {
-    border: 1px solid var(--red);
+    border: 1px solid var(--red-200);
     background-color: rgb(255, 210, 210);
   }
 }

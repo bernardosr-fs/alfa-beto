@@ -39,7 +39,11 @@ export const AddStudentToGroup = ({
       >
         <Icon name="plusCircle" />
       </button>
-      <Modal mustShow={mustShowModal} setMustShowModal={setMustShowModal}>
+      <Modal
+        className="modal-add-student-to-group"
+        mustShow={mustShowModal}
+        setMustShowModal={setMustShowModal}
+      >
         {renderStudents() ?? "Parece que não há nenhum estudante disponível!"}
       </Modal>
     </>

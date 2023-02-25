@@ -3,11 +3,13 @@ import { BondedResponsibleResponse } from "../../../constants"
 import "./bonded-responsibles-section.scss"
 
 type Props = {
+  profileColor: string
   responsibles: Array<BondedResponsibleResponse>
   onRemoveResponsibleBond: (bondId: number) => void
 }
 
 export const BondedResponsiblesSection = ({
+  profileColor,
   responsibles,
   onRemoveResponsibleBond,
 }: Props) => {
@@ -17,6 +19,7 @@ export const BondedResponsiblesSection = ({
         <ResponsibleCard
           key={responsible.bondId}
           responsible={responsible}
+          profileColor={profileColor}
           onRemoveResponsibleBond={onRemoveResponsibleBond}
         />
       )
@@ -25,7 +28,9 @@ export const BondedResponsiblesSection = ({
   return (
     <>
       <h3 className="section-title">Responsáveis</h3>
-      <section className="bonded-responsibles-section">
+      <section
+        className={`bonded-responsibles-section section-color--${profileColor}`}
+      >
         {renderResponsibles()}
       </section>
     </>

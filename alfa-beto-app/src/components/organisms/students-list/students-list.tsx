@@ -85,8 +85,11 @@ export const StudentsList = ({
     <div className={`student-list ${className}`}>
       <h3>Estudantes</h3>
       {renderButton()}
-      {renderStudents() ??
-        "Parece que não há nenhum estudante neste grupo ainda!"}
+      {renderStudents() ?? (
+        <div className="student-list--no-student-phrase">
+          "Parece que não há nenhum estudante ainda!"
+        </div>
+      )}
     </div>
   )
 }

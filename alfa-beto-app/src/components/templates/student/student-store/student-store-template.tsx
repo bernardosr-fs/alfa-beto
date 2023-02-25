@@ -1,4 +1,4 @@
-import { Container, GoBackButton, ItemsDisplay } from "../../../index"
+import { Container, GoBackButton, Header, ItemsDisplay } from "../../../index"
 import {
   CustomizationResponse,
   PATHS,
@@ -27,9 +27,9 @@ export const StudentStoreTemplate = ({
   onSubmitEquipCustomization,
 }: Props) => (
   <div className="student-store-template">
-    <GoBackButton path={PATHS.studentHome} />
+    <GoBackButton path={PATHS.studentHome} className="store-back-button" />
+    <h1 className="student-store-template--title">LOJA</h1>
     <Container className="student-store-template__container">
-      <h1 className="student-store-template--title">LOJA</h1>
       <div className="student-store-template--content">
         <ItemsDisplay
           student={student}

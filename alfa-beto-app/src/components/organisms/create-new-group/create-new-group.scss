@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: space-between;
 
-    background-color: var(--green);
+    background-color: var(--green-300);
     color: var(--white);
     border: 2px solid var(--white);
     border-radius: 10px;
@@ -25,7 +25,7 @@
     border: 2px solid var(--white);
     border-radius: 20px;
 
-    background-color: var(--bg-red);
+    background-color: var(--blue-400);
     color: var(--white);
 
     & svg {
@@ -46,7 +46,7 @@
         align-items: center;
         justify-content: space-between;
 
-        background-color: var(--bg-yellow);
+        background-color: var(--yellow-400);
 
         border: 2px solid var(--white);
         border-radius: 10px;

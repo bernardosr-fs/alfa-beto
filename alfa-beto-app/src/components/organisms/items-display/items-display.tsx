@@ -39,8 +39,12 @@ export const ItemsDisplay = ({
 
   const [activeItem, setActiveItem] = useState<
     CustomizationResponse | undefined
-  >(() => getFirstItem())
+  >(getFirstItem())
   const [disableBuyButton, setDisableBuyButton] = useState<boolean>(false)
+
+  useEffect(() => {
+    setActiveItem(getFirstItem())
+  }, [avaibleAvatars, avaibleProfileColors, ownedAvatars, ownedProfileColors])
 
   useEffect(() => {
     setDisableBuyButton(false)

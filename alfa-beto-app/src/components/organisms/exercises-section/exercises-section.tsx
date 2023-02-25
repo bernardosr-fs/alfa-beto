@@ -2,12 +2,14 @@ import { ExerciseProgressCard } from "../.."
 import "./exercises-section.scss"
 
 type Props = {
+  profileColor: string
   easyExercisesDone: number
   mediumExercisesDone: number
   hardExercisesDone: number
 }
 
 export const ExercisesSection = ({
+  profileColor,
   easyExercisesDone,
   mediumExercisesDone,
   hardExercisesDone,
@@ -43,7 +45,9 @@ export const ExercisesSection = ({
   return (
     <>
       <h3 className="section-title">Exercícios</h3>
-      <section className="exercises-section">{renderCards()}</section>
+      <section className={`exercises-section section-color--${profileColor}`}>
+        {renderCards()}
+      </section>
     </>
   )
 }

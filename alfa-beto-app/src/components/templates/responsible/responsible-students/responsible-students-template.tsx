@@ -27,6 +27,7 @@ export const ResponsibleStudentsTemplate = ({
       <GoBackButton path={PATHS.responsibleHome} />
       <Container className="responsible-students-template">
         <StudentsList
+          className="responsible-students--student-list"
           studentToSendInvite={searchedStudent}
           studentsFromGroup={students}
           shouldRenderAddStudentButton={true}
