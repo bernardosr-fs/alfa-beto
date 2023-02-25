@@ -1,6 +1,5 @@
 import { MemoryGameTemplate, showToast } from "../../../components"
 import { useFinishExercise, useFailExercise } from "../../../hooks"
-import { useEffect, useState } from "react"
 import { PATHS } from "../../../constants"
 import { useLocation, useNavigate } from "react-router-dom"
 
@@ -35,9 +34,7 @@ export const MemoryGame = () => {
 
     const { response, error } = await call(exerciseInfo.exerciseAttemptId)
 
-    if (response && !error) {
-      navigate(PATHS.portExerciseSelection)
-    } else {
+    if (!response && error) {
       showToast("error", "Erro ao finalizar exercício.", "error")
     }
   }
@@ -47,9 +44,7 @@ export const MemoryGame = () => {
 
     const { response, error } = await call(exerciseInfo.exerciseAttemptId)
 
-    if (response && !error) {
-      navigate(PATHS.portExerciseSelection)
-    } else {
+    if (!response && error) {
       showToast("error", "Erro ao falhar exercício.", "error")
     }
   }

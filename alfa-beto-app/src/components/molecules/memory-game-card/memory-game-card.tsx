@@ -4,8 +4,9 @@ type Props = {
   id: number
   word: boolean
   flipped: boolean
-  name: string
+  type: string
   image: string
+  finishedAttempt: boolean
   onCardClick: (id: number, name: string) => void
 }
 
@@ -13,29 +14,34 @@ export const MemoryGameCard = ({
   id,
   word,
   flipped,
-  name,
+  type,
   image,
+  finishedAttempt,
   onCardClick,
 }: Props) => {
   const renderCard = () => {
     if (!flipped) {
-      return <img src={require(`../../../assets/images/logo.png`)} alt={name} />
+      return <img src={require(`../../../assets/images/logo.png`)} alt={type} />
     }
     if (!word) {
       return (
         <img
           src={require(`../../../assets/images/memory-game-cards/${image}`)}
-          alt={name}
+          alt={type}
         />
       )
     } else {
-      return <span>{name}</span>
+      return <span>{type}</span>
     }
   }
 
   return (
-    <div className="memory-game-card" onClick={() => onCardClick(id, name)}>
+    <button
+      className="memory-game-card"
+      disabled={flipped || finishedAttempt}
+      onClick={() => onCardClick(id, type)}
+    >
       {renderCard()}
-    </div>
+    </button>
   )
 }
