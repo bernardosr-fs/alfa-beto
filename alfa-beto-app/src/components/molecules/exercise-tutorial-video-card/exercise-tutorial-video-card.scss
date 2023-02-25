@@ -20,18 +20,18 @@
   justify-content: space-around;
   flex-direction: column;
 
-  border: 7px solid var(--dark-grey);
-  border-radius: 10px;
+  border-radius: 5px;
 
   cursor: pointer;
-  background-color: var(--grey);
+  background-color: var(--dark-grey);
 
-  transition: transform 0.5s;
+  transition: all 0.5s;
 
-  box-shadow: 0px 0px 21px -3px var(--black);
+  box-shadow: 0px 0px 11px -3px var(--black);
 
   &:hover {
-    transform: scale(1.08);
+    transform: scale(1.03);
+    box-shadow: 0px 0px 21px -3px var(--black);
   }
 }
 

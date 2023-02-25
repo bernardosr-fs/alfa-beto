@@ -14,6 +14,7 @@ import {
   ExerciseTypeSelection,
   PortExerciseSelection,
   ExerciseStart,
+  MemoryGame,
   StudentLogin,
   StudentHome,
   StudentStore,
@@ -175,6 +176,17 @@ export const Router = (): JSX.Element => {
               <>
                 {renderToastContainer()}
                 <ExerciseStart />
+              </>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={PATHS.memoryGame}
+          element={
+            <ProtectedRoute>
+              <>
+                {renderToastContainer()}
+                <MemoryGame />
               </>
             </ProtectedRoute>
           }

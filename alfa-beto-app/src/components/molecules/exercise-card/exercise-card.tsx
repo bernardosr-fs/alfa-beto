@@ -25,7 +25,7 @@ export const ExerciseCard = ({ exercise }: Props) => {
         <div className="exercise-name-properties-box">
           <span>DIFICULDADE:</span>
           <span>ERROS PERMITIDOS:</span>
-          <span>RECOMPENSA DE MOEDAS:</span>
+          <span>PRÊMIO:</span>
         </div>
         <div className="exercise-properties-box">
           <span className="exercise-card-att">{exercise.difficulty}</span>

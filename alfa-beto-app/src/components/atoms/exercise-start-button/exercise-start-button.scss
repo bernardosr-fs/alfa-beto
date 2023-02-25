@@ -21,11 +21,12 @@
   border: none;
   border-radius: 100%;
 
-  transition: transform 0.5s;
+  transition: all 0.5s;
 
-  box-shadow: 0px 0px 21px -5px var(--black);
+  box-shadow: 0px 0px 11px -3px var(--black);
 
   &:hover {
     transform: scale(1.08);
+    box-shadow: 0px 0px 21px -1px var(--white);
   }
 }
