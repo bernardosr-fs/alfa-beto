@@ -11,12 +11,12 @@
 
   font-size: 25px;
   font-family: "AdumuRegular";
-  color: var(--yellow);
-  background-color: var(--dark-blue);
+  color: var(--yellow-300);
+  background-color: var(--blue-400);
 
   & svg {
-    stroke: var(--yellow);
-    fill: var(--yellow);
+    stroke: var(--yellow-300);
+    fill: var(--yellow-300);
   }
 
   & span {

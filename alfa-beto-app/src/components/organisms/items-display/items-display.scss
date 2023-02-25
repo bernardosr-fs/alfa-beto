@@ -12,7 +12,9 @@
 
   & li {
     list-style: none;
-    border: 2px solid var(--black);
+    border: 2px solid var(--white);
+    background-color: var(--blue-400);
+    color: var(--white);
     padding: 0 5px;
     margin-left: 5px;
     border-radius: 10px 10px 0 0;
@@ -20,7 +22,7 @@
   }
 
   & .active {
-    border-bottom-color: var(--white);
+    border-bottom-color: var(--blue-400);
     z-index: 10;
   }
 }
@@ -33,6 +35,7 @@
 
 .item-display {
   position: relative;
+
   &--content {
     display: flex;
     width: 100%;
@@ -40,9 +43,11 @@
   }
 
   &--item-tabs {
+    background-color: var(--blue-400);
     width: 50%;
     height: 100%;
-    border: 2px solid var(--black);
+    border: 2px solid var(--white);
+    border-radius: 0 20px 20px 20px;
     padding: 10px;
   }
 
@@ -76,7 +81,7 @@
       border: 2px solid var(--black);
       border-radius: 15px;
 
-      background-color: var(--yellow);
+      background-color: var(--yellow-300);
       color: var(--black);
 
       font-family: "FredokaOne";

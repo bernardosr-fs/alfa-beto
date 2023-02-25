@@ -1,4 +1,4 @@
-import { Container, GoBackButton, StudentsList } from "../../.."
+import { Container, GoBackButton, Header, StudentsList } from "../../.."
 import {
   PATHS,
   StudentDetailedResponse,
@@ -23,9 +23,11 @@ export const ResponsibleStudentsTemplate = ({
 }: Props) => {
   return (
     <div className="responsible-students">
+      <Header />
       <GoBackButton path={PATHS.responsibleHome} />
       <Container className="responsible-students-template">
         <StudentsList
+          className="responsible-students--student-list"
           studentToSendInvite={searchedStudent}
           studentsFromGroup={students}
           shouldRenderAddStudentButton={true}

@@ -24,7 +24,7 @@ export const FormGroup = ({
   disableAutoComplete,
 }: Props) => {
   return (
-    <div className="form-group">
+    <div className={`form-group ${className}`}>
       <label className={labelClassName}>{label}</label>
       <input
         type={inputType}

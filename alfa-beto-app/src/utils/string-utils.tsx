@@ -25,3 +25,16 @@ export const getAvatarName = (
 
   return filteredCustomization
 }
+
+export const getEquippedColorName = (
+  equippedCustomizations: Array<OwnedCustomizationResponse>
+) => {
+  const colorCustomizations: Array<OwnedCustomizationResponse> =
+    equippedCustomizations.filter(
+      (customization) => customization.type.toString() === "PROFILE_COLOR"
+    )
+
+  const filteredCustomization = colorCustomizations[0]?.value
+
+  return filteredCustomization
+}

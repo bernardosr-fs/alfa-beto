@@ -1,12 +1,41 @@
 .student-store-template {
+  height: 100vh;
+
+  background-image: url("../../../../assets/images/background/responsible-yellow-background.png");
+  background-size: 80%;
+  background-color: var(--yellow-400);
+  background-position: center;
+  background-repeat: no-repeat;
+
   &--title {
     display: flex;
     width: 100%;
+    height: 160px;
     align-items: center;
     justify-content: center;
 
-    margin-top: 20px;
+    background-color: var(--blue-400);
+    color: var(--white);
+    text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3),
+      0px -4px 10px rgba(141, 141, 141, 0.3);
+
+    margin-top: 0;
 
     font-size: 50px;
   }
+
+  &__container {
+    height: auto;
+  }
+
+  &--content {
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: rgba(#609ae6, 0.75);
+  }
+}
+
+.store-back-button {
+  top: 170px;
 }

@@ -17,6 +17,7 @@ export const ResponsibleLogin = () => {
     if (response && !error) {
       const token = localStorage.getHeader(response, "X-Auth-Token")
       localStorage.save("token", token)
+      localStorage.save("userData", JSON.stringify(response.data))
       navigate(PATHS.responsibleHome)
     } else {
       showToast("error", "Usuário ou senha incorreto(s).", "error")

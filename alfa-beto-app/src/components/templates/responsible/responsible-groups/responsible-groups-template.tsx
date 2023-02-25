@@ -3,6 +3,7 @@ import {
   Container,
   CreateNewGroup,
   GoBackButton,
+  Header,
 } from "../../.."
 import {
   StudentGroupResponse,
@@ -22,6 +23,7 @@ export const ResponsibleGroupsTemplate = ({
 }: Props) => {
   return (
     <div className="responsible-groups-template">
+      <Header />
       <GoBackButton path={PATHS.responsibleHome} />
       <Container className="responsible-groups-template__container">
         <CreateNewGroup onSubmitCreateNewGroup={onSubmitCreateNewGroup} />
