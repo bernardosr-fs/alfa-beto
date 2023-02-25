@@ -6,11 +6,13 @@ import "./responsible-card.scss"
 
 type Props = {
   responsible: BondedResponsibleResponse
+  profileColor: string
   onRemoveResponsibleBond: (bondId: number) => void
 }
 
 export const ResponsibleCard = ({
   responsible,
+  profileColor,
   onRemoveResponsibleBond,
 }: Props) => {
   const { bondId, responsibleFirstName, responsibleLastName } = responsible
@@ -22,7 +24,9 @@ export const ResponsibleCard = ({
   }
 
   return (
-    <div className="responsible-card">
+    <div
+      className={`responsible-card responsible-card--color--${profileColor}`}
+    >
       <span className="responsible-card--name">{`${responsibleFirstName} ${
         responsibleLastName ?? ""
       }`}</span>

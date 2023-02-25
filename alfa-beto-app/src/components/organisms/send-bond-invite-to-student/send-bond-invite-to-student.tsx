@@ -41,7 +41,7 @@ export const SendBondInviteToStudent = ({
   const renderNoStudents = () => {
     return (
       <div>
-        <span>Parece que não há nenhum estudante neste grupo ainda!</span>
+        <span>Parece que não há nenhum estudante ainda!</span>
         <div
           className="register-student-link-button"
           onClick={() => navigate(PATHS.studentRegistration)}
@@ -61,7 +61,11 @@ export const SendBondInviteToStudent = ({
       >
         <Icon name="plusCircle" />
       </button>
-      <Modal mustShow={mustShowModal} setMustShowModal={setMustShowModal}>
+      <Modal
+        mustShow={mustShowModal}
+        setMustShowModal={setMustShowModal}
+        className="send-bond-invite"
+      >
         <form
           onSubmit={handleSubmit(onSearchStudent)}
           className="form-bond-invite"
@@ -72,9 +76,10 @@ export const SendBondInviteToStudent = ({
             {...register("userName")}
             autoComplete={"off"}
             placeholder="Username do Estudante"
+            className="send-bond-invite--username-input"
           ></input>
 
-          <button type="submit">
+          <button type="submit" className="send-bond-invite--search-button">
             <Icon name="search" />
           </button>
         </form>

@@ -10,5 +10,9 @@ type Props = {
 
 export const HomeOptionButton = ({ name, redirectPath, icon }: Props) => {
   const navigate = useNavigate()
-  return <button onClick={() => navigate(redirectPath)}>{name}</button>
+  return (
+    <div className="home-option-button" onClick={() => navigate(redirectPath)}>
+      {name}
+    </div>
+  )
 }

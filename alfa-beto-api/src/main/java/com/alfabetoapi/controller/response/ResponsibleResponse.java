@@ -9,4 +9,6 @@ import lombok.Data;
 public class ResponsibleResponse {
     private Long id;
     private String email;
+    private String firstName;
+    private String lastName;
 }

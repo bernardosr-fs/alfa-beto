@@ -6,4 +6,35 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+
+  background-image: url("../../../../assets/images/background/responsible-yellow-background-3.png");
+  background-size: 90%;
+  background-color: var(--yellow-400);
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &--student-list {
+    max-height: 430px;
+    overflow-y: auto;
+
+    background-color: rgba(#2c68b8, 0.75);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    border: none;
+    border-radius: 30px;
+    padding: 20px;
+
+    color: var(--white);
+
+    & svg {
+      stroke: var(--white);
+    }
+
+    & h3 {
+      font-size: 30px;
+      text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3),
+        0px -4px 10px rgba(141, 141, 141, 0.3);
+      margin-bottom: 20px;
+    }
+  }
 }

@@ -10,4 +10,19 @@
   background: none;
   border: none;
   padding: 0;
+
+  & svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.modal-add-student-to-group {
+  border: 2px solid var(--white);
+  border-radius: 15px;
+  background-color: var(--blue-400);
+
+  & svg {
+    stroke: var(--white);
+  }
 }

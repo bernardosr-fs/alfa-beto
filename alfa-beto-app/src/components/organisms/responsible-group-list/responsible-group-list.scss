@@ -1,6 +1,21 @@
 .responsible-group-list {
+  width: 80%;
+  height: 700px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  overflow-y: auto;
+
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: rgba(#2c68b8, 0.75);
+
+  color: var(--white);
+  font-size: 30px;
+  text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3),
+    0px -4px 10px rgba(141, 141, 141, 0.3);
 }

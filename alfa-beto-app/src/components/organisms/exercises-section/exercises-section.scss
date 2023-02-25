@@ -8,5 +8,47 @@
 
   padding: 15px 30px;
   border: 2px solid;
-  border-radius: 10px;
+  border-radius: 20px;
+}
+
+.section-color {
+  &--blue {
+    border-color: var(--blue-500);
+    background-color: var(--blue-100);
+    & svg {
+      stroke: var(--white);
+    }
+  }
+
+  &--red {
+    border-color: var(--red-500);
+    background-color: var(--red-100);
+    & svg {
+      stroke: var(--white);
+    }
+  }
+
+  &--green {
+    border-color: var(--green-500);
+    background-color: var(--green-100);
+    & svg {
+      stroke: var(--white);
+    }
+  }
+
+  &--orange {
+    border-color: var(--orange-500);
+    background-color: var(--orange-100);
+    & svg {
+      stroke: var(--white);
+    }
+  }
+
+  &--purple {
+    border-color: var(--purple-500);
+    background-color: var(--purple-100);
+    & svg {
+      stroke: var(--white);
+    }
+  }
 }

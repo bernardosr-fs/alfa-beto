@@ -23,6 +23,8 @@ public class ResponsibleMapper {
         return ResponsibleResponse.builder()
                 .id(responsible.getId())
                 .email(responsible.getEmail())
+                .firstName(responsible.getFirstName())
+                .lastName(responsible.getLastName())
                 .build();
     }
 
