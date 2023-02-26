@@ -9,7 +9,7 @@
   cursor: pointer;
 
   span {
-    color: var(--green);
+    color: var(--green-200);
   }
 }
 
@@ -17,7 +17,7 @@
   width: 160px;
   height: 160px;
 
-  background-color: var(--green);
+  background-color: var(--green-300);
   border: none;
   border-radius: 100%;
 
@@ -27,6 +27,6 @@
 
   &:hover {
     transform: scale(1.08);
-    box-shadow: 0px 0px 21px -1px var(--white);
+    box-shadow: 0px 0px 21px -1px var(--green-200);
   }
 }

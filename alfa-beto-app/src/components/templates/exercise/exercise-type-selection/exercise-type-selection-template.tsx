@@ -6,7 +6,10 @@ import "./exercise-type-selection-template.scss"
 export const ExerciseTypeSelectionTemplate = () => (
   <div className="exercise-type-selection-template">
     <Banner />
-    <GoBackButton path={PATHS.studentHome} />
+    <GoBackButton
+      className={"go-back-button-exercise"}
+      path={PATHS.studentHome}
+    />
     <div className="exercise-type-selection-template__cards">
       <CardInitialSelection
         side={"right"}

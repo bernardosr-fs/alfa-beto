@@ -1,10 +1,10 @@
-import { EXERCISE_TYPE, EXERCISE_DIFFICULTY } from "../.."
+import { EXERCISE_TYPE } from "../.."
 
 export type ExerciseResponse = {
-    id: number
-    name: string
-    type: EXERCISE_TYPE
-    difficulty: EXERCISE_DIFFICULTY
-    rewardCoins: number
-    errorsPermitted: number
+  id: number
+  name: string
+  type: EXERCISE_TYPE
+  difficulty: string
+  rewardCoins: number
+  errorsPermitted: number
 }

@@ -9,6 +9,20 @@ type Props = {
 export const ExerciseCard = ({ exercise }: Props) => {
   const navigate = useNavigate()
 
+  const renderTranslatedDifficulty = () => {
+    switch (exercise.difficulty) {
+      case "EASY": {
+        return "FÁCIL"
+      }
+      case "MEDIUM": {
+        return "MÉDIA"
+      }
+      case "HARD": {
+        return "DIFÍCIL"
+      }
+    }
+  }
+
   return (
     <div
       className="exercise-card"
@@ -28,9 +42,17 @@ export const ExerciseCard = ({ exercise }: Props) => {
           <span>PRÊMIO:</span>
         </div>
         <div className="exercise-properties-box">
-          <span className="exercise-card-att">{exercise.difficulty}</span>
-          <span className="exercise-card-att">{exercise.errorsPermitted}</span>
-          <span className="exercise-card-att">{exercise.rewardCoins}</span>
+          <span
+            className={`exercise-card-att ${exercise.difficulty.toLowerCase()}-att`}
+          >
+            {renderTranslatedDifficulty()}
+          </span>
+          <span className="exercise-card-att-errors">
+            {exercise.errorsPermitted}
+          </span>
+          <span className="exercise-card-att-reward">
+            {exercise.rewardCoins} MOEDAS
+          </span>
         </div>
       </div>
     </div>
