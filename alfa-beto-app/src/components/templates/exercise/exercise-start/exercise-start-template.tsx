@@ -19,7 +19,10 @@ export const ExerciseStartTemplate = ({
   onStartExercise,
 }: Props) => (
   <div className="exercise-start-template">
-    <GoBackButton path={PATHS.portExerciseSelection} />
+    <GoBackButton
+      className={"go-back-button-exercise"}
+      path={PATHS.portExerciseSelection}
+    />
     <ExerciseTutorialVideoCard exerciseId={exerciseId} />
     <ExerciseStartButton
       exerciseId={exerciseId}

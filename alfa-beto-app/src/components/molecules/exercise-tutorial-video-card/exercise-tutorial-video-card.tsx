@@ -5,7 +5,7 @@ type Props = {
 }
 
 export const ExerciseTutorialVideoCard = ({ exerciseId }: Props) => {
-  const videosData = { memoryGame: "dQw4w9WgXcQ", mathQuiz: "9MUz9R7DMNQ" }
+  const videosData = { memoryGame: "NZRjiZFd8kA", mathQuiz: "9MUz9R7DMNQ" }
 
   const renderVideo = () => {
     var videoUrl = "https://www.youtube.com/embed/"

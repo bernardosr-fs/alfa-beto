@@ -7,13 +7,13 @@
   justify-content: space-around;
 
   span {
-    color: var(--blue-300);
+    color: var(--blue-100);
   }
 }
 
 .exercise-tutorial-video-card {
-  width: 700px;
-  height: 350px;
+  width: 695px;
+  height: 345px;
 
   display: flex;
   align-items: center;
@@ -23,7 +23,7 @@
   border-radius: 5px;
 
   cursor: pointer;
-  background-color: var(--dark-grey);
+  background-color: var(--grey-300);
 
   transition: all 0.5s;
 

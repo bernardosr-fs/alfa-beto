@@ -9,7 +9,10 @@ type Props = {
 export const PortExerciseSelectionTemplate = ({ exerciseList }: Props) => {
   return (
     <div className="port-exercise-selection-template">
-      <GoBackButton path={PATHS.exerciseTypeSelection} />
+      <GoBackButton
+        className={"go-back-button-exercise"}
+        path={PATHS.exerciseTypeSelection}
+      />
       <Container className="port-exercise-selection-template__container">
         <ExerciseList exerciseList={exerciseList} />
       </Container>
