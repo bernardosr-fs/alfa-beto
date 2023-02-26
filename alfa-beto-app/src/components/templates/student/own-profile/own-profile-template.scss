@@ -1,0 +1,65 @@
+.own-profile {
+  &--template {
+    padding: 70px 0;
+  }
+
+  &--color--red {
+    color: var(--white);
+    background-color: var(--red-400);
+    background-image: url("../../../../assets/images/background/red-background.png");
+    background-size: 70%;
+    background-position: center;
+  }
+
+  &--color--blue {
+    color: var(--white);
+    background-color: var(--blue-400);
+    background-image: url("../../../../assets/images/background/blue-background-2.png");
+    background-size: 70%;
+    background-position: center;
+  }
+
+  &--color--orange {
+    color: var(--white);
+    background-color: var(--orange-300);
+    background-image: url("../../../../assets/images/background/orange-background.png");
+    background-size: 70%;
+    background-position: center;
+  }
+
+  &--color--green {
+    color: var(--white);
+    background-color: var(--green-400);
+    background-image: url("../../../../assets/images/background/green-background.png");
+    background-size: 70%;
+    background-position: center;
+  }
+
+  &--color--purple {
+    color: var(--white);
+    background-color: var(--purple-400);
+    background-image: url("../../../../assets/images/background/purple-background.png");
+    background-size: 70%;
+    background-position: center;
+  }
+}
+
+.own-information {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &--name-and-avatar {
+    display: flex;
+    align-items: center;
+  }
+
+  span {
+    margin-left: 30px;
+    font-size: 60px;
+    text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3),
+      0px -4px 10px rgba(141, 141, 141, 0.3);
+  }
+}

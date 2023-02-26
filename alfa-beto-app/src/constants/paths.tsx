@@ -15,4 +15,5 @@ export enum PATHS {
   portExerciseSelection = "/exercicio/portugues",
   startingExercise = "/exercicio/iniciar",
   store = "/loja",
+  ownProfile = "/meu-perfil",
 }

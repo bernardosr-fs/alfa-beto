@@ -1,3 +1,4 @@
+export { OwnProfile } from "./own-profile/own-profile"
 export { StudentHome } from "./student-home/student-home"
 export { StudentLogin } from "./student-login/student-login"
 export { StudentStore } from "./student-store/student-store"

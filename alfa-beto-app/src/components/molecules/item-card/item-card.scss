@@ -75,6 +75,12 @@
         stroke: rgb(159, 80, 0);
       }
     }
+
+    &--purple {
+      & svg {
+        stroke: var(--purple-500);
+      }
+    }
   }
 
   &-profile-color--overlay {
@@ -114,5 +120,9 @@
 
   &--orange {
     background-color: var(--orange-300);
+  }
+
+  &--purple {
+    background-color: var(--purple-300);
   }
 }

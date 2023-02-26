@@ -14,8 +14,8 @@ type Props = {
 export const StudentRegistrationTemplate = ({
   onSumbitRegistration,
 }: Props) => (
-  <div className="student-registration-template">
-    <Container className="student-registration-template__container">
+  <div className="responsible-registration-template">
+    <Container className="responsible-registration-template__container">
       <GoBackButton path={PATHS.bondedStudentsFromResponsible} />
       <StudentRegistrationForm onSumbitRegistration={onSumbitRegistration} />
     </Container>

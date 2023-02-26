@@ -1,11 +1,12 @@
 .student-store-template {
-  height: 100vh;
-
+  height: 100%;
   background-image: url("../../../../assets/images/background/responsible-yellow-background.png");
   background-size: 80%;
   background-color: var(--yellow-400);
   background-position: center;
   background-repeat: no-repeat;
+
+  padding-bottom: 90px;
 
   &--title {
     display: flex;
