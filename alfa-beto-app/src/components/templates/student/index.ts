@@ -1,3 +1,4 @@
+export { OwnProfileTemplate } from "./own-profile/own-profile-template"
 export { StudentHomeTemplate } from "./student-home/student-home-template"
 export { StudentLoginTemplate } from "./student-login/student-login-template"
 export { StudentStoreTemplate } from "./student-store/student-store-template"

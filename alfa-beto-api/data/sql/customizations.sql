@@ -3,6 +3,7 @@ INSERT INTO Customization (name, `type`, price, custom_value) VALUES ('Cor Verme
 INSERT INTO Customization (name, `type`, price, custom_value) VALUES ('Cor Azul para perfil', 'PROFILE_COLOR', 1000, 'blue');
 INSERT INTO Customization (name, `type`, price, custom_value) VALUES ('Cor Verde para perfil', 'PROFILE_COLOR', 1000, 'green');
 INSERT INTO Customization (name, `type`, price, custom_value) VALUES ('Cor Laranja para perfil', 'PROFILE_COLOR', 1000, 'orange');
+INSERT INTO Customization (name, `type`, price, custom_value) VALUES ('Cor Roxa para perfil', 'PROFILE_COLOR', 1000, 'purple');
 
 -- AVATAR
 INSERT INTO Customization (name, `type`, price, custom_value) VALUES ('Avatar Cometa', 'AVATAR', 70000, 'comet');

@@ -18,6 +18,7 @@ import {
   StudentLogin,
   StudentHome,
   StudentStore,
+  OwnProfile,
 } from "../pages"
 import { ProtectedRoute } from "./protected-route"
 import { ToastContainer } from "react-toastify"
@@ -198,6 +199,17 @@ export const Router = (): JSX.Element => {
               <>
                 {renderToastContainer()}
                 <StudentStore />
+              </>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={PATHS.ownProfile}
+          element={
+            <ProtectedRoute>
+              <>
+                {renderToastContainer()}
+                <OwnProfile />
               </>
             </ProtectedRoute>
           }

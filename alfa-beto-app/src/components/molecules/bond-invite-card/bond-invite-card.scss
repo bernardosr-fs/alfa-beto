@@ -1,0 +1,67 @@
+.bond-invite-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 2px solid;
+  border-radius: 10px;
+  padding: 10px;
+
+  margin-bottom: 10px;
+  overflow-y: auto;
+
+  &--buttons {
+    display: flex;
+    & button {
+      width: auto;
+      display: flex;
+      align-items: center;
+      background: none;
+      border: none;
+
+      & svg {
+        stroke: var(--white);
+      }
+    }
+  }
+
+  &--blue {
+    border-color: var(--blue-500);
+    background-color: var(--blue-400);
+    & svg {
+      stroke: var(--blue-500);
+    }
+  }
+
+  &--red {
+    border-color: var(--red-500);
+    background-color: var(--red-400);
+    & svg {
+      stroke: var(--red-500);
+    }
+  }
+
+  &--green {
+    border-color: var(--green-500);
+    background-color: var(--green-400);
+    & svg {
+      stroke: var(--green-500);
+    }
+  }
+
+  &--orange {
+    border-color: var(--orange-500);
+    background-color: var(--orange-400);
+    & svg {
+      stroke: var(--orange-500);
+    }
+  }
+
+  &--purple {
+    border-color: var(--purple-500);
+    background-color: var(--purple-400);
+    & svg {
+      stroke: var(--purple-500);
+    }
+  }
+}

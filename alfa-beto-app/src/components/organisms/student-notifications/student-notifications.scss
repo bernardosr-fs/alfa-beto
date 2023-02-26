@@ -1,0 +1,128 @@
+.notification-button {
+  width: 60px;
+  height: 60px;
+  border: 2px solid;
+  border-radius: 15px;
+  position: relative;
+
+  &--has-notification {
+    width: 17px;
+    height: 17px;
+    color: var(--white);
+
+    border-radius: 10px;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+
+    &--blue {
+      background-color: var(--blue-500);
+    }
+
+    &--red {
+      background-color: var(--red-500);
+    }
+
+    &--green {
+      background-color: var(--green-500);
+    }
+
+    &--orange {
+      background-color: var(--orange-500);
+    }
+
+    &--purple {
+      background-color: var(--purple-500);
+    }
+  }
+
+  &--blue {
+    border-color: var(--blue-500);
+    background-color: var(--blue-100);
+    & svg {
+      stroke: var(--blue-500);
+    }
+  }
+
+  &--red {
+    border-color: var(--red-500);
+    background-color: var(--red-100);
+    & svg {
+      stroke: var(--red-500);
+    }
+  }
+
+  &--green {
+    border-color: var(--green-500);
+    background-color: var(--green-100);
+    & svg {
+      stroke: var(--green-500);
+    }
+  }
+
+  &--orange {
+    border-color: var(--orange-500);
+    background-color: var(--orange-100);
+    & svg {
+      stroke: var(--orange-500);
+    }
+  }
+
+  &--purple {
+    border-color: var(--purple-500);
+    background-color: var(--purple-100);
+    & svg {
+      stroke: var(--purple-500);
+    }
+  }
+}
+
+.modal-notifications {
+  color: var(--white);
+  font-size: 20px;
+  text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3),
+    0px -4px 10px rgba(141, 141, 141, 0.3);
+
+  border: 2px solid;
+  border-radius: 20px;
+
+  &--blue {
+    border-color: var(--blue-500);
+    background-color: var(--blue-100);
+    & svg {
+      stroke: var(--blue-500);
+    }
+  }
+
+  &--red {
+    border-color: var(--red-500);
+    background-color: var(--red-100);
+    & svg {
+      stroke: var(--red-500);
+    }
+  }
+
+  &--green {
+    border-color: var(--green-500);
+    background-color: var(--green-100);
+    & svg {
+      stroke: var(--green-500);
+    }
+  }
+
+  &--orange {
+    border-color: var(--orange-500);
+    background-color: var(--orange-100);
+    & svg {
+      stroke: var(--orange-500);
+    }
+  }
+
+  &--purple {
+    border-color: var(--purple-500);
+    background-color: var(--purple-100);
+    & svg {
+      stroke: var(--purple-500);
+    }
+  }
+}
