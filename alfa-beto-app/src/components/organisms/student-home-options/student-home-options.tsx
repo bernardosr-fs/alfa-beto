@@ -17,6 +17,11 @@ const options = [
     redirectPath: "/meu-perfil",
     icon: "teste3",
   },
+  {
+    name: "Grupos",
+    redirectPath: "/pagina-inicial/estudante",
+    icon: "teste4",
+  },
 ]
 
 export const StudentHomeOptions = () => {
